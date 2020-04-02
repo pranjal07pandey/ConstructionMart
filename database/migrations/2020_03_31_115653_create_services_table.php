@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServiceSubCategoriesTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateServiceSubCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_sub_categories', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateServiceSubCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_sub_categories');
+        Schema::dropIfExists('services');
     }
 }

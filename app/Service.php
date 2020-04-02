@@ -8,7 +8,9 @@ class Service extends Model
 {
     protected $table = 'services';
 
-    public function serviceCategory(){
-        return $this->hasMany('App\Service');
+    public function serviceCategories(){
+        return $this->hasMany('App\ServiceCategory');
     }
+
+
 }

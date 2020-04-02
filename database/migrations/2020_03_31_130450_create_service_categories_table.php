@@ -15,13 +15,12 @@ class CreateServiceCategoriesTable extends Migration
     {
         Schema::create('service_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('subCat_id')->nullable();
-            $table->foreign('subCat_id')
-                    ->references('id')
-                    ->on('service_sub_categories')
-                    ->onDelete('cascade');
+            $table->string('cat_title');
             $table->timestamps();
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')
+                ->references('id')->on('services')
+                ->onDelete('cascade');
         });
     }
 

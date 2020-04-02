@@ -13,4 +13,12 @@ class FrontController extends Controller
     public function contact(){
         return view('home.contact');
     }
+
+    public function service(){
+        return view('home.services');
+    }
+
+    public function serviceOrder(){
+        return view('home.orderService');
+    }
 }
