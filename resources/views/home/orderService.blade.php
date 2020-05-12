@@ -47,10 +47,7 @@
         <div class="form-group">                        
           <input type="email" placeholder="Email" class="form-control">
         </div>
-      
-    
-     
-      
+       
         <div class="form-group">                        
           <input type="text" placeholder="Subject" class="form-control">
         </div>
