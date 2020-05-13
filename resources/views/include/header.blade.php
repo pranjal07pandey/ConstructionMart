@@ -135,7 +135,7 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="#">Products<span class="caret"></span></a>
                 <ul class="dropdown-menu">                
                   <li><a href="#">Gypsum</a></li>
@@ -194,6 +194,8 @@
 
                   </li>
                   <li><a href="#">Wall Seepage</a></li>
+                  <li><a href="/services">View All</a></li>
+
                 </ul>
               <li><a href="#">Gallery</a></li>
 
