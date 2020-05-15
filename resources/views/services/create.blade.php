@@ -1,44 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
 
-  @include('include.css')
+@extends('admin.layouts.master')
 
-</head>
-<body>
+@section('title')
 
-  @include('include.header')
+Edit User Role
+    
+@endsection
 
-  <h2 align="center">Add new Service</h2>
 
+@section('content')
 
 <div class="container">
-<div class="jumbotron">
-{!! Form::open(['action' => 'ServicesController@store','method'=>'POST','enctype'=> 'multipart/form-data']) !!}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add New Service Category</h3>
+                </div>
+                <div class="card-body">
 
-<div class="form-group">
-  {{form::label('title', 'Title')}}
-  {{form::text('title','',['class'=>'form-control','placeholder'=>'Title'])}}
+<form action="{{ action('ServicesController@store') }}" method="POST">
+  @csrf
+
+  <div class="form-group">
+    <label for="title">Title:</label><br>
+    <input type="text" name="title" class="form-control" placeholder="title" required><br>
+    </div>
+
+  <input type="submit" class="btn btn-primary" value="Add">
+
+
+</form>
+
 </div>
-  {{form::submit('Add', ['class'=>'btn btn-primary'])}}
-{!! Form::close() !!}
+
+</div>
 
 </div>
 </div>
-
-@include('include.footer')
-@include('include.js')
+</div>
 
 
-    
+@endsection
 
-  
-</body>
-</html>
+  @section('scripts')
+      
+  @endsection
+
 
 
 

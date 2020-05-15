@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,28 @@
 </div>
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron"> --}}
+
+        @extends('admin.layouts.master')
+
+@section('title')
+
+Edit User Role
+    
+@endsection
+
+
+@section('content')
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                <h3>{{$category->cat_title}}</h3>
+                </div>
+                <div class="card-body">
+
     
     <a href="/services-categories" class="btn btn-primary">Go Back</a>
     <br><br>
@@ -31,7 +52,7 @@
     <h5>Added on: {{$category->created_at}}</h5><br>
     <h4>Belongs to : {{$category->service->title}} </h4>
 <br>
-    <a href="/services-categories/{{$category->id}}/edit" class="btn btn-primary">Edit</a>
+                <a href="/services-categories/edit/{{$category->id}}" class="btn">Edit</a>
     
     {!!Form::open(['action'=>['ServiceCategoryController@destroy',$category->id], 'method'=>'POST','class'=>'pull-right'])!!}
     
@@ -40,14 +61,18 @@
     
     {!!Form::close()!!}
     
-    </div>
-    </div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
 
 
-    @include('include.footer')
-@include('include.js')
+@endsection
 
+  @section('scripts')
+      
+  @endsection
 
-    
-</body>
-</html>

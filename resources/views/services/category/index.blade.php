@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,45 +28,86 @@
 <h1 align="center">Service Categories</h1>
 
 <a href="/services-categories/create" class="btn btn-primary">Add new Category</a>
+<a href="/dashboard" class="pull-right btn btn-primary">Return to Dashboard</a>
+
 
   </div>
 
-  <br>
+  <br> --}}
 
-@if(count($category)>0)
+@extends('admin.layouts.master')
 
-@foreach ($category as $service)
+@section('title')
+
+Dashboard
+    
+@endsection
+
+
+@section('content')
+
 <div class="container">
-    {{-- <div class="jumbotron"> --}}
-    <div class="well">
-        <div class="row">
-            <div class="col-md-4 col-sm-4">
-            <h3><a href="/services-categories/{{$service->id}}">{{$service->cat_title}}</a></h3>
-                
-            </div>
-        
-        <div class="col-md-8 col-sm-8">
-            <small>Added on:  {{$service->created_at}}</small>
-            <br>
-            <small>Belongs to: {{$service->service->title}}  </small>
-            </div>
-    </div>
-    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Services Categories</h3>
+                    <a href="/services-categories/create" class="btn btn-primary">Add new Category</a>
 
-{{-- </div> --}}
-</div>
-{{-- {{$service->title}} --}}
-@endforeach
+                </div>
+                <br>
 
-{{$category->links()}}
+                    <div class="card-body">
 
-@else
-<p>No category found</p>
+                            @if(count($category)>0)
 
-@endif
+                            @foreach ($category as $service)
+                            <div class="container">
+                                {{-- <div class="jumbotron"> --}}
+                                <div class="well">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                        <h3><a href="/services-categories/{{$service->id}}">{{$service->cat_title}}</a></h3>
+                                            
+                                        </div>
+                                    
+                                    <div class="col-md-8 col-sm-8">
+                                      <p style="font-size: 20px">Belongs to: {{$service->service->title}} </p>
+                                        <small>Added on:  {{$service->created_at}}</small>
+                                        <br>
+                                        
+                                        </div>
+                                </div>
+                                </div>
 
-@include('include.footer')
+                            {{-- </div> --}}
+                            </div>
+                            {{-- {{$service->title}} --}}
+                            <hr>
+                            @endforeach
+
+                            {{$category->links()}}
+
+                            @else
+                            <p>No category found</p>
+
+                            @endif
+
+                            
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+  @endsection
+
+  @section('scripts')
+      
+  @endsection
+{{-- @include('include.footer')
 @include('include.js')
 
 </body>
-</html>
+</html> --}}

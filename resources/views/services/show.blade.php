@@ -1,27 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
 
-    @include('include.css')
+@extends('admin.layouts.master')
 
-</head>
-<body>
+@section('title')
 
-  @include('include.header')
+Edit User Role
+    
+@endsection
+
+
+@section('content')
+
 <div class="container">
-
-    <h1 align="center">
-        {{$service->title}}
-    </h1>
-</div>
-  
-
-  <div class="container">
-  <div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                <h3>{{$service->title}}</h3>
+                </div>
+                <div class="card-body">
 
     
     <a href="/services" class="btn btn-primary">Go Back</a>
@@ -30,9 +26,10 @@
     <p>Available Categories:</p>
             <div>
                 @foreach ($service->serviceCategories as $category)
-                <li>
+                <li class="list-group-item">
                     {{$category->cat_title}}
                 </li>
+                <br>
                     
                 @endforeach
             </div>
@@ -41,7 +38,7 @@
 
 <br>
 <br>
-    <a href="/services/{{$service->id}}/edit" class="btn btn-primary">Edit</a>
+    <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a>
     
     {!!Form::open(['action'=>['ServicesController@destroy',$service->id], 'method'=>'POST','class'=>'pull-right'])!!}
     
@@ -53,13 +50,19 @@
   </div>
     </div>
 
-@include('include.footer')
-@include('include.js')
+</div>
 
+</div>
 
-    
-</body>
-</html>
+</div>
+</div>
+</div>
+@endsection
+
+  @section('scripts')
+      
+  @endsection
+
 
 
     

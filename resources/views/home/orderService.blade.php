@@ -36,33 +36,46 @@
       </div>
     <div class="jumbotron">
 <form class="comments-form contact-form" action="">
+  @csrf
     <div class="row">
         <div class="col-md-12">
+
+          <div class="form-group">
+            <label>Ordered Service: </label>                        
+          <input type="text"  class="form-control" name="service" value="{{$category->cat_title}}">
+          </div>
       
-        <div class="form-group">                        
-          <input type="text" placeholder="Your Name" class="form-control">
+        <div class="form-group">
+          <label>Name: </label>                        
+          <input type="text" placeholder="Enter Your Name" class="form-control" name="name" required>
+        </div>
+
+        <div class="form-group"> 
+          <label>Phone: </label>                        
+          <input type="email" placeholder="your phone number" class="form-control" name="phone" required>
         </div>
       
       
-        <div class="form-group">                        
-          <input type="email" placeholder="Email" class="form-control">
+        <div class="form-group"> 
+          <label>Email: </label>                        
+          <input type="email" placeholder="Email, if any" class="form-control" name="email">
         </div>
-       
-        <div class="form-group">                        
-          <input type="text" placeholder="Subject" class="form-control">
-        </div>
-      
-      
-        <div class="form-group">                        
-          <input type="text" placeholder="Company" class="form-control">
-        </div>
-      
-                     
+             
      
-        <div class="form-group">                        
-        <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+        <div class="form-group">
+          <label>State your prblem: </label>                        
+        <textarea class="form-control" rows="3" placeholder="Message" name="message"></textarea>
         </div>
-    <button class="aa-secondary-btn">Send</button>
+
+        <div class="form-group">
+          <label>insert image: </label> 
+          <input type="file" name="image">                       
+        
+        </div>
+
+<br>
+
+        <input type="submit" class="btn btn-primary" value="Order">
 
         </div>
 

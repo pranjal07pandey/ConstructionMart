@@ -72,7 +72,8 @@ class ServiceCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category =  ServiceCategory::find($id);
+        return view('services.category.edit')->with('category', $category);
     }
 
     /**

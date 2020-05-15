@@ -194,10 +194,10 @@
 
                   </li>
                   <li><a href="#">Wall Seepage</a></li>
-                  <li><a href="/services">View All</a></li>
+                  <li><a href="/view-services">View All</a></li>
 
                 </ul>
-              <li><a href="#">Gallery</a></li>
+              {{-- <li><a href="#">Gallery</a></li> --}}
 
               <li><a href="#">About Us</a></li>
               <li><a href="/contact">Contact</a></li>
