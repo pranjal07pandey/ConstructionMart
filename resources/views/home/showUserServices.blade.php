@@ -36,6 +36,13 @@
                 <div class="card-body">
                     <a href="/view-services" class="btn btn-primary">Go Back</a>
 
+                    <br>
+
+                    <img style="width:50%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
+
+                    <br>
+                    <br>
+
                     <p>Available Categories:</p>
                 <div>
                   @foreach ($service->serviceCategories as $category)

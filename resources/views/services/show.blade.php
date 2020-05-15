@@ -22,6 +22,10 @@ Edit User Role
     
     <a href="/services" class="btn btn-primary">Go Back</a>
     <br><br>
+
+<img style="width:100%; height:400px" src="/storage/cover_images/{{$service->cover_image}}">
+
+                <small>{{$service->description}}</small>
    
     <p>Available Categories:</p>
             <div>

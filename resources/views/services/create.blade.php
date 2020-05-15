@@ -19,13 +19,23 @@ Edit User Role
                 </div>
                 <div class="card-body">
 
-<form action="{{ action('ServicesController@store') }}" method="POST">
+<form action="{{ action('ServicesController@store') }}" method="POST" enctype="multipart/form-data" >
   @csrf
 
   <div class="form-group">
     <label for="title">Title:</label><br>
     <input type="text" name="title" class="form-control" placeholder="title" required><br>
     </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label><br>
+      <input type="text" name="description" class="form-control" placeholder="description" ><br>
+      </div>
+
+      <div class="form-group">
+        <label for="cover_image">Image upload:</label><br>
+        <input type="file" name="cover_image"><br>
+        </div>
 
   <input type="submit" class="btn btn-primary" value="Add">
 

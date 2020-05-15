@@ -35,7 +35,7 @@
         {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quos.</p> --}}
       </div>
     <div class="jumbotron">
-<form class="comments-form contact-form" action="">
+<form class="comments-form contact-form" action="#">
   @csrf
     <div class="row">
         <div class="col-md-12">
@@ -52,7 +52,7 @@
 
         <div class="form-group"> 
           <label>Phone: </label>                        
-          <input type="email" placeholder="your phone number" class="form-control" name="phone" required>
+          <input type="text" placeholder="your phone number" class="form-control" name="phone" required>
         </div>
       
       

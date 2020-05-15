@@ -31,8 +31,18 @@ Dashboard
                                     <div class="well">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
-                                            <h3><a href="/services/{{$service->id}}">{{$service->title}}</a></h3>
+                                            <h3><a href="/services/{{$service->id}}">{{$service->title}}
+                                            
+			                                    {{-- <img src="{{ URL::asset('/storage/app/public/cover_images'.$service->cover_image) }}" alt="IMG-PRODUCT" style="width:100%;height:300px"> --}}
+
+                                                <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
+
+                                            {{-- <small>{{$service->description}}</small> --}}
+
+                                            
+                                            </a></h3>
                                                 </a>
+
                                             </div>
 
                                             <div class="col-md-4 col-sm-4">
