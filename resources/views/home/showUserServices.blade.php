@@ -25,50 +25,70 @@
 
   @include('include.header')
 
+  
+
   <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+              <br>
+                <div class="">
                 <h2 align="center">{{$service->title}}</h2>
                 </div>
-                <br>
+                <hr>
+                
                 <div class="card-body">
-                    <a href="/view-services" class="btn btn-primary">Go Back</a>
 
-                    <br>
+                    
 
-                    <img style="width:50%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
-
-                    <br>
-                    <br>
-
-                    <p>Available Categories:</p>
-                <div>
-                  @foreach ($service->serviceCategories as $category)
-                  <ul class="list-group">
-                      <a href="/order-categories/{{$category->id}}" >
-                  <li class= "list-group-item">
-                      {{$category->cat_title}}
-                  </li>
-              </a>
-                  </ul>
-
-                  <br>
-                      
-                  @endforeach
-            </div>
+                                <div class="container">
+                                    
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                            <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
+                                                
+                                            <h3>Description:
+                                              {{$service->description}}</h3>
+                                                
 
 
-<br>
-<br>
+                                            </div>
 
+                                            <div class="col-md-4 col-sm-4">
+                                            <b>Available Categories: (select to order)</b>
+
+                                            @foreach ($service->serviceCategories as $category)
+                                            <ul class="list-group">
+                                                <a href="/order-categories/{{$category->id}}" >
+                                            <li class= "list-group-item">
+                                                {{$category->cat_title}}
+                                            </li>
+                                        </a>
+                                            </ul>
+                          
+                                            <br>
+                                                
+                                            @endforeach
+                                            </div>
+                                
+                                    </div>
+                                    </div>
+
+
+                                </div>
+                              
+                               
+                               
+                               
+                                    
+
+                                </div>
+                                </div>
 
                 </div>
             </div>
         </div>
-    </div>
-  </div>
   
 
 

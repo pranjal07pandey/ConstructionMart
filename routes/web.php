@@ -15,13 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'FrontController@index');
-Route::get('/contact', 'FrontController@contact');
 Route::get('/order/service', 'FrontController@serviceOrder');
 Route::get('/view-services', 'UserServiceController@index');
 Route::get('/view-services/{id}', 'UserServiceController@show');
 
 Route::get('/order-categories/{id}', 'UserServiceController@order');
 
+
+
+Route::get('/contact', 'ContactFormController@create');
+Route::post('/contact', 'ContactFormController@store');
 
 
 

@@ -54,6 +54,11 @@
           <label>Phone: </label>                        
           <input type="text" placeholder="your phone number" class="form-control" name="phone" required>
         </div>
+
+        <div class="form-group"> 
+          <label>Location: </label>                        
+          <input type="text" placeholder="enter your location" class="form-control" name="location" required>
+        </div>
       
       
         <div class="form-group"> 

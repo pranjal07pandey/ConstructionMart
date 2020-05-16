@@ -32,10 +32,10 @@ Edit User Role
       <input type="text" name="description" class="form-control" placeholder="description" ><br>
       </div>
 
-      <div class="form-group">
+      
         <label for="cover_image">Image upload:</label><br>
         <input type="file" name="cover_image"><br>
-        </div>
+        
 
   <input type="submit" class="btn btn-primary" value="Add">
 
