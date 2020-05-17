@@ -31,9 +31,9 @@ class UserServiceController extends Controller
         return view('home.showUserServices')->with('service', $service);
     }
 
-    public function order($id){
-        $category =  ServiceCategory::find($id);
-        return view('home.orderService')->with('category', $category);
-    }
+    // public function order($id){
+    //     $category =  ServiceCategory::find($id);
+    //     return view('home.orderService')->with('category', $category);
+    // }
 
 }

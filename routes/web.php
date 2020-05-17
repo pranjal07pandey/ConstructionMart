@@ -19,7 +19,9 @@ Route::get('/order/service', 'FrontController@serviceOrder');
 Route::get('/view-services', 'UserServiceController@index');
 Route::get('/view-services/{id}', 'UserServiceController@show');
 
-Route::get('/order-categories/{id}', 'UserServiceController@order');
+Route::get('/order-categories/{id}', 'OrderServiceController@order')->middleware('auth');
+Route::post('/order-categories/{id}', 'OrderServiceController@store')->middleware('auth');
+
 
 
 
