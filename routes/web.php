@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,14 +38,10 @@ Route::post('/contact', 'ContactFormController@store');
 
 Route::group(['middleware'=>['auth', 'admin']], function(){
 
-    Route::get('/dashboard', function(){
-        return view('admin.dashboard');
-    });
+   
+    Route::get('/dashboard', 'Admin\DashboardController@index');
     
-    // Route::get('/edit-categories/{id}', function(){
-    //     return view('services.category.edit');
-    // });
-
+    
     Route::resource('services', 'ServicesController');
     Route::resource('services-categories', 'ServiceCategoryController');
 

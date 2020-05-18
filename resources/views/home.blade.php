@@ -27,12 +27,12 @@
                           <div class="table-responsive">
                             <table class="table">
                               <thead class=" text-primary">
-                                <th>Service Category</th>
-                                <th>Name</th>
-                                <th>Phone</th>
+                                <th>Ordered Service</th>
+                                <th>Ordered Date</th>
+                                {{-- <th>Phone</th>
                                 <th>Location</th>
                                 <th>Email</th>
-                                <th>Message</th>
+                                <th>Message</th> --}}
 
                               </thead>
                 
@@ -43,11 +43,11 @@
 
                                 <tr>
                                     <td>{{$order->service}}</td>
-                                    <td>{{$order->name}}</td>
-                                    <td>{{$order->phone}}</td>
+                                    <td>{{$order->created_at}}</td>
+                                    {{-- <td>{{$order->phone}}</td>
                                     <td>{{$order->location}}</td>
                                     <td>{{$order->email}}</td>
-                                    <td>{{$order->message}}</td>
+                                    <td>{{$order->message}}</td> --}}
                                     
                 
                                 </tr>
@@ -75,12 +75,14 @@
                           <div class="table-responsive">
                             <table class="table">
                               <thead class=" text-primary">
-                                <th>Product</th>
-                                <th>Name</th>
+                                <th>Ordered Product</th>
+                                <th>Ordered Date</th>
+
+                                {{-- <th>Name</th>
                                 <th>Phone</th>
                                 <th>Location</th>
                                 <th>Email</th>
-                                <th>Message</th>
+                                <th>Message</th> --}}
 
                               </thead>
                 
@@ -91,11 +93,11 @@
 
                                 <tr>
                                     <td>Cornice</td>
-                                    <td>blah</td>
-                                    <td>981984</td>
+                                    <td>2019-2-15</td>
+                                    {{-- <td>981984</td>
                                     <td>ktm</td>
                                     <td>abc@gmail.com</td>
-                                    <td>okay</td>
+                                    <td>okay</td> --}}
                                     
                 
                                 </tr>
