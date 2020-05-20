@@ -10,6 +10,10 @@ class Product extends Model
 
 
     public function productCategory(){
-        return $this->hasMany('App\Product');
+        return $this->belongsTo('App\ProductCategory');
+    }
+
+    public function productSubCategory() {
+    	return $this->belongsTo('App\ProductSubCategory');
     }
 }

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\ProductCategory;
+use App\ProductSubCategory;
 
 class FrontController extends Controller
 {
     public function index(){
-        return view('home.index');
+         $cat = ProductCategory::get();
+        return view('home.index', ['data' => $cat]);
     }
     
     public function contact(){

@@ -26,8 +26,22 @@ Route::get('/order/service', 'FrontController@serviceOrder');
 Route::resource('services', 'ServicesController');
 Route::resource('services-categories', 'ServiceCategoryController');
 
+//Products
+Route::any('product', 'ProductController@index');
 
+Route::post('add/product', 'ProductController@store');
 
+//throws product of matching product_sub_category_id
+Route::any('show/sub/cat/products/{id}', 'ProductController@subCatProducts');
+//throws product of matching product_category_id
+Route::any('/show/cat/products/{id}', 'ProductController@catProducts');
+//throws other products
+Route::any('/other/products', 'ProductController@allProducts');
+//search products
+Route::post('search/product', 'ProductController@search');
 
+//Cart
+Route::any('add/to/cart/{id}','ProductController@cart');
+Route::any('show/cart/products', 'ProductController@showCart');
 
 
