@@ -64,40 +64,12 @@
 
                 <!-- cart box -->
                 <div class="aa-cartbox">
-                    <a class="aa-cart-link" href="#">
+                    <a class="aa-cart-link" href="{{url('show/cart/products')}}">
                         <span class="fa fa-shopping-basket"></span>
                         <span class="aa-cart-title">SHOPPING CART</span>
                         <span class="aa-cart-notify">2</span>
                     </a>
-                    <div class="aa-cartbox-summary">
-                        <ul>
-                            <li>
-                                <a class="aa-cartbox-img" href="#"><img src="{{ asset('frontEnd') }}/img/woman-small-2.jpg" alt="img"></a>
-                                <div class="aa-cartbox-info">
-                                    <h4><a href="#">Product Name</a></h4>
-                                    <p>1 x $250</p>
-                                </div>
-                                <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                            </li>
-                            <li>
-                                <a class="aa-cartbox-img" href="#"><img src="{{ asset('frontEnd') }}/img/woman-small-1.jpg" alt="img"></a>
-                                <div class="aa-cartbox-info">
-                                    <h4><a href="#">Product Name</a></h4>
-                                    <p>1 x $250</p>
-                                </div>
-                                <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                            </li>
-                            <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                                <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                            </li>
-                        </ul>
-                        <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
-                    </div>
+                    
                 </div>
                 <!-- / cart box -->
 
@@ -134,21 +106,20 @@
           </div>
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
-            <ul class="nav navbar-nav">
-              {{-- <li><a href="/">Home</a></li> --}}
+           <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
               <li><a href="#">Products<span class="caret"></span></a>
-                <ul class="dropdown-menu">                
-                  <li><a href="#">Gypsum</a></li>
-                  <li><a href="#">Cornices</a></li>
-                  <li><a href="#">Fall Ceiling</a></li>
-                  <li><a href="#">Wall Putty</a></li>
-
-                  <li><a href="#">And more.. <span class="caret"></span></a>
+                <ul class="dropdown-menu"> 
+                @foreach($shareData as $datas)              
+                  <li><a href="{{url('show/cat/products/'.$datas->id)}}">{{$datas->category_name}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">item1</a></li>
-                      <li><a href="#">item2</a></li>
-                      <li><a href="#">item3</a></li>
+                    @foreach($datas->subCategories as $subCat)                
+                    <li><a href="{{url('show/sub/cat/products/'.$subCat->id)}}">{{$subCat->sub_category_name}}</a></li>
+                    @endforeach
                     </ul>
+                  </li>
+                @endforeach          
+                  <li><a href="{{url('other/products')}}">Others</a>
                   </li>
                 </ul>
               </li>

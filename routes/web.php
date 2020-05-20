@@ -68,6 +68,24 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
+//Products
+Route::any('product', 'ProductController@index');
+
+Route::post('add/product', 'ProductController@store');
+
+//throws product of matching product_sub_category_id
+Route::any('show/sub/cat/products/{id}', 'ProductController@subCatProducts');
+//throws product of matching product_category_id
+Route::any('/show/cat/products/{id}', 'ProductController@catProducts');
+//throws other products
+Route::any('/other/products', 'ProductController@allProducts');
+//search products
+Route::post('search/product', 'ProductController@search');
+
+//Cart
+Route::any('add/to/cart/{id}','ProductController@cart');
+Route::any('show/cart/products', 'ProductController@showCart');
+
 // Route::get('/sm-manager', function(){
 //     return view('admin.service-manager.smDashboard');
 
