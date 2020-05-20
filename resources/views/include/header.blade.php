@@ -107,8 +107,8 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
            <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="#">Products<span class="caret"></span></a>
+              {{-- <li><a href="index.html">Home</a></li> --}}
+              <li><a href="/product">Products<span class="caret"></span></a>
                 <ul class="dropdown-menu"> 
                 @foreach($shareData as $datas)              
                   <li><a href="{{url('show/cat/products/'.$datas->id)}}">{{$datas->category_name}}<span class="caret"></span></a>
