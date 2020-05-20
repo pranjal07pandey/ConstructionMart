@@ -73,33 +73,35 @@ class ProductController extends Controller
             $filename = "noimage.jpg";
         }
 
-        if( $request->subCategory != null){
-            $id = ProductSubCategory::all();
-            $subCat->sub_category_name = $request->subCategory;
-            $data->product_sub_category_id = sizeof($id) + 1;
-            
-        }
-        else {
-            $data->product_sub_category_id = $request->subCat;
-        }
-
         if( $request->category != null) {   
             $id = ProductCategory::all(); 
             $data->product_category_id = sizeof($id) + 1;
             $cat->category_name = $request->category;
             $subCat->product_category_id = sizeof($id) + 1;
             $cat->save();
+
         }
         else {
             $data->product_category_id = $request->cat;
             $subCat->product_category_id = $request->cat;
         }
+
+        if( $request->subCategory != null){ 
+            $id = ProductSubCategory::all();
+            $subCat->sub_category_name = $request->subCategory;
+            $data->product_sub_category_id = sizeof($id) + 1;
+            $subCat->save();
+            
+        }
+        else {
+            $data->product_sub_category_id = $request->subCat;
+        }
+
         $data->product_name = $request->name;
         $data->image = $filename;
         $data->features = $request->features;
         $data->price = $request->price;
         $data->dimension = $request->dimension;
-        $subCat->save();
         $data->save();
         return redirect()->back();
     }
