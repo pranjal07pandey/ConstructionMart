@@ -39,13 +39,13 @@ Route::post('/contact', 'ContactFormController@store');
 Route::group(['middleware'=>['auth', 'admin']], function(){
 
    
-    Route::get('/dashboard', 'Admin\DashboardController@index');
+    Route::get('/dashboard', 'Admin\DashboardController@index')->middleware('auth');
     
     
     Route::resource('services', 'ServicesController');
     Route::resource('services-categories', 'ServiceCategoryController');
 
-    Route::get('/role-register', 'Admin\DashboardController@registered' );
+    Route::get('/role-register', 'Admin\DashboardController@registered' )->middleware('auth');
     Route::get('/role-edit/{id}', 'Admin\DashboardController@registerEdit');
     Route::post('/role-update/{id}', 'Admin\DashboardController@registerUpdate');
     Route::post('/role-delete/{id}', 'Admin\DashboardController@registerDelete');
@@ -55,6 +55,20 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
 });
 
+Route::group(['middleware'=>['auth', 'serviceManager']], function(){
+
+    Route::get('/sm-dashboard', 'Admin\DashboardController@smDashboard');
+    Route::resource('services', 'ServicesController');
+    Route::resource('services-categories', 'ServiceCategoryController');
+
+
+});
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+// Route::get('/sm-manager', function(){
+//     return view('admin.service-manager.smDashboard');
+
+// });

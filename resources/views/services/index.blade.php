@@ -1,4 +1,17 @@
+
+
+{{-- @if(Auth::check())
+    @if (Auth::user()->usertype =='serviceManager')
+    @extends('admin.layouts.smMaster')
+    @endif
+
+
+@endif --}}
+
 @extends('admin.layouts.master')
+
+
+
 
 @section('title')
 

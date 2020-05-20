@@ -34,7 +34,13 @@ class LoginController extends Controller
         if (Auth::user()->usertype=='admin') {
             # code...
             return 'dashboard';
-        } else {
+        }
+        
+        elseif(Auth::user()->usertype=='serviceManager'){
+            return '/sm-dashboard';
+        }
+
+        else {
 
             return '/home';
             # code...
