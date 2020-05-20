@@ -1,25 +1,54 @@
+
+@extends('admin.layouts.master')
+
+{{-- @if(Auth::check())
+    @if (Auth::user()->usertype=='serviceManager')
+    @extends('admin.layouts.smMaster')
+    @endif
+@endif --}}
+
+@section('title')
+
+Edit User Role
+    
+@endsection
+
+
+@section('content')
+
 <div class="container">
-    <div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                <h3>{{$service->title}}</h3>
+                </div>
+                <div class="card-body">
+
     
     <a href="/services" class="btn btn-primary">Go Back</a>
     <br><br>
-    <h1>
-        {{$service->title}}
-    </h1>
+
+<img style="width:100%; height:400px" src="/storage/cover_images/{{$service->cover_image}}">
+
+                <small>{{$service->description}}</small>
+   
     <p>Available Categories:</p>
             <div>
                 @foreach ($service->serviceCategories as $category)
-                <li>
+                <li class="list-group-item">
                     {{$category->cat_title}}
                 </li>
+                <br>
                     
                 @endforeach
             </div>
-<a href="/services-categories/create">Add new category</a>
+<u><a href="/services-categories/create" >+Add new category</a></u>
     {{-- <small>Added on {{$service->created_at}}</small> --}}
 
 <br>
-    <a href="/services/{{$service->id}}/edit" class="btn btn-primary">Edit</a>
+<br>
+    <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a>
     
     {!!Form::open(['action'=>['ServicesController@destroy',$service->id], 'method'=>'POST','class'=>'pull-right'])!!}
     
@@ -28,6 +57,22 @@
     
     {!!Form::close()!!}
     
+  </div>
     </div>
-    </div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+@endsection
+
+  @section('scripts')
+      
+  @endsection
+
+
+
     

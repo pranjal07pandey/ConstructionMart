@@ -32,7 +32,7 @@
 <!--                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
                   <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                  <li><a href="/login">Login</a></li>
                   <li class="hidden-xs">Email: abc@gmail.com</li>
 
                 </ul>
@@ -107,8 +107,8 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
            <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="#">Products<span class="caret"></span></a>
+              {{-- <li><a href="index.html">Home</a></li> --}}
+              <li><a href="/product">Products<span class="caret"></span></a>
                 <ul class="dropdown-menu"> 
                 @foreach($shareData as $datas)              
                   <li><a href="{{url('show/cat/products/'.$datas->id)}}">{{$datas->category_name}}<span class="caret"></span></a>
@@ -165,10 +165,13 @@
 
                   </li>
                   <li><a href="#">Wall Seepage</a></li>
-                </ul>
-              <li><a href="#">Gallery</a></li>
+                  <li><a href="/view-services">View All</a></li>
 
-              <li><a href="#">About Us</a></li>
+                </ul>
+              {{-- <li><a href="#">Gallery</a></li> --}}
+
+              {{-- <li><a href="#">About Us</a></li>
+               --}}
               <li><a href="/contact">Contact</a></li>
 
             

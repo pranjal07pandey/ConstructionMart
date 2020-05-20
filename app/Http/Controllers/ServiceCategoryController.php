@@ -49,7 +49,7 @@ class ServiceCategoryController extends Controller
         $category->service_id = $request->input('service_id');
         $category->save();
 
-        return redirect('/services-categories')->with('success', 'category Added');
+        return redirect('/services')->with('success', 'category Added');
     }
 
     /**
@@ -72,7 +72,8 @@ class ServiceCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category =  ServiceCategory::find($id);
+        return view('services.category.edit')->with('category', $category);
     }
 
     /**

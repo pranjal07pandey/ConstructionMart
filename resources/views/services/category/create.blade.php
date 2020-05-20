@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<html>
-<body>
 
-<h2>Add Service Categries</h2>
+@extends('admin.layouts.master')
+
+@section('title')
+
+Edit User Role
+    
+@endsection
+
+
+@section('content')
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add New Service Category</h3>
+                </div>
+                <div class="card-body">
+
 
 <form action="{{ action('ServiceCategoryController@store') }}" method="POST">
     @csrf
-  <label for="cat_title">Category:</label><br>
-  <input type="text" name="cat_title"><br>
 
-  <label for="lname">Belongs to:</label><br>
-  <select name="service_id">
+    <div class="form-group">
+  <label for="cat_title">Category:</label><br>
+  <input type="text" name="cat_title" class="form-control" required><br>
+    </div>
+
+    <div class="form-group">
+
+  <label for="belonging_to">Belongs to:</label><br>
+  <select name="service_id" class="form-control">
 
     @foreach ($services as $service)
 
@@ -19,9 +40,22 @@
     @endforeach
     
   </select>
+    </div>
 <br>
-  <input type="submit" value="Add">
-</form> 
+  <input type="submit" class="btn btn-primary" value="Add">
+</form>
 
-</body>
-</html>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+@endsection
+
+  @section('scripts')
+      
+  @endsection

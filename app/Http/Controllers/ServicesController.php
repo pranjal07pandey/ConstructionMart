@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Service;
 
@@ -38,10 +39,36 @@ class ServicesController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
+            'description'=>'nullable',
+            'cover_image'=>'image|nullable|max:1999'
         ]);
+
+        //handle file upload
+
+        if($request->hasFile('cover_image')){
+            //get file name with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+
+            //get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            ///filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $service = new Service;
         $service->title = $request->input('title');
+        $service->description = $request->input('description');
+        $service->cover_image = $fileNameToStore;
         $service->save();
 
         return redirect('/services')->with('success', 'Service Added');
@@ -85,10 +112,35 @@ class ServicesController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
+            'description'=>'nullable'
         ]);
+
+        if($request->hasFile('cover_image')){
+            //get file name with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+
+            //get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            ///filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+        }
 
         $service = Service::find($id);
         $service->title = $request->input('title');
+        $service->description = $request->input('description');
+
+        if($request->hasFile('cover_image')){
+            $service->cover_image = $fileNameToStore;
+        }
+
         $service->save();
 
         return redirect('/services')->with('success', 'Service Edited');
@@ -105,6 +157,13 @@ class ServicesController extends Controller
     public function destroy($id)
     {
         $service = Service::find($id);
+
+        if($service->cover_image !='noimage.jpg'){
+            //delete Image
+            Storage::delete('public/cover_images/'.$service->cover_image);
+
+        }
+
         $service->delete();
 
         return redirect('/services')->with('success', 'Service Deleted');
