@@ -26,6 +26,11 @@ Edit User Role
                           </div>
 
                           <div class="form-group">
+                            <label>Registered As</label>
+                        <option type="text" class="form-control" value="registered_as">{{$users->registered_as}}</option>
+                          </div>
+
+                          <div class="form-group">
                             <label>Give Role</label>
                             <select name="usertype"  class="form-control">
                                 <option value="">None</option>

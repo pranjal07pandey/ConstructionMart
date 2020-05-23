@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Service;
 use Auth;
 
 
@@ -31,4 +32,6 @@ class HomeController extends Controller
         $orders = Auth::user()->orderservice;
         return view('/home')->with('orders', $orders);
     }
+
+    
 }

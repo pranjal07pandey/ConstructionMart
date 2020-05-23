@@ -40,6 +40,19 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="registered_as" class="col-md-4 col-form-label text-md-right">{{ __('Register As') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="registered_as" id="registered_as" class="form-control">
+                                    <option value="null"></option>
+                                    <option value="customer">Customer</option>
+                                    <option value="vendor">Vendor</option>
+                                    <option value="service_manager">Service manager</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone-Number') }}</label>
 
                             <div class="col-md-6">

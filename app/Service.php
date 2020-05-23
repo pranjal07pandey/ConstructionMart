@@ -11,6 +11,10 @@ class Service extends Model
     public function serviceCategories(){
         return $this->hasMany('App\ServiceCategory');
     }
+    
 
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 
 }

@@ -27,6 +27,7 @@ Registered roles
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
+                <th>Registered As</th>
                 <th>User Type</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -42,6 +43,7 @@ Registered roles
                     <td>{{$row->name}} </td>
                     <td>{{$row->phone}}</td>
                     <td>{{$row->email}}</td>
+                    <td>{{$row->registered_as}}</td>
                     <td>{{$row->usertype}}</td>  
                 
                     <td>

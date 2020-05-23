@@ -1,15 +1,9 @@
 
-@extends('admin.layouts.master')
-
-{{-- @if(Auth::check())
-    @if (Auth::user()->usertype=='serviceManager')
-    @extends('admin.layouts.smMaster')
-    @endif
-@endif --}}
+@extends('admin.layouts.smMaster')
 
 @section('title')
 
-Edit User Role
+Show Services
     
 @endsection
 
@@ -26,7 +20,7 @@ Edit User Role
                 <div class="card-body">
 
     
-    <a href="/services" class="btn btn-primary">Go Back</a>
+    <a href="/service-manager-index" class="btn btn-primary">Go Back</a>
     <br><br>
 
 <img style="width:100%; height:400px" src="/storage/cover_images/{{$service->cover_image}}">
@@ -50,14 +44,13 @@ Edit User Role
 
 <br>
 <br>
-    <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a>
-    
-    {!!Form::open(['action'=>['ServicesController@destroy',$service->id], 'method'=>'POST','class'=>'pull-right'])!!}
-    
-        {{Form::hidden('_method', 'DELETE')}}
-        {{Form::submit('Delete',['class'=>'btn btn-danger'])}}
-    
-    {!!Form::close()!!}
+        <a href="/service-manager-edit/{{$service->id}}" class="btn ">Edit</a>
+
+
+    <form method="POST" class="pull-right" action="/service-delete/{{$service->id}}" onsubmit ="return confirm('are you sure ?')">
+        @csrf
+        <button type="submit" class="btn btn-danger">DELETE</button>
+    </form>
     
   </div>
     </div>

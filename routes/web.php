@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontController@index');
 Route::get('/order/service', 'FrontController@serviceOrder');
 Route::get('/view-services', 'UserServiceController@index');
+Route::get('/view-services-all', 'UserServiceController@allServices');
 Route::get('/view-services/{id}', 'UserServiceController@show');
 
 Route::get('/order-categories/{id}', 'OrderServiceController@order')->middleware('auth');
@@ -34,6 +35,7 @@ Route::post('/contact', 'ContactFormController@store');
 // Route::get('/services', 'ServicesController@index');
 // Route::post('/services-add', 'ServicesController@create');
 // Route::post('/services-store', 'ServicesController@store');
+
 
 
 Route::group(['middleware'=>['auth', 'admin']], function(){
@@ -58,9 +60,21 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 Route::group(['middleware'=>['auth', 'serviceManager']], function(){
 
     Route::get('/sm-dashboard', 'Admin\DashboardController@smDashboard');
-    Route::resource('services', 'ServicesController');
-    Route::resource('services-categories', 'ServiceCategoryController');
+    Route::get('/service-manager-index', 'ServiceManagerController@index');
+    Route::get('/service-manager-create', 'ServiceManagerController@create');
+    Route::post('/service-manager-addService', 'ServiceManagerController@store');
+    Route::get('/show-service/{id}', 'ServiceManagerController@show');
+    Route::post('/service-delete/{id}', 'ServiceManagerController@destroy');
+    Route::get('/service-manager-edit/{id}', 'ServiceManagerController@edit');
+    Route::post('/service-manager-update/{id}', 'ServiceManagerController@update');
 
+
+
+
+
+
+    // Route::resource('services', 'ServicesController');
+    // Route::resource('services-categories', 'ServiceCategoryController');
 
 });
 
