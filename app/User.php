@@ -42,4 +42,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function orderService(){
         return $this->hasMany('App\Order');
     }
+
+    public function searches() {
+        return $this->hasMany('App\SearchHistory');
+    }
 }

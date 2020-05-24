@@ -80,7 +80,7 @@ Route::any('/show/cat/products/{id}', 'ProductController@catProducts');
 //throws other products
 Route::any('/other/products', 'ProductController@allProducts');
 //search products
-Route::post('search/product', 'ProductController@search');
+Route::any('search/product', 'ProductController@search');
 
 //Cart
 Route::any('add/to/cart/{id}','ProductController@cart');

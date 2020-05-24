@@ -75,8 +75,8 @@
 
               <!-- search box -->
               <div class="aa-search-box">
-                <form action="">
-                  <input type="text" name=""  placeholder="Search here ex. 'gypsum' ">
+                <form action="{{url('search/product')}}">
+                  <input type="text" name="search"  placeholder="Search here ex. 'gypsum' ">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>
