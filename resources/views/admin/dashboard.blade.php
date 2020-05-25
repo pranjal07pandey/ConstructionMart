@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+
+
 @section('title')
 
 Dashboard
@@ -29,6 +31,7 @@ Dashboard
                 <th>Email</th>
                 <th>Message</th>
                 <th>Ordered Date</th>
+                {{-- <th>Delivered?</th> --}}
 
 
 
@@ -47,6 +50,12 @@ Dashboard
                     <td>{{$order->email}} </td>
                     <td>{{$order->message}} </td>
                     <td>{{$order->created_at}} </td>
+                    
+                      {{-- <form>
+                      <input type="radio" name="delivered" value="yes"> Yes
+                      </form> --}}
+                      {{-- <label>Yes</label> --}}
+                  
                       
                   
                     
@@ -105,8 +114,7 @@ Dashboard
                     <td>{{$order->created_at}} </td>
                       
                   
-                    
-                    
+              
 
                 </tr>
                 @endforeach
@@ -122,6 +130,8 @@ Dashboard
       </div>
     </div>
   </div>
+
+ 
     
 @endsection
 

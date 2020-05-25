@@ -14,7 +14,7 @@ class UserServiceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $services = Service::orderBy('created_at','desc')->paginate(10);
+        $services = Service::orderBy('created_at','desc')->paginate(4);
 
         return view('home.userServices')->with('services',$services);
     }
@@ -31,9 +31,10 @@ class UserServiceController extends Controller
         return view('home.showUserServices')->with('service', $service);
     }
 
-    // public function order($id){
-    //     $category =  ServiceCategory::find($id);
-    //     return view('home.orderService')->with('category', $category);
-    // }
+
+    public function allServices(){
+        $services = Service::all();
+        return view('home.viewAllServices')->with('services', $services);
+    }
 
 }

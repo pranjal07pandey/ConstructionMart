@@ -45,10 +45,7 @@
           <input type="text"  class="form-control" name="service" value="{{$category->cat_title}}">
           </div>
 
-          {{-- <div class="form-group">
-          <label>User Id: </label>                        
-          <input type="text"  class="form-control" name="user_id" value="{{$users->id }}">
-          </div> --}}
+          
       
         <div class="form-group">
           <label>Name: </label>                        

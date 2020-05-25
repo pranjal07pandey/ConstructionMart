@@ -56,10 +56,6 @@ Dashboard
                     <td>{{$order->message}} </td>
                     <td>{{$order->created_at}} </td>
                       
-                  
-                    
-                    
-
                 </tr>
                 @endforeach
 

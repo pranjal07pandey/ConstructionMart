@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->string('features');
             $table->bigInteger('price');
-            $table->string('measuring_unit');
             $table->boolean('delivery_facility');
             $table->string('delivery_charges')->nullable();
             $table->boolean('insurance_on_delivery');

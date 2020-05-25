@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Service;
+use App\User;
 use Auth;
 
-class ServicesController extends Controller
+class ServiceManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,10 @@ class ServicesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        $services = Service::orderBy('created_at','desc')->paginate(10);
-        return view('services.index')->with('services',$services);
+        $services = Auth::user()->addService;
+        return view('admin.service-manager.services.index')->with('services', $services);
     }
 
     /**
@@ -27,7 +29,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+        return view('admin.service-manager.services.create');
     }
 
     /**
@@ -72,9 +74,7 @@ class ServicesController extends Controller
         $service->cover_image = $fileNameToStore;
         Auth::user()->addService()->save($service);
         // $service->save();
-        return redirect('/services')->with('success', 'Service Added');
-
-
+        return redirect('/service-manager-index')->with('success', 'Service Added');
         
     }
 
@@ -86,8 +86,8 @@ class ServicesController extends Controller
      */
     public function show($id)
     {
-        $service =  Service::find($id);
-        return view('services.show')->with('service', $service);
+        $service = Service::find($id);
+        return view('admin.service-manager.services.show')->with('service',$service);
     }
 
     /**
@@ -98,8 +98,8 @@ class ServicesController extends Controller
      */
     public function edit($id)
     {
-        $service =  Service::find($id);
-        return view('services.edit')->with('service', $service);
+        $service = Service::find($id);
+        return view('admin.service-manager.services.edit')->with('service',$service);
     }
 
     /**
@@ -145,9 +145,7 @@ class ServicesController extends Controller
         Auth::user()->addService()->save($service);
 
 
-        return redirect('/services')->with('success', 'Service Edited');
-
-        
+        return redirect('/service-manager-index')->with('success', 'Service Edited');
     }
 
     /**
@@ -165,12 +163,8 @@ class ServicesController extends Controller
             Storage::delete('public/cover_images/'.$service->cover_image);
 
         }
-
         // Auth::user()->addService()->delete($service);
         $service->delete();
-
-
-        return redirect('/services')->with('success', 'Service Deleted');
-        
+        return redirect('/service-manager-index')->with('success', 'Service Deleted');
     }
 }

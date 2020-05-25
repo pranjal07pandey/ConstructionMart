@@ -8,6 +8,7 @@ use App\User;
 use App\Order;
 
 
+
 class DashboardController extends Controller
 {
 
@@ -58,8 +59,6 @@ class DashboardController extends Controller
     public function smDashboard(){
         $orders = Order::orderBy('created_at','desc')->paginate(7);
         return view('admin.service-manager.smDashboard')->with('orders', $orders);
-
-
 
     }
 }

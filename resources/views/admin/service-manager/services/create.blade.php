@@ -1,14 +1,10 @@
 
-@extends('admin.layouts.master')
-{{-- @if(Auth::check())
-    @if (Auth::user()->usertype=='serviceManager')
-    @extends('admin.layouts.smMaster')
-    @endif
-@endif --}}
+@extends('admin.layouts.smMaster')
+
 
 @section('title')
 
-Edit User Role
+Add new service
     
 @endsection
 
@@ -20,11 +16,13 @@ Edit User Role
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Add New Service</h3>
+                    <h3>Add New Service </h3>
                 </div>
                 <div class="card-body">
 
-<form action="{{ action('ServicesController@store') }}" method="POST" enctype="multipart/form-data" >
+                  {{-- {{ action('ServiceManagerController@store') }} --}}
+
+<form action="/service-manager-addService" method="POST" enctype="multipart/form-data" >
   @csrf
 
   <div class="form-group">

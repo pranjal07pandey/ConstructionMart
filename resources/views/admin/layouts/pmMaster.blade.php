@@ -45,7 +45,7 @@
           <li class="{{ 'services'== request()->path() ? 'active' :'' }}">
             <a href="/service-manager-index">
               <i class="now-ui-icons education_atom"></i>
-              <p>Services</p>
+              <p>Products</p>
             </a>
           </li>
           <li class="{{ 'services-categories'== request()->path() ? 'active' :'' }}">

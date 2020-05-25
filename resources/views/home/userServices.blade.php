@@ -103,10 +103,14 @@
         </fieldset>
       </div>
     </div>
+    
   </section>
+  <br>
   <!-- / slider -->
 
 
+
+{{-- 
   <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -175,7 +179,77 @@
             </div>
         </div>
     </div>
+  </div> --}}
+
+
+  <div class="">
+    <h1 align="center">Our Services</h1>
+    </div>
+
+    <hr>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="aa-product-area">
+            <div class="aa-product-inner">
+
+              <!-- start prduct navigation -->
+              <ul class="nav nav-tabs aa-products-tab">
+                <li class="active"><a href="#men" data-toggle="tab">Recently added</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <!-- Start men product category -->
+                <div class="tab-pane fade in active" id="men">
+                  <ul class="aa-product-catg">
+                    <!-- start single product item -->
+
+                    @if(count($services)>0)
+
+                      @foreach ($services as $service)
+                    <li>
+                      <figure>
+                        <a class="aa-product-img" href="/view-services/{{$service->id}}"><img src="/storage/cover_images/{{$service->cover_image}}" style="width: 100%; height: 250px" alt="polo shirt img" ></a>
+                          <a class="aa-add-card-btn"href="/view-services/{{$service->id}}"><span class=""></span>view details</a>
+                          <figcaption>
+                          <h3 class="aa-product-title"><a href="/view-services/{{$service->id}}">{{$service->title}}</a></h3>
+      
+                        </figcaption>
+                      </figure> 
+                    </li>
+                    @endforeach
+
+
+
+                    @else
+                    <p>No services found</p>
+                    @endif
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="container">
+    <a class="aa-browse-btn align-right" href="/view-services-all">Browse all Services <span class="fa fa-long-arrow-right"></span></a>
+  </div>
+
+  <br>
+
+
+
+  
+
+  
   
 
 

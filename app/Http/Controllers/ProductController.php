@@ -8,6 +8,8 @@ use App\Cart;
 use App\ProductSubCategory;
 use App\ProductCategory;
 use App\Product;
+use App\Unit;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -20,12 +22,13 @@ class ProductController extends Controller
     {
         $category = ProductCategory::all();
         $subCategory = ProductSubCategory::all();
+        $unit = Unit::all();
 
         if($category == null) {
             return view('product.addProduct');
         }
         else {
-        return view('product.addProduct',['category' => $category, 'subCategory' => $subCategory]);
+        return view('product.addProduct',['category' => $category, 'subCategory' => $subCategory, 'unit' => $unit]);
         }
     }
 
@@ -97,12 +100,29 @@ class ProductController extends Controller
             $data->product_sub_category_id = $request->subCat;
         }
 
+        if($request->unit !=null ) {
+            // dd($request->unit);
+            $unitData = new Unit;
+            $product_id = Product::all();
+            $unitData->unit_name = $request->unit;
+            $unitData->product_id = sizeof($product_id) + 1;
+        }
+        else {
+            $unitData = new Unit;
+            $unitData->unit_name = $request->unitSelect;
+        }
+
         $data->product_name = $request->name;
         $data->image = $filename;
         $data->features = $request->features;
         $data->price = $request->price;
-        $data->dimension = $request->dimension;
+        $data->delivery_facility = $request->delivery;
+        $data->delivery_charges = $request->deliveryCharge;
+        $data->insurance_on_delivery = $request->insuranceOnDelivery;
+        $data->product_manufactured_date = $request->manufacturedDate;
+        $data->product_expiry_date = $request->expiryDate;
         $data->save();
+        $unitData->save();
         return redirect()->back();
     }
 
@@ -158,6 +178,13 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         $count = count($cart->items);
         return view('product.cartProducts', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'count' => $count]);
+    }
+
+    //throws vendor products
+    public function adminProducts() {
+        // $user_id = Auth::id();
+        $products = Product::all();
+        return view('product.adminProduct', ['products' => $products]);
     }
 
     
