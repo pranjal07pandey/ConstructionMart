@@ -54,6 +54,9 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
     Route::get('/services-categories/edit/{id}','ServiceCategoryController@edit');
 
+    // Route::get('/user-viewProfile/{id}', 'HomeController@viewProfile');
+
+
 
 });
 
@@ -68,13 +71,7 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::get('/service-manager-edit/{id}', 'ServiceManagerController@edit');
     Route::post('/service-manager-update/{id}', 'ServiceManagerController@update');
 
-
-
-
-
-
-    // Route::resource('services', 'ServicesController');
-    // Route::resource('services-categories', 'ServiceCategoryController');
+    
 
 });
 
@@ -100,7 +97,7 @@ Route::post('search/product', 'ProductController@search');
 Route::any('add/to/cart/{id}','ProductController@cart');
 Route::any('show/cart/products', 'ProductController@showCart');
 
-// Route::get('/sm-manager', function(){
-//     return view('admin.service-manager.smDashboard');
+Route::get('/product-index', function(){
+    return view('product.index');
 
-// });
+});

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
+use App\Service;
 use App\ServiceCategory;
 use App\Order;
 use App\User;
@@ -115,8 +116,8 @@ class OrderServiceController extends Controller
     }
 
     public function order($id){
-        // $users = User::find($id);
+        $services = Service::all()->random(4);
         $category =  ServiceCategory::find($id);
-        return view('home.orderService')->with('category', $category);
+        return view('home.orderService')->with('category', $category)->with('services', $services);
     }
 }
