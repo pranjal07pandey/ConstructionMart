@@ -56,6 +56,12 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
     // Route::get('/user-viewProfile/{id}', 'HomeController@viewProfile');
 
+    Route::get('/order-details/{id}','Admin\DashboardController@orderDetails');
+    Route::post('/order-details/{id}','Admin\DashboardController@checkDelivered');
+
+
+
+
 
 
 });

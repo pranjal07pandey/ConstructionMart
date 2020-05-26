@@ -116,7 +116,7 @@ class OrderServiceController extends Controller
     }
 
     public function order($id){
-        $services = Service::all()->random(4);
+        $services = Service::all();
         $category =  ServiceCategory::find($id);
         return view('home.orderService')->with('category', $category)->with('services', $services);
     }

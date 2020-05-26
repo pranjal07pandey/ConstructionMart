@@ -112,7 +112,7 @@
                   <ul class="aa-product-catg">
                     <!-- start single product item -->
 
-                    @if(count($services)>0)
+                    {{-- @if(count($services)>0) --}}
 
                       @foreach ($services as $service)
                     <li>
@@ -126,9 +126,9 @@
                       </figure> 
                     </li>
                     @endforeach
-                    @else
-                    <p>No services found</p>
-                    @endif
+                    {{-- @else --}}
+                    {{-- <p>No services found</p> --}}
+                    {{-- @endif --}}
                   </ul>
                 </div>
               </div>

@@ -1,7 +1,7 @@
   <!-- Start header section -->
   <header id="aa-header">
     <!-- start header top  -->
-    <div class="aa-header-top">
+    {{-- <div class="aa-header-top">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- / header top  -->
 
     <!-- start header bottom  -->
@@ -62,6 +62,18 @@
               </div>
               <!-- / logo  -->
 
+              <div class="aa-cartbox">
+               
+                <a href="/login" class="aa-cart-link">
+                  <span class="glyphicon glyphicon-log-in"></span>
+                  <span class="aa-cart-title">LOG IN</span>
+
+                  {{-- <span>Log in</span> --}}
+              
+                </a>
+
+              </div>
+
                 <!-- cart box -->
                 <div class="aa-cartbox">
                     <a class="aa-cart-link" href="{{url('show/cart/products')}}">
@@ -71,6 +83,9 @@
                     </a>
                     
                 </div>
+
+               
+                
                 <!-- / cart box -->
 
               <!-- search box -->
