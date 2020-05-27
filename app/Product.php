@@ -20,4 +20,8 @@ class Product extends Model
     public function unit() {
     	return $this->hasOne('App\Unit');
     }
+
+    public function orders() {
+        return $this->hasMany('App\ProductOrder');
+    }
 }

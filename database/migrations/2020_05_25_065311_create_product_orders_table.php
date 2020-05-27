@@ -15,11 +15,14 @@ class CreateProductOrdersTable extends Migration
     {
         Schema::create('product_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name');
             $table->unsignedBigInteger('phone_number');
             $table->string('location');
             $table->string('email');
             $table->string('message');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+                    ->references('id')->on('products')
+                    ->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')

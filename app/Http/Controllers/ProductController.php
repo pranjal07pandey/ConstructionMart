@@ -8,6 +8,7 @@ use Cart;
 use App\ProductSubCategory;
 use App\ProductCategory;
 use App\Product;
+use App\SearchHistory;
 use App\Unit;
 use Auth;
 
@@ -57,6 +58,7 @@ class ProductController extends Controller
         $data = new Product;
         $cat = new ProductCategory;
         $subCat = new ProductSubCategory;
+        
 
         $this->validate($request, [
             'name' => 'required',
@@ -145,6 +147,14 @@ class ProductController extends Controller
 
     //search product
     public function search(Request $request) {
+        $searchData = new SearchHistory;
+          if(Auth::user()) {
+            $user_id = Auth::user()->id;
+            $searchData->search = $request->search;
+            $searchData->user_id = $user_id;
+            $searchData->save();
+        }
+
         $searchData = $request->search;
         // dd($searchData);
         $data = Product::where('product_name', 'LIKE', $searchData.'%')->get();
@@ -155,6 +165,9 @@ class ProductController extends Controller
         else {
             return View::make('product.showProduct')->with('msg', 'no carpet found');
         }
+
+
+      
     }
 
     //Add to cart
@@ -196,15 +209,15 @@ class ProductController extends Controller
         // return view('product.cartProducts', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'count' => $count]);
     }
 
-    public function updateCart(Request $request) {
+    // public function updateCart(Request $request) {
 
-       $quantity = $request->quantity;
-       $price = $request->price;
-        return response()->json([
-            'quantity' => $quantity,
-            'price' => $price
-        ]);
-    }
+    //    $quantity = $request->quantity;
+    //    $price = $request->price;
+    //     return response()->json([
+    //         'quantity' => $quantity,
+    //         'price' => $price
+    //     ]);
+    // }
 
     //throws vendor products
     public function adminProducts() {

@@ -206,7 +206,10 @@ input:focus {
       <div class="title">   
       </div>
       <!-- Product #3 -->
+      <form method="post" action="{{url('order/product')}}">
+        @csrf
       @foreach($products as $product)
+      <input type="hidden" name="id[]" value="{{$product->id}}">
       <div class="item">
         <div class="buttons">
          <a href = "{{url('/delete/cart/product/'.$product->id)}}"><span class="glyphicon glyphicon-remove"></span></a>
@@ -219,13 +222,13 @@ input:focus {
           <span>{{$product->name}}</span>
           <span id = "qty{{$product->id}}">Quantity: {{$product->quantity}}</span>
           <span>Rs {{$product->price}}</span>
-          <input type="hidden" name="" id="price{{$product->id}}" value=" {{$product->price}}">
+          <input type="hidden" name="price[]" id="price{{$product->id}}" value=" {{$product->price}}">
         </div>
 
         <div class="quantity">
 
  
-          <input type="number" name="quantity" value="{{$product->quantity}}" id = "totalQuantity{{$product->id}}">
+          <input type="number" name="quantity[]" value="{{$product->quantity}}" id = "totalQuantity{{$product->id}}">
         
         </div>
 
@@ -235,7 +238,8 @@ input:focus {
       <div style="width:100%">
         <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs </h3>
       </div>
-      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; height: 12%;margin-top: 3%">ORDER</button>
+      <input type="submit" name="" value="ORDER"><button type="button" class="btn btn-primary btn-lg" style="width: 100%; height: 12%;margin-top: 3%"></button>
+      </form>
   </div>
 @include('include.footer')
 
