@@ -95,6 +95,8 @@ Route::any('search/product', 'ProductController@search');
 //Cart
 Route::any('add/to/cart/{id}','ProductController@cart');
 Route::any('show/cart/products', 'ProductController@showCart');
+Route::any('delete/cart/product/{id}', 'ProductController@removeCart');
+Route::get('/cart/update', 'ProductController@updateCart');
 
 // Route::get('/sm-manager', function(){
 //     return view('admin.service-manager.smDashboard');
