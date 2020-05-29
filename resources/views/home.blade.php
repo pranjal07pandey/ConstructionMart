@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3 align="center">My Order History</h3>
+                    <h3 align="center">{{__('customlang.My Order History')}}</h3>
                 </div>
 
                 <div class="card-body">
@@ -21,14 +21,14 @@
                     <div class="col-md-12">
                       <div class="card">
                         <div class="card-header">
-                          <h4 class="card-title">Service Order</h4>
+                          <h4 class="card-title">{{__('customlang.Service Order')}}</h4>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
                             <table class="table">
                               <thead class=" text-primary">
-                                <th>Ordered Service</th>
-                                <th>Ordered Date</th>
+                                <th>{{__('customlang.Ordered Service')}}</th>
+                                <th>{{__('customlang.Ordered Date')}}</th>
                                 {{-- <th>Phone</th>
                                 <th>Location</th>
                                 <th>Email</th>
@@ -69,14 +69,14 @@
                     <div class="col-md-12">
                       <div class="card">
                         <div class="card-header">
-                          <h4 class="card-title">Product Order</h4>
+                          <h4 class="card-title">{{__('customlang.Product Order')}}</h4>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
                             <table class="table">
                               <thead class=" text-primary">
-                                <th>Ordered Product</th>
-                                <th>Ordered Date</th>
+                                <th>{{__('customlang.Ordered Product')}}</th>
+                                <th>{{__('customlang.Ordered Date')}}</th>
 
                                 {{-- <th>Name</th>
                                 <th>Phone</th>

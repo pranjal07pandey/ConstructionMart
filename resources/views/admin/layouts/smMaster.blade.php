@@ -49,7 +49,7 @@
             </a>
           </li>
           <li class="{{ 'services-categories'== request()->path() ? 'active' :'' }}">
-            <a href="/services-categories">
+            <a href="/service-cat-manager-index">
               <i class="now-ui-icons location_map-big"></i>
               <p>Services Categories</p>
             </a>

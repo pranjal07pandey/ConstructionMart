@@ -72,8 +72,8 @@ class DashboardController extends Controller
     
     //Service manager
     public function smDashboard(){
-        $orders = Auth::user('created_at','desc')->orderservice;
-        // $orders = Order::orderBy('created_at','desc')->paginate(7);
+        // $orders = Auth::user('created_at','desc')->orderservice;
+        $orders = Order::orderBy('created_at','desc')->paginate(7);
         return view('admin.service-manager.smDashboard')->with('orders', $orders);
 
     }

@@ -29,7 +29,7 @@
 
 
   <div class="container">
-    <h1 align="center">All our Services</h1>
+    <h1 align="center">{{__('customlang.All our Services')}}</h1>
     </div>
 
     <hr>
@@ -57,7 +57,7 @@
                     <li>
                       <figure>
                         <a class="aa-product-img" href="/view-services/{{$service->id}}"><img src="/storage/cover_images/{{$service->cover_image}}" style="width: 100%; height: 250px" alt="polo shirt img" ></a>
-                          <a class="aa-add-card-btn"href="/view-services/{{$service->id}}"><span class=""></span>view details</a>
+                      <a class="aa-add-card-btn"href="/view-services/{{$service->id}}"><span class=""></span>{{__('customlang.view details')}}</a>
                           <figcaption>
                           <h3 class="aa-product-title"><a href="/view-services/{{$service->id}}">{{$service->title}}</a></h3>
       
@@ -66,7 +66,7 @@
                     </li>
                     @endforeach
                     @else
-                    <p>No services found</p>
+                    <p>{{__('customlang.No services found')}}</p>
                     @endif
                   </ul>
                 </div>

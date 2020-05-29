@@ -16,11 +16,18 @@ class CreateServiceCategoriesTable extends Migration
         Schema::create('service_categories', function (Blueprint $table) {
             $table->id();
             $table->string('cat_title');
-            $table->timestamps();
+            $table->string('description')->nullable();
+            $table->string('cover_image')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')
                 ->references('id')->on('services')
                 ->onDelete('cascade');
+            $table->timestamps();
+
         });
     }
 
