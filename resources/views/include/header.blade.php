@@ -1,6 +1,59 @@
   <!-- Start header section -->
   <header id="aa-header">
 
+    <!-- start header top  -->
+    <div class="aa-header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="aa-header-top-area">
+              <!-- start header top left -->
+              <div class="aa-header-top-left">
+                <!-- start language -->
+                <div class="aa-language">
+                  <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      {{__('customlang.भाषा')}}
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="lang/np"><img src="{{ asset('frontEnd') }}/img/flag/nepal.png" alt=""> नेपाली</a></li>
+                      <li><a href="lang/en"><img src="{{ asset('frontEnd') }}/img/flag/english.jpg" alt=""> ENG</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- / language -->
+
+                <!-- start currency -->
+                
+                <!-- / currency -->
+                <!-- start cellphone -->
+                <div class="cellphone hidden-xs">
+                  <p><span class="fa fa-phone"></span>00-62-658-658</p>
+                </div>
+                <!-- / cellphone -->
+              </div>
+              <!-- / header top left -->
+              <div class="aa-header-top-right">
+                <ul class="aa-head-top-nav-right">
+                  <li><a href="/home">{{__('customlang.My Account')}}</a></li>
+                  <li class="hidden-xs"><a href="wishlist.html">{{__('customlang.Wishlist')}}</a></li>
+                  {{-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li> --}}
+                  {{-- <li class="hidden-xs"><a href="checkout.html">Checkout</a></li> --}}
+                  <li>
+                    <a href="/login">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        <span class="aa-cart-title">{{__('customlang.Login')}}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- / header top  -->
 
     <!-- start header bottom  -->
@@ -21,35 +74,14 @@
               </div>
               
 
-              {{-- <div class="aa-cartbox">
-               
-                <div class="dropdown">
-          
-                  <button class="btn btn-default" type="button" data-toggle="dropdown">Lang
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                      <li><a href="lang/en">Engilsh</a></li>
-                      <li><a href="lang/np">नेपाली</a></li>
-                    </ul>
-                 
-                </div>
-              </div> --}}
+              
 
               <div class="aa-cartbox">
-                <div class="dropdown">
-                  <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    {{__('customlang.भाषा')}}
-                    <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="lang/np"><img src="{{ asset('frontEnd') }}/img/flag/nepal.png" alt=""> नेपाली</a></li>
-                    <li><a href="lang/en"><img src="{{ asset('frontEnd') }}/img/flag/english.jpg" alt=""> ENG</a></li>
-                  </ul>
-                </div>
+                
               </div>
 
               
-              <div class="aa-cartbox">
+              {{-- <div class="aa-cartbox">
                
                 <a href="/login" class="aa-cart-link">
                   <span class="glyphicon glyphicon-log-in"></span>
@@ -57,7 +89,7 @@
               
                 </a>
 
-              </div>
+              </div> --}}
 
                 <!-- cart box -->
                 <div class="aa-cartbox">

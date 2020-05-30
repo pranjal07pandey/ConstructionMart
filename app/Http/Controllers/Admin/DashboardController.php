@@ -77,4 +77,10 @@ class DashboardController extends Controller
         return view('admin.service-manager.smDashboard')->with('orders', $orders);
 
     }
+
+    //view user profile
+    public function viewUserProfile($id){
+        $user = User::findOrFail($id);
+        return view('admin.userprofile')->with('user',$user);
+    }
 }

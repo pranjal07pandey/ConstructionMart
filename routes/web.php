@@ -46,6 +46,9 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
     Route::get('/role-edit/{id}', 'Admin\DashboardController@registerEdit');
     Route::post('/role-update/{id}', 'Admin\DashboardController@registerUpdate');
     Route::post('/role-delete/{id}', 'Admin\DashboardController@registerDelete');
+    
+    //user profile
+    Route::get('/user-profile/{id}','Admin\DashboardController@viewUserProfile');
 
     Route::get('/services-categories/edit/{id}','ServiceCategoryController@edit');
 

@@ -29,11 +29,12 @@
 
 <div class="container">
     
-    <div class="aa-contact-top">
+  <section id="aa-product">
+    {{-- <div class="aa-contact-top"> --}}
         <br>
         <h2 align = "center">{{__('customlang.Order service')}}</h2>
         {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quos.</p> --}}
-      </div>
+      {{-- </div>  --}}
     <div class="jumbotron">
     <form class="comments-form contact-form" action="/order-categories/{{$category->id}}" method="POST">
   @csrf
@@ -90,6 +91,7 @@
   </form>
 </div>
 
+  </section>
   </div>
 
   <div class="container">

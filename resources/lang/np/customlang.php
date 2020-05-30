@@ -76,5 +76,10 @@ return [
     'view details'=>'विवरण हेर्नुहोस्',
 
     'order'=>'अर्डर',
+    'Wishlist'=>'इच्छा सुची',
+    'My Account'=>'मेरो खाता',
+    'Delivered'=>'वितरित',
+
+
     
 ];

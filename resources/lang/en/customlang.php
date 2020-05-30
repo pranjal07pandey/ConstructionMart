@@ -71,6 +71,9 @@ return [
     'Send Message'=>'Send Message',
     'view details'=>'view details',
     'order'=>'order',
+    'Wishlist'=>'Wishlist',
+    'My Account'=>'My Account',
+    'Delivered'=>'Delivered',
 
 
 

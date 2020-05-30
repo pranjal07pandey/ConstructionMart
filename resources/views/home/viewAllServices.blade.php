@@ -26,11 +26,11 @@
   @include('include.header')
 
 
+<section id="aa-product">
 
-
-  <div class="container">
+  {{-- <div class="container"> --}}
     <h1 align="center">{{__('customlang.All our Services')}}</h1>
-    </div>
+    {{-- </div> --}}
 
     <hr>
 
@@ -77,6 +77,7 @@
       </div>
     </div>
   </div>
+</section>
 
 
   
