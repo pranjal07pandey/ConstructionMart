@@ -79,7 +79,9 @@ return [
     'Wishlist'=>'इच्छा सुची',
     'My Account'=>'मेरो खाता',
     'Delivered'=>'वितरित',
-
+    'Order Details'=>'आदेश विवरण',
+    'Service Description'=>'सेवा विवरण',
+    'Billing Address'=>'बिलि ठेगाना'
 
     
 ];

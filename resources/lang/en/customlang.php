@@ -74,6 +74,9 @@ return [
     'Wishlist'=>'Wishlist',
     'My Account'=>'My Account',
     'Delivered'=>'Delivered',
+    'Order Details'=>'Order Details',
+    'Service Description'=>'Service Description',
+    'Billing Address'=>'Billing Address',
 
 
 

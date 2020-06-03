@@ -112,7 +112,8 @@ Home
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                          <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             {{ session('status') }}
                         </div>
                     @endif
@@ -191,7 +192,7 @@ Home
                                 <tr>
                                     <td>Cornice</td>
                                     <td>2019-2-15</td>
-                                    <td>{{$order->delivered}}</td>
+                                    <td>no</td>
 
 
                                    

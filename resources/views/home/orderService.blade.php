@@ -10,6 +10,22 @@
     
     @include('include.css')
  
+    <style>
+      .col-md-6{
+        background-color:  #f2f2f2; 
+        margin: 1%;
+        padding: 1%;
+
+      }
+      .col-md-5{
+        background-color: #f1f2f4 ; 
+        margin: 1%;
+        padding: 1%;
+
+
+
+      }
+      </style>
 
   </head>
   <body> 
@@ -30,43 +46,44 @@
 <div class="container">
     
   <section id="aa-product">
-    {{-- <div class="aa-contact-top"> --}}
         <br>
-        <h2 align = "center">{{__('customlang.Order service')}}</h2>
-        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quos.</p> --}}
-      {{-- </div>  --}}
-    <div class="jumbotron">
+        {{-- <h2 align = "center">{{__('customlang.Order service')}}</h2> --}}
+       
+    {{-- <div class="jumbotron"> --}}
     <form class="comments-form contact-form" action="/order-categories/{{$category->id}}" method="POST">
   @csrf
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
+
+        <h2>{{__('customlang.Billing Address')}}</h2>
+
 
           <div class="form-group">
-            <label>{{__('customlang.Ordered service')}} </label>                        
+            <label><i class="fa fa-work"></i> {{__('customlang.Ordered service')}} </label>                        
           <input type="text"  class="form-control" name="service" value="{{$category->cat_title}}">
           </div>
 
           
       
         <div class="form-group">
-          <label>{{__('customlang.Name')}} </label>                        
-          <input type="text" placeholder="Enter Your Name" class="form-control" name="name" required>
+          <label><i class="fa fa-user"></i> {{__('customlang.Name')}} </label>                        
+          <input type="text" placeholder="Enter Your Name" class="form-control" name="name" value="{{Auth::user()->name}}" required>
         </div>
 
         <div class="form-group"> 
-          <label>{{__('customlang.Phone')}} </label>                        
-          <input type="text" placeholder="your phone number" class="form-control" name="phone" required>
+          <label><i class="fa fa-phone"></i> {{__('customlang.Phone')}} </label>                        
+          <input type="text" placeholder="your phone number" class="form-control" name="phone" value="{{Auth::user()->phone}}" required>
         </div>
 
         <div class="form-group"> 
-          <label>{{__('customlang.Location')}} </label>                        
+          <label><i class="fa fa-institution"></i> {{__('customlang.Location')}} </label>                        
           <input type="text" placeholder="enter your location" class="form-control" name="location" required>
         </div>
       
       
         <div class="form-group"> 
-          <label>{{__('customlang.Email')}}</label>                        
-          <input type="email" placeholder="Email, if any" class="form-control" name="email">
+          <label><i class="fa fa-envelope"></i> {{__('customlang.Email')}}</label>                        
+          <input type="email" placeholder="Email, if any" class="form-control" name="email" value="{{Auth::user()->email}}">
         </div>
              
      
@@ -87,13 +104,41 @@
 
         </div>
 
+        <div class="container">
+          <div class="row">
+
+        <div class="col-md-5">
+
+          <h2 align = "center">{{__('customlang.Order Details')}}</h2>
+
+          <div class="form-group">
+            <label><i class="fa fa-work"></i> {{__('customlang.Ordered service')}} </label>                        
+          <option type="text"  class="form-control" name="service">{{$category->cat_title}}</option>
+          </div>
+
+          <div class="form-group">
+
+          <img style="width:100%;height:200px" src="/storage/cover_images/{{$category->cover_image}}">
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa fa-work"></i> {{__('customlang.Service Description')}} </label>                        
+          <option type="text"  class="form-control" name="description">{{$category->description}}</option>
+          </div>
+
+
+        </div>
+          </div>
+
+        </div>
+
 </div>
   </form>
-</div>
 
   </section>
   </div>
-
+<br>
+<br>
   <div class="container">
 
   <h1 align="center">{{__('customlang.You may like other services as well')}}</h1>
@@ -114,7 +159,6 @@
                   <ul class="aa-product-catg">
                     <!-- start single product item -->
 
-                    {{-- @if(count($services)>0) --}}
 
                       @foreach ($services as $service)
                     <li>
@@ -128,9 +172,7 @@
                       </figure> 
                     </li>
                     @endforeach
-                    {{-- @else --}}
-                    {{-- <p>No services found</p> --}}
-                    {{-- @endif --}}
+                   
                   </ul>
                 </div>
               </div>
