@@ -227,11 +227,10 @@ input:focus {
       <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
         <div class="buttons">
-         <a href = "{{url('/delete/cart/product/'.$product->id)}}"><span class="glyphicon glyphicon-remove"></span></a>
+          <a href = "{{url('cart/wishlist/'.$product->id)}}">add to wishlist</a><br><br>
+         <a href = "{{url('/delete/cart/product/'.$product->id)}}"><span class="glyphicon glyphicon-trash"></span></a>
         </div>
-        <div class="buttons">
-         <a href = "{{url('cart/wishlist/'.$product->id)}}">add to wishlist</a>
-        </div>
+
         <div class="image">
           <img src="{{ URL::asset('uploads/products/'.$product->image)}}" style="width: 110px; height: 80px" alt="{{$product->image}}">
         </div>
@@ -255,37 +254,13 @@ input:focus {
       @endforeach
       <div style="width:100%">
         <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs </h3>
+        <button type="button" class="btn btn-success" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%">Checkout</button>    
+      </div>     
       </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+      <div>
+      </div>
 
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <h3>Order Information</h3>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Phone Number</label>
-            <input type="text" name="phoneNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Location</label>
-            <input type="text" name = "location" class="form-control" id="exampleInputPassword1" placeholder="Location">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
-            <input type="email" name = "email" class="form-control" id="exampleInputPassword1" placeholder="@email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Message</label>
-            <input type="text" name = "message" class="form-control" id="exampleInputPassword1" placeholder="Message">
-          </div>
-          
-          <button type="submit" class="btn btn-primary">Order</button>
-
-    </div>
-  </div>
-</div>
+     </div>
       </form>
       @else
       <h4>No Items in Cart!!</h4>

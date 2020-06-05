@@ -98,11 +98,12 @@ Dashboard
             <table class="table">
               <thead class=" text-primary">
                 <th>User Name</th>
-                <th>Ordered Service</th>
                 <th>Phone</th>
                 <th>Ordered Location</th>
+                  
                 <th>Email</th>
                 <th>Message</th>
+                <th>Product Ordered</th>  
                 <th>Ordered Date</th>
 
 
@@ -110,21 +111,17 @@ Dashboard
               </thead>
 
               <tbody>
-                @foreach ($orders as $order)
+                @foreach ($productOrders as $order)
 
 
                 <tr>
 
-                    <td>{{$order->name}} </td>
-                    <td>{{$order->service}} </td>
-                    <td>{{$order->phone}} </td>
+                    <td>{{$order->user->name}} </td>
+                    <td>{{$order->phone_number}} </td>
                     <td>{{$order->location}} </td>
                     <td>{{$order->email}} </td>
                     <td>{{$order->message}} </td>
-                    <td>{{$order->created_at}} </td>
-                      
-                  
-              
+                    <td>{{$order->product->product_name}}</td>
 
                 </tr>
                 @endforeach
@@ -134,6 +131,7 @@ Dashboard
 
             </table>
             {{$orders->links()}}
+            {{$productOrders->links()}}
 
           </div>
         </div>

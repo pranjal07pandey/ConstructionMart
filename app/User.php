@@ -51,4 +51,7 @@ class User extends Authenticatable
     public function addService(){
         return $this->hasMany('App\Service');
     }
+    public function orders() {
+        return $this->hasMany('App\ProductOrder');
+    }
 }

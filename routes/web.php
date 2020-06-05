@@ -113,6 +113,8 @@ Route::group(['middleware'=>['auth', 'productManager']], function(){
     Route::any('delete/product/{id}', 'ProductController@destroy');
     Route::post('add/product', 'ProductController@store');
     Route::get('show/admin/products', 'ProductController@adminProducts');
+    Route::any('edit/product/{id}', 'ProductController@edit');
+    Route::any('update/product/{product_id}/{category_id}/{subcategory_id}/{unit_id}', 'ProductController@update');
 
 });
 

@@ -26,6 +26,9 @@ class OrderProductController extends Controller
     public function create(Request $request)
     {
         $orderData = new ProductOrder;
+
+        $time = Carbon::now();
+        dd($time);
         $user_id = Auth::user()->id;
         // dd($user_id);
         // dd($request->all());
