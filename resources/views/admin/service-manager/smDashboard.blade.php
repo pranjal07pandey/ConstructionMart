@@ -63,7 +63,7 @@ Dashboard
 
 
             </table>
-            {{$orders->links()}}
+            {{-- {{$orders->links()}} --}}
 
           </div>
         </div>

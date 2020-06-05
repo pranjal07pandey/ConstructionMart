@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Order;
+use Auth;
 
 
 
@@ -16,6 +17,20 @@ class DashboardController extends Controller
         $orders = Order::orderBy('created_at','desc')->paginate(7);
         return view('admin.dashboard')->with('orders', $orders);
 
+    }
+
+    public function orderDetails($id){
+        $orders = Order::find($id);
+        return view('admin.orderDetails')->with('orders', $orders);
+    }
+
+    public function checkDelivered(Request $request, $id){
+        $orders = Order::find($id);
+        $orders->delivered = $request->input('delivered');
+
+        $orders->update();
+
+        return redirect('/dashboard');
     }
 
     public function registered(){
@@ -57,7 +72,8 @@ class DashboardController extends Controller
     
     //Service manager
     public function smDashboard(){
-        $orders = Order::orderBy('created_at','desc')->paginate(7);
+        $orders = Auth::user('created_at','desc')->orderservice;
+        // $orders = Order::orderBy('created_at','desc')->paginate(7);
         return view('admin.service-manager.smDashboard')->with('orders', $orders);
 
     }

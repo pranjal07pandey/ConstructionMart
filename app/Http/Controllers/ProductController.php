@@ -11,6 +11,7 @@ use App\Product;
 use App\SearchHistory;
 use App\Unit;
 use Auth;
+// use Validator;
 
 class ProductController extends Controller
 {
@@ -194,11 +195,28 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    public function moveToCart($id) {
+        // dd("succes");
+        $product = Product::find($id);
+        $addToCart = Cart::add([
+            'id' => $product->id,
+            'name' => $product->product_name,
+            'price' => $product->price,
+            'quantity' => 1,
+            'image' => $product->image,
+        ]);
+        $wishlist = app('wishlist');
+        $wishlist->remove($id);
+        return redirect()->back();
+    }
+
 
     public function showCart() {
 
         $cartData = Cart::getContent();
-        return view('product.cartProducts', ['products' => $cartData]);
+        $wishlist = app('wishlist');
+        $wishlistData = $wishlist->getContent();
+        return view('product.cartProducts', ['products' => $cartData, 'wishlist' => $wishlistData]);
 
         // if(!Session::has('cart')) {
         //     return view('include.header', ['products' => null]);
@@ -209,21 +227,44 @@ class ProductController extends Controller
         // return view('product.cartProducts', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice, 'count' => $count]);
     }
 
-    // public function updateCart(Request $request) {
+    public function updateCart(Request $request) {
 
-    //    $quantity = $request->quantity;
-    //    $price = $request->price;
-    //     return response()->json([
-    //         'quantity' => $quantity,
-    //         'price' => $price
-    //     ]);
-    // }
+       $quantity = $request->quantity;
+       $price = $request->price;
+        return response()->json([
+            'quantity' => $quantity,
+            'price' => $price
+        ]);
+    }
+
+    public function wishlistCart($id) {
+
+        $product = Product::find($id);
+        // dd($item);
+        Cart::remove($id);
+
+        $wish_list = app('wishlist');
+        $wish_list->add([
+            'id' => $product->id,
+            'name' => $product->product_name, 
+            'price' => $product->price,
+            'quantity' => 1,
+            'image' => $product->image,
+        ]);
+        return redirect()->back();       
+    }
 
     //throws vendor products
     public function adminProducts() {
         // $user_id = Auth::id();
         $products = Product::all();
         return view('product.adminProduct', ['products' => $products]);
+    }
+
+    public function productIndex() {
+        $prodData = Product::paginate(15);
+        // dd($prodData);
+        return view('product.index', ['prodData' => $prodData]);
     }
 
     
@@ -258,6 +299,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect()->back();
     }
 }

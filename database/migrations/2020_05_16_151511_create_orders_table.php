@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('location');
+            $table->string('delivered')->default('No')->nullable();
             $table->string('email')->nullable();
             $table->string('message');
             $table->unsignedBigInteger('user_id');

@@ -31,6 +31,7 @@ Registered roles
                 <th>User Type</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                {{-- <th>Action</th> --}}
 
               </thead>
 
@@ -47,7 +48,7 @@ Registered roles
                     <td>{{$row->usertype}}</td>  
                 
                     <td>
-                    <a href="/role-edit/{{$row->id}}" class="btn btn-priamry">EDIT</a>
+                    <a href="/role-edit/{{$row->id}}" class="btn btn-priamry">Give Role</a>
                     </td>
 
                     <td>
@@ -57,6 +58,12 @@ Registered roles
                         </form>
 
                     </td>
+
+                    {{-- <td>
+                    <a href="/user-viewProfile/{{$row->id}}" class="btn btn-primary">View Profile</a>
+
+                    </td> --}}
+
 
                 </tr>
 

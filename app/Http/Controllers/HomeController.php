@@ -33,5 +33,12 @@ class HomeController extends Controller
         return view('/home')->with('orders', $orders);
     }
 
+    // public function viewprofile($id)
+
+    // {
+    //     $orders = Auth::user($id)->orderservice;
+    //     return view('userprofile')->with('orders', $orders);
+    // }
+
     
 }

@@ -1,63 +1,80 @@
-<!DOCTYPE html>
-<html>
-<head>
 
-	<title></title>
-</head>
-<body>
-<br>
-<h3 style="margin-left: 10%;">Add Product</h3>
-  <div style="width: 80%; margin-left: 10%">
-<form method="post" action="/add/product" enctype='multipart/form-data'>
-	@csrf
-	<div class="form-group">
-    <label for="exampleFormControlInput1">Product Name</label>
-    <input type="text" name = "name" class="form-control" id="exampleFormControlInput1" placeholder="Product Name">
-  </div>
+@extends('admin.layouts.master')
+{{-- @if(Auth::check())
+    @if (Auth::user()->usertype=='serviceManager')
+    @extends('admin.layouts.smMaster')
+    @endif
+@endif --}}
+
+@section('title')
+
+Edit User Role
+    
+@endsection
+
+
+@section('content')
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add New Service</h3>
+                </div>
+                <div class="card-body">
+
+<form action="/add/product" method="POST" enctype="multipart/form-data" >
+  @csrf
 
   <div class="form-group">
-    <label for="exampleFormControlFile1">Select Image</label>
-    <input type="file" name = "image" class="form-control-file" id="exampleFormControlFile1">
-  </div>
+    <label for="title">Product Name:</label><br>
+    <input type="text" name="name" class="form-control" placeholder="Product Name" required><br>
+    </div>
 
- <div class="form-group">
-    <label for="exampleFormControlInput1">Category Name</label>
+    <div >
+      <label for="Select Image">Select Image</label><br>
+      <input type="file" name="image"><br>
+      </div>
+<div class="form-group">
+    <label for="Category Name">Category Name</label>
     <input type="text" name="category" class="form-control" id="" placeholder="Category Name">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Category Select</label>
+    <label for="Category Select">Category Select</label>
     <select class="form-control" name="cat" id="exampleFormControlSelect1">
       @foreach($category as $catData)
-			<option value="{{$catData->id}}">{{$catData->category_name}}</option>
-		@endforeach
+      <option value="{{$catData->id}}">{{$catData->category_name}}</option>
+    @endforeach
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Sub-Category Name</label>
+    <label for="Sub-Category Name">Sub-Category Name</label>
     <input type="text" name="subCategory" class="form-control" id="" placeholder="Sub-Category Name">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Sub-Category Select</label>
+    <label for="Sub-Category Select">Sub-Category Select</label>
     <select class="form-control" name = "subCat" id="exampleFormControlSelect1">
       @foreach($subCategory as $subCatData)
-			<option value="{{$subCatData->id}}">{{$subCatData->sub_category_name}}</option>
-		@endforeach
+      <option value="{{$subCatData->id}}">{{$subCatData->sub_category_name}}</option>
+    @endforeach
     </select>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Features</label>
+   <div class="form-group">
+    <label for="Features">Features</label>
     <textarea class="form-control" name="features" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Price Per Unit</label>
+      
+<div class="form-group">
+    <label for="Price Per Unit">Price Per Unit</label>
     <input type="number" name = "price" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-  </div>
+  </div> 
   <div class="form-group">
-    <label for="exampleFormControlInput1">Unit</label>
+    <label for="Unit">Unit</label>
     <input type="text" name = "unit" class="form-control" id="exampleFormControlInput1" placeholder="Unit">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Unit Select</label>
+    <label for="Unit Select">Unit Select</label>
     <select class="form-control" name="unitSelect" id="exampleFormControlSelect1">
       @foreach($unit as $unitData)
       <option value="{{$unitData->id}}">{{$unitData->unit_name}}</option>
@@ -78,8 +95,8 @@
     No there is not delivery facility
   </label>
 </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Delivery Charge</label>
+<div class="form-group">
+    <label for="Delivery Charge">Delivery Charge</label>
     <input type="text" name = "deliveryCharge" class="form-control" id="exampleFormControlInput1" placeholder="Delivery Charge">
   </div>
     <div class="form-check">
@@ -96,22 +113,59 @@
     No 
   </label>
 </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Product Manufactured Date</label>
+<div class="form-group">
+    <label for="Product Manufactured Date">Product Manufactured Date</label>
     <input type="date" name = "manufacturedDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date">
   </div>
+
     <div class="form-group">
     <label for="exampleFormControlInput1">Product Expiry Date</label>
     <input type="date" name = "expiryDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date">
   </div>
-  <input type="submit" name="">
-  <br>
-  <p></p>
+
+  <input type="submit" class="btn btn-primary" value="Add">
+
+
 </form>
+
 </div>
-</body>
-</html>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+@endsection
+
+  @section('scripts')
+      
+  @endsection
 
 
 
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

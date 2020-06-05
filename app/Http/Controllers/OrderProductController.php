@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ProductOrder;
+use Auth;
 
 class OrderProductController extends Controller
 {
@@ -23,8 +25,26 @@ class OrderProductController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request->all());
+        $orderData = new ProductOrder;
+        $user_id = Auth::user()->id;
+        // dd($user_id);
+        // dd($request->all());
+        if(Auth::user()){
+            for($i = 0; $i<sizeof($request->id); $i++) {
+                $orderData = array (
+                    'product_id' => $request->id[$i],
+                    'user_id' => $user_id,
+                    'phone_number' => $request->phoneNumber,
+                    'location' => $request->location,
+                    'email' => $request->email,
+                    'message' => $request->message,
+                );
+                ProductOrder::insert($orderData);
+            }
+        }
+
     }
+
 
     /**
      * Store a newly created resource in storage.

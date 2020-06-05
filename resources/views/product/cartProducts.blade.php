@@ -33,6 +33,18 @@
   flex-direction: column;
 }
 
+.wishlist {
+  width: 750px;
+  height: 423px;
+  margin: 80px auto;
+  background: #FFFFFF;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   height: 60px;
   border-bottom: 1px solid #E1E8EE;
@@ -205,14 +217,20 @@ input:focus {
       <!-- Title -->
       <div class="title">   
       </div>
+      <h3>Cart Items</h3>
+      @if(count($products) > 0)
       <!-- Product #3 -->
       <form method="post" action="{{url('order/product')}}">
         @csrf
       @foreach($products as $product)
       <input type="hidden" name="id[]" value="{{$product->id}}">
+      <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
         <div class="buttons">
          <a href = "{{url('/delete/cart/product/'.$product->id)}}"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <div class="buttons">
+         <a href = "{{url('cart/wishlist/'.$product->id)}}">add to wishlist</a>
         </div>
         <div class="image">
           <img src="{{ URL::asset('uploads/products/'.$product->image)}}" style="width: 110px; height: 80px" alt="{{$product->image}}">
@@ -238,8 +256,64 @@ input:focus {
       <div style="width:100%">
         <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs </h3>
       </div>
-      <input type="submit" name="" value="ORDER"><button type="button" class="btn btn-primary btn-lg" style="width: 100%; height: 12%;margin-top: 3%"></button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <h3>Order Information</h3>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Phone Number</label>
+            <input type="text" name="phoneNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Location</label>
+            <input type="text" name = "location" class="form-control" id="exampleInputPassword1" placeholder="Location">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="email" name = "email" class="form-control" id="exampleInputPassword1" placeholder="@email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Message</label>
+            <input type="text" name = "message" class="form-control" id="exampleInputPassword1" placeholder="Message">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Order</button>
+
+    </div>
+  </div>
+</div>
       </form>
+      @else
+      <h4>No Items in Cart!!</h4>
+      @endif
+  </div>
+  
+  <div class="wishlist">
+    <h3>Wish List Items</h3>
+    @if(count($wishlist) > 0)
+    @foreach($wishlist as $wishData)
+      <div class="item">
+        <div class="buttons">
+         <a href = "{{url('addToCart/wishlist/'.$wishData->id)}}">Add to Cart</a>
+        </div>
+        <div class="image">
+          <img src="{{ URL::asset('uploads/products/'.$wishData->image)}}" style="width: 110px; height: 80px" alt="No Image Found">
+        </div>
+
+        <div class="description">
+          <span>{{$wishData->name}}</span>
+          <span>Rs {{$wishData->price}}</span>
+        </div>
+        
+      </div>
+        @endforeach
+        @else
+        <h4>No Items in Wishlist!!</h4>
+        @endif
   </div>
 @include('include.footer')
 
@@ -260,6 +334,7 @@ input:focus {
             success:function(response) {
               document.getElementById('totalPrice{{$product->id}}').innerHTML = response.quantity * response.price;
               document.getElementById('qty{{$product->id}}').innerHTML = "Quantity: " +response.quantity;
+              console.log(response);
 
               // var sum = 0;
               // for(var i = 0; i<=response.length; i++) {

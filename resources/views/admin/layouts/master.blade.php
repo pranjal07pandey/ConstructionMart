@@ -55,7 +55,7 @@
             </a>
           </li>
           <li class="{{ 'products'== request()->path() ? 'active' :'' }}">
-            <a href="/show/admin/products">
+            <a href="product-index">
               <i class="now-ui-icons education_atom"></i>
               <p>Products</p>
             </a>
