@@ -76,7 +76,7 @@
         </div>
 
         <div class="form-group"> 
-          <label><i class="fa fa-institution"></i> {{__('customlang.Location')}} </label>                        
+          <label><i class="fa fa-institution"></i> {{__('customlang.Delivery Location')}} </label>                        
           <input type="text" placeholder="enter your location" class="form-control" name="location" required>
         </div>
       

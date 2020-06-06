@@ -119,6 +119,15 @@ Home
                     @endif
                 </div>
 
+                <div class="card-body">
+                  @if (session('success'))
+                      <div class="alert alert-success alert-dismissible" role="alert">
+                        <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          {{ session('success') }}
+                      </div>
+                  @endif
+              </div>
+
                 <div class="row">
                     <div class="col-md-12">
                       <div class="card">

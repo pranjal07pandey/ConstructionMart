@@ -7,19 +7,14 @@
             <div class="card">
                 <div class="card-header">{{ __('customlang.Register') }}</div>
 
-            {{-- <p>{{__('customlang.chooselang')}}</p>
-            <div class="links">
-                <a href="lang/en">EN</a>
-                <a href="lang/np">NP</a>
-
-            </div> --}}
+            
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('customlang.Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right"> {{ __('customlang.Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -51,7 +46,6 @@
 
                             <div class="col-md-6">
                                 <select name="registered_as" id="registered_as" class="form-control">
-                                    <option value="null"></option>
                                     <option value="customer">Customer</option>
                                     <option value="vendor">Vendor</option>
                                     <option value="service_manager">Service manager</option>

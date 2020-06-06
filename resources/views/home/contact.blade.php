@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <title>Construction Mart</title>
     
-    @include('include.css')
+    @include('include.css') 
  
 
   </head>

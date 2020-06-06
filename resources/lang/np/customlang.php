@@ -55,7 +55,7 @@ return [
     'Ordered service' => 'अर्डर गरिएको सेवा',
     'Name' => 'नाम',
     'Phone' => 'फोन नम्बर',
-    'Location' => 'स्थान',
+    'Delivery Location' => 'वितरण स्थान',
     'Email' => 'ईमेल',
     'State your problem' => 'तपाईको समस्या बताउनुहोस्',
     'insert image' => 'फोटो राख्नुहोस्',

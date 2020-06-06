@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderService;
 use Illuminate\Http\Request;
 use App\Service;
 use App\ServiceCategory;
@@ -49,6 +50,14 @@ class OrderServiceController extends Controller
         //     'location'=> 'required',
         //     'message'=>'required',
         // ]);
+        $data = request()->validate([
+            'service' =>'required',
+            'name' =>'required',
+            'phone' =>'required',
+            'email'=> 'nullable|email',
+            'location' =>'required',
+            'message' => 'nullable',
+        ]);
 
         $order = new Order;
         $order->service = $request->input('service');
@@ -60,12 +69,11 @@ class OrderServiceController extends Controller
         $order->message = $request->input('message');
 
         Auth::user()->orderService()->save($order);
-        // $order->save();
-        return redirect('/home')->with('success', 'order palced');
 
+        //uncomment to activate email send
+        // Mail::to('pranjalpandey92@gmail.com')->send(new OrderService($data));
 
-
-
+        return redirect('/home')->with('success', 'Order palced, we will contact you shortly');
 
 
     }

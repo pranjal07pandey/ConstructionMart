@@ -53,7 +53,7 @@ return [
     'Ordered service' => 'Ordered service',
     'Name' => 'Name',
     'Phone' => 'Phone',
-    'Location' => 'Location',
+    'Delivery Location' => 'Delivery Location',
     'Email' => 'Email',
     'State your problem' => 'State your problem',
     'insert image' => 'insert image',
