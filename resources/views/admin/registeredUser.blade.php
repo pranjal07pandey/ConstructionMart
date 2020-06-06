@@ -24,7 +24,12 @@ Registered roles
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>Name</th>
+              <th>
+                {{-- <a href="user-profile/{{$users->id}}"> --}}
+                  Name
+                
+              </th>
+              
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Registered As</th>
@@ -41,7 +46,7 @@ Registered roles
                   
 
                 <tr>
-                    <td>{{$row->name}} </td>
+                    <td><a href="user-profile/{{$row->id}}">{{$row->name}}</a> </td>
                     <td>{{$row->phone}}</td>
                     <td>{{$row->email}}</td>
                     <td>{{$row->registered_as}}</td>

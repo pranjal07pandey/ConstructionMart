@@ -39,7 +39,7 @@ Show Services
                     
                 @endforeach
             </div>
-<u><a href="/services-categories/create" >+Add new category</a></u>
+<u><a href="/service-cat-manager-create" >+Add new category</a></u>
     {{-- <small>Added on {{$service->created_at}}</small> --}}
 
 <br>

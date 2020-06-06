@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\ServiceCategory;
 use App\Service;
+use App\ServiceCategory;
+use App\User;
 use Auth;
 
-class ServiceCategoryController extends Controller
+class ServiceManagerCatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,9 @@ class ServiceCategoryController extends Controller
      */
     public function index()
     {
-        $category = ServiceCategory::orderBy('created_at','desc')->paginate(10);
-        return view('services.category.index')->with('category', $category);
+        
+        $category = Auth::user()->addServiceCat;
+        return view('admin.service-manager.service-categories.index')->with('category',$category);
     }
 
     /**
@@ -27,8 +30,8 @@ class ServiceCategoryController extends Controller
      */
     public function create()
     {
-        $services = Service::all();
-        return view('services.category.create')->with('services',$services);
+        $services = Auth::user()->addService;
+        return view('admin.service-manager.service-categories.create')->with('services',$services);
 
     }
 
@@ -48,9 +51,10 @@ class ServiceCategoryController extends Controller
         $category = new ServiceCategory;
         $category->cat_title = $request->input('cat_title');
         $category->service_id = $request->input('service_id');
+        // $category->save();
         Auth::user()->addServiceCat()->save($category);
-        
-        return redirect('/services')->with('success', 'category Added');
+        return redirect('/service-manager-index');
+
     }
 
     /**
@@ -61,8 +65,7 @@ class ServiceCategoryController extends Controller
      */
     public function show($id)
     {
-        $category =  ServiceCategory::find($id);
-        return view('services.category.show')->with('category', $category);
+        
     }
 
     /**
@@ -73,8 +76,7 @@ class ServiceCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category =  ServiceCategory::find($id);
-        return view('services.category.edit')->with('category', $category);
+        //
     }
 
     /**

@@ -54,4 +54,9 @@ class User extends Authenticatable
     public function orders() {
         return $this->hasMany('App\ProductOrder');
     }
+
+    public function addServiceCat(){
+        return $this->hasMany('App\ServiceCategory');
+    }
+
 }

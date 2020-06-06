@@ -47,8 +47,8 @@
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
                                             <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
-                                                
-                                            <h3>Description:
+                                              <h3>
+                                              {{__('customlang.Description')}}
                                               {{$service->description}}</h3>
                                                 
 
@@ -56,7 +56,10 @@
                                             </div>
 
                                             <div class="col-md-4 col-sm-4">
-                                            <b>Available Categories: (select to order)</b>
+                                            <b>
+                                              {{__('customlang.Available Categories: (select to order)')}}
+
+                                            </b>
 
                                             @foreach ($service->serviceCategories as $category)
                                             <ul class="list-group">

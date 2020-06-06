@@ -61,13 +61,13 @@
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group"> 
-                           <label for="name">Name:</label>                       
+                           <label for="name">{{__('customlang.Name')}}</label>                       
                            <input type="text" placeholder="Your Name" class="form-control" name="name">
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group"> 
-                          <label for="email">Email:</label>                       
+                          <label for="email">{{__('customlang.Email')}}</label>                       
 
                            <input type="email" placeholder="if you want.." class="form-control" name="email">
                          </div>
@@ -76,14 +76,14 @@
                       <div class="row">
                        <div class="col-md-6">
                          <div class="form-group"> 
-                          <label for="subject">Subject:</label>                       
+                          <label for="subject">{{__('customlang.Subject')}}</label>                       
 
                            <input type="text" placeholder="your enquiry about?" class="form-control" name="subject">
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
-                          <label for="phone">Phone Number:</label>                       
+                          <label for="phone">{{__('customlang.Phone-Number')}}</label>                       
 
                            <input type="text" placeholder="your number" class="form-control" name="phone">
                          </div>
@@ -91,11 +91,11 @@
                      </div>                  
                       
                      <div class="form-group"> 
-                      <label for="msg">Your message:</label>                       
+                      <label for="msg">{{__('customlang.Your Message')}}</label>                       
 
                        <textarea class="form-control" rows="3" placeholder="write what you want us to do..." name="msg"></textarea>
                      </div>
-                     <button type="submit" class="aa-secondary-btn">Send Message</button>
+                     <button type="submit" class="aa-secondary-btn">{{__('customlang.Send Message')}}</button>
                    </form>
                   </div>
                 </div>

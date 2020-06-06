@@ -1,4 +1,8 @@
 @extends('admin.layouts.master')
+
+
+
+
 @section('title')
 
 Product Index
@@ -20,6 +24,7 @@ Product Index
                 <br>
 
                     <div class="card-body">
+                      {{$prodData}}
                   
                                 @if(count($prodData)>0)
 

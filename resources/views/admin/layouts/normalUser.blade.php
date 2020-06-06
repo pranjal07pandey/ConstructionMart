@@ -22,48 +22,27 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="blue">
+    <div class="sidebar" data-color="green">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="/dashboard" class="simple-text logo-mini">
+        <a href="/" class="simple-text logo-mini">
           CM
         </a>
-        <a href="/dashboard" class="simple-text logo-normal">
+        <a href="/" class="simple-text logo-normal">
           Contruction Mart
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="{{ 'dashboard'== request()->path() ? 'active' :'' }}">
-            <a href="/sm-dashboard">
+            <a href="/home">
               <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+              <p>Home</p>
             </a>
           </li>
-          <li class="{{ 'services'== request()->path() ? 'active' :'' }}">
-            <a href="/service-manager-index">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Services</p>
-            </a>
-          </li>
-          <li class="{{ 'services-categories'== request()->path() ? 'active' :'' }}">
-            <a href="/service-cat-manager-index">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Services Categories</p>
-            </a>
-          </li>
-
-{{--         
-          <li class="{{ 'role-register'== request()->path() ? 'active' :'' }}">
-            <a href="/role-register">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li> --}}
-  
-
+        
         </ul>
       </div>
     </div>

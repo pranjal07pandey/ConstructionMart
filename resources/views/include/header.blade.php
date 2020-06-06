@@ -1,5 +1,6 @@
   <!-- Start header section -->
   <header id="aa-header">
+
     <!-- start header top  -->
     {{-- <div class="aa-header-top">
       <div class="container">
@@ -8,40 +9,51 @@
             <div class="aa-header-top-area">
               <!-- start header top left -->
               <div class="aa-header-top-left">
-
-                <!-- start currency -->
-                <div class="aa-currency">
+                <!-- start language -->
+                <div class="aa-language">
                   <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class="fa fa-inr"></i>NPR
+                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      {{__('customlang.भाषा')}}
+                      <span class="caret"></span>
                     </a>
-
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="lang/np"><img src="{{ asset('frontEnd') }}/img/flag/nepal.png" alt=""> नेपाली</a></li>
+                      <li><a href="lang/en"><img src="{{ asset('frontEnd') }}/img/flag/english.jpg" alt=""> ENG</a></li>
+                    </ul>
                   </div>
                 </div>
+                <!-- / language -->
+
+                <!-- start currency -->
+                
                 <!-- / currency -->
                 <!-- start cellphone -->
                 <div class="cellphone hidden-xs">
-                  <p><span class="fa fa-phone"></span>+977-9819173663</p>
+                  <p><span class="fa fa-phone"></span>00-62-658-658</p>
                 </div>
                 <!-- / cellphone -->
               </div>
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-<!--                  <li><a href="account.html">My Account</a></li>-->
-<!--                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
-                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="/login">Login</a></li>
-                  <li class="hidden-xs">Email: abc@gmail.com</li>
-
+                  <li><a href="/home">{{__('customlang.My Account')}}</a></li>
+                  <li class="hidden-xs"><a href="wishlist.html">{{__('customlang.Wishlist')}}</a></li>
+                  {{-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li> --}}
+                  {{-- <li class="hidden-xs"><a href="checkout.html">Checkout</a></li> --}}
+                  <li>
+                    <a href="/login">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        <span class="aa-cart-title">{{__('customlang.Login')}}</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
+
     <!-- / header top  -->
 
     <!-- start header bottom  -->
@@ -55,12 +67,29 @@
                 <!-- Text based logo -->
                 <a href="/">
                   <span class="fa fa-home"></span>
-                  <p>Construction<strong>Mart</strong> <span>Your Construction Guide</span></p>
+                <p>Construction<strong>Mart</strong> <span>{{__('customlang.Your Construction Guide')}}</span></p>
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
-              <!-- / logo  -->
+              
+
+              
+
+              <div class="aa-cartbox">
+                
+              </div>
+
+              
+              {{-- <div class="aa-cartbox">
+               
+                <a href="/login" class="aa-cart-link">
+                  <span class="glyphicon glyphicon-log-in"></span>
+                <span class="aa-cart-title">{{__('customlang.Login')}}</span>
+              
+                </a>
+
+              </div> --}}
 
               <div class="aa-cartbox">
                
@@ -78,16 +107,19 @@
                 <div class="aa-cartbox">
                     <a class="aa-cart-link" href="{{url('show/cart/products')}}">
                         <span class="fa fa-shopping-basket"></span>
-                        <span class="aa-cart-title">SHOPPING CART</span>
-                        <span class="aa-cart-notify">2</span>
+                        <span class="aa-cart-title">{{__('customlang.MY CART')}}</span>
+                        {{-- <span class="aa-cart-notify">2</span> --}}
                     </a>
                     
                 </div>
 
+                
+                
+
                
                 
                 <!-- / cart box -->
-
+               
               <!-- search box -->
               <div class="aa-search-box">
                 <form action="{{url('search/product')}}">
@@ -95,12 +127,22 @@
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>
+
+              
               <!-- / search box -->             
             </div>
+
+            
           </div>
+
+          
+
         </div>
+        
       </div>
     </div>
+
+    
     <!-- / header bottom  -->
   </header>
 
@@ -123,7 +165,7 @@
             <!-- Left nav -->
            <ul class="nav navbar-nav">
               {{-- <li><a href="index.html">Home</a></li> --}}
-              <li><a href="/product">Products<span class="caret"></span></a>
+              <li><a href="/product">{{__('customlang.Products')}}<span class="caret"></span></a>
                 <ul class="dropdown-menu"> 
                 @foreach($shareData as $datas)              
                   <li><a href="{{url('show/cat/products/'.$datas->id)}}">{{$datas->category_name}}<span class="caret"></span></a>
@@ -138,7 +180,7 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="#">Services<span class="caret"></span></a>
+              <li><a href="#">{{__('customlang.Services')}}<span class="caret"></span></a>
                 <ul class="dropdown-menu">  
                   <li><a href="#">Construction<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -187,7 +229,7 @@
 
               {{-- <li><a href="#">About Us</a></li>
                --}}
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/contact">{{__('customlang.Contact')}}</a></li>
 
             
           </div><!--/.nav-collapse -->

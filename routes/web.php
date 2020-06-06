@@ -32,11 +32,6 @@ Route::post('/contact', 'ContactFormController@store');
 
 
 
-// Route::get('/services', 'ServicesController@index');
-// Route::post('/services-add', 'ServicesController@create');
-// Route::post('/services-store', 'ServicesController@store');
-
-
 
 Route::group(['middleware'=>['auth', 'admin']], function(){
 
@@ -51,6 +46,9 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
     Route::get('/role-edit/{id}', 'Admin\DashboardController@registerEdit');
     Route::post('/role-update/{id}', 'Admin\DashboardController@registerUpdate');
     Route::post('/role-delete/{id}', 'Admin\DashboardController@registerDelete');
+    
+    //user profile
+    Route::get('/user-profile/{id}','Admin\DashboardController@viewUserProfile');
 
     Route::get('/services-categories/edit/{id}','ServiceCategoryController@edit');
 
@@ -62,6 +60,9 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
 
 
+
+    Route::get('/order-details/{id}','Admin\DashboardController@orderDetails');
+    Route::post('/order-details/{id}','Admin\DashboardController@checkDelivered');
 
 
 });
@@ -78,10 +79,29 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::post('/service-manager-update/{id}', 'ServiceManagerController@update');
 
     
+    // routes for vendor service categories
+    Route::get('/service-cat-manager-index','ServiceManagerCatController@index');
+    Route::get('/service-cat-manager-create','ServiceManagerCatController@create');
+    Route::post('/service-cat-manager-addCategory','ServiceManagerCatController@store');
+
+
+
+
+    
 
 });
 
 
+//multi language
+
+Route::get('/lang/{locale}', function($locale){
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
+
+
+
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
@@ -105,7 +125,7 @@ Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 
 Route::post('order/product', 'OrderProductController@create');
 
-Route::get('/product-index', 'ProductController@productIndex');
+Route::get('product/index', 'ProductController@productIndex');
 
 // Product Admin
 Route::group(['middleware'=>['auth', 'productManager']], function(){
@@ -119,3 +139,7 @@ Route::group(['middleware'=>['auth', 'productManager']], function(){
 });
 
 Auth::routes(['verify' => true]);
+Route::get('/product-index', function(){
+    return view('product.index');
+
+});

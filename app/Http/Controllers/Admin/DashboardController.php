@@ -77,7 +77,15 @@ class DashboardController extends Controller
     public function smDashboard(){
         $orders = Auth::user('created_at','desc')->orderservice;
         // $orders = Order::orderBy('created_at','desc')->paginate(7);
+        // $orders = Auth::user('created_at','desc')->orderservice;
+        $orders = Order::orderBy('created_at','desc')->paginate(7);
         return view('admin.service-manager.smDashboard')->with('orders', $orders);
 
+    }
+
+    //view user profile
+    public function viewUserProfile($id){
+        $user = User::findOrFail($id);
+        return view('admin.userprofile')->with('user',$user);
     }
 }
