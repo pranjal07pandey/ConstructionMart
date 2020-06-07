@@ -11,7 +11,8 @@ class FrontController extends Controller
 {
     public function index(){
          $cat = ProductCategory::get();
-        return view('home.index', ['data' => $cat]);
+         $products = Product::paginate(8);
+        return view('home.index', ['data' => $cat, 'products' => $products]);
     }
     
     public function contact(){

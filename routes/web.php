@@ -126,7 +126,7 @@ Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 Route::post('order/product', 'OrderProductController@create');
 Route::any('order/index', 'OrderProductController@index');
 
-
+Route::get('product/index', 'ProductController@productIndex');
 Route::any('view-products/{id}', 'ProductController@productDetails');
 
 // Product Admin

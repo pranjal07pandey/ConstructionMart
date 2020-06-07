@@ -148,116 +148,33 @@
                   <!-- Tab panes -->
                   <div class="tab-content">
                     <!-- Start men product category -->
+
                     <div class="tab-pane fade in active" id="men">
+                      
+                      <ul class="aa-product-catg">
+<div class="tab-pane fade in active" id="men">
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
+                        @foreach($products as $datas)
                         <li>
                           <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/csection.jpg" style="width: 250px; height: 300px" alt="polo shirt img" ></a>
-                              <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
+                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                              <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
-                              <h4 class="aa-product-title"><a href="#">C-Section</a></h4>
-                              <span class="aa-product-price">Rs. 140/pc</span>
+                              <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
+                              <span class="aa-product-price">Rs {{$datas->price}}</span>
                             </figcaption>
                           </figure>                        
 <!--                          -->
                           <!-- product badge -->
 <!--                          <span class="aa-badge aa-sale" href="#">SALE!</span>-->
                         </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/stud.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                                <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
-                             <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Stud</a></h4>
-                              <span class="aa-product-price">Rs. 180/pc</span>
-                            </figcaption>
-                          </figure>                         
-
-                          <!-- product badge -->
-
-                        </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/gypsumboard.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span></a>
-                             <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Gypsum Board</a></h4>
-                              <span class="aa-product-price">Rs. 32/sq.ft</span>
-                            </figcaption>
-                          </figure>                         
-
-                        </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/any.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Cement Board</a></h4>
-                              <span class="aa-product-price">Rs. 34/sq.ft</span>
-                            </figcaption>
-                          </figure>                          
-
-                          <!-- product badge -->
-<!--                          <span class="aa-badge aa-hot" href="#">HOT!</span>-->
-                        </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/cornice.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Cornice</a></h4>
-                              <span class="aa-product-price">Rs. 170/pc</span>
-                            </figcaption>
-                          </figure>                          
-
-                        </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/plug.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Rawl Plug</a></h4>
-                              <span class="aa-product-price">Rs. 11/pc</span>
-                            </figcaption>
-                          </figure>                          
-
-                        </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/screw.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Screw</a></h4>
-                              <span class="aa-product-price">Rs. 350/box</span>
-                            </figcaption>
-                          </figure>                          
-
-                          <!-- product badge -->
-<!--                          <span class="aa-badge aa-sale" href="#">SALE!</span>-->
-                        </li>
-                        <!-- start single product item -->
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ asset('frontEnd') }}/img/products/inter.jpg" style="width: 250px; height: 300px" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#">Inter</a></h4>
-                              <span class="aa-product-price">Rs. 110/pc</span>
-                            </figcaption>
-                          </figure>                         
-
-                          <!-- product badge -->
-
-                        </li>                        
+                        @endforeach
                       </ul>
-                      <a class="aa-browse-btn" href="#">{{__('customlang.Browse all Product')}} <span class="fa fa-long-arrow-right"></span></a>
+                    </div>  
+                      </ul>
+                      
+                      <a class="aa-browse-btn" href="other/products">{{__('customlang.Browse all Product')}} <span class="fa fa-long-arrow-right"></span></a>
                     </div>
                     <!-- / men product category -->
                     
