@@ -16,4 +16,12 @@ class Product extends Model
     public function productSubCategory() {
     	return $this->belongsTo('App\ProductSubCategory');
     }
+
+    public function unit() {
+    	return $this->hasOne('App\Unit');
+    }
+
+    public function orders() {
+        return $this->hasMany('App\ProductOrder');
+    }
 }

@@ -54,6 +54,12 @@
               <p>Services Categories</p>
             </a>
           </li>
+          <li class="{{ 'products'== request()->path() ? 'active' :'' }}">
+            <a href="{{url('product/index')}}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Products</p>
+            </a>
+          </li>
         
           <li class="{{ 'role-register'== request()->path() ? 'active' :'' }}">
             <a href="/role-register">

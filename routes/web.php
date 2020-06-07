@@ -52,6 +52,15 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
     Route::get('/services-categories/edit/{id}','ServiceCategoryController@edit');
 
+    // Route::get('/user-viewProfile/{id}', 'HomeController@viewProfile');
+
+    Route::get('/order-details/{id}','Admin\DashboardController@orderDetails');
+    Route::post('/order-details/{id}','Admin\DashboardController@checkDelivered');
+
+
+
+
+
     Route::get('/order-details/{id}','Admin\DashboardController@orderDetails');
     Route::post('/order-details/{id}','Admin\DashboardController@checkDelivered');
 
@@ -97,10 +106,6 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 //Products
-Route::any('product', 'ProductController@index');
-
-Route::post('add/product', 'ProductController@store');
-
 //throws product of matching product_sub_category_id
 Route::any('show/sub/cat/products/{id}', 'ProductController@subCatProducts');
 //throws product of matching product_category_id
@@ -108,12 +113,32 @@ Route::any('/show/cat/products/{id}', 'ProductController@catProducts');
 //throws other products
 Route::any('/other/products', 'ProductController@allProducts');
 //search products
-Route::post('search/product', 'ProductController@search');
+Route::any('search/product', 'ProductController@search');
 
 //Cart
 Route::any('add/to/cart/{id}','ProductController@cart');
 Route::any('show/cart/products', 'ProductController@showCart');
+Route::any('delete/cart/product/{id}', 'ProductController@removeCart');
+Route::get('/cart/update', 'ProductController@updateCart');
+Route::any('cart/wishlist/{id}', 'ProductController@wishlistCart');
+Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 
+Route::post('order/product', 'OrderProductController@create');
+
+Route::get('product/index', 'ProductController@productIndex');
+
+// Product Admin
+Route::group(['middleware'=>['auth', 'productManager']], function(){
+    Route::any('product', 'ProductController@index')->middleware('auth');
+    Route::any('delete/product/{id}', 'ProductController@destroy');
+    Route::post('add/product', 'ProductController@store');
+    Route::get('show/admin/products', 'ProductController@adminProducts');
+    Route::any('edit/product/{id}', 'ProductController@edit');
+    Route::any('update/product/{product_id}/{category_id}/{subcategory_id}/{unit_id}', 'ProductController@update');
+
+});
+
+Auth::routes(['verify' => true]);
 Route::get('/product-index', function(){
     return view('product.index');
 

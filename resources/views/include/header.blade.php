@@ -2,7 +2,7 @@
   <header id="aa-header">
 
     <!-- start header top  -->
-    <div class="aa-header-top">
+    {{-- <div class="aa-header-top">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -91,6 +91,18 @@
 
               </div> --}}
 
+              <div class="aa-cartbox">
+               
+                <a href="/login" class="aa-cart-link">
+                  <span class="glyphicon glyphicon-log-in"></span>
+                  <span class="aa-cart-title">LOG IN</span>
+
+                  {{-- <span>Log in</span> --}}
+              
+                </a>
+
+              </div>
+
                 <!-- cart box -->
                 <div class="aa-cartbox">
                     <a class="aa-cart-link" href="{{url('show/cart/products')}}">
@@ -110,8 +122,8 @@
                
               <!-- search box -->
               <div class="aa-search-box">
-                <form action="">
-                <input type="text" name=""  placeholder="Search here ex. 'Gypsum'">
+                <form action="{{url('search/product')}}">
+                  <input type="text" name="search"  placeholder="Search here ex. 'gypsum' ">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>

@@ -45,8 +45,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Order');
     }
 
+    public function searches() {
+        return $this->hasMany('App\SearchHistory');
+    }
     public function addService(){
         return $this->hasMany('App\Service');
+    }
+    public function orders() {
+        return $this->hasMany('App\ProductOrder');
     }
 
     public function addServiceCat(){

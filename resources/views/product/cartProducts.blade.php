@@ -33,6 +33,18 @@
   flex-direction: column;
 }
 
+.wishlist {
+  width: 750px;
+  height: 423px;
+  margin: 80px auto;
+  background: #FFFFFF;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   height: 60px;
   border-bottom: 1px solid #E1E8EE;
@@ -205,65 +217,114 @@ input:focus {
       <!-- Title -->
       <div class="title">   
       </div>
+      <h3>Cart Items</h3>
+      @if(count($products) > 0)
       <!-- Product #3 -->
-      <input type="hidden" name="" id = "count" value="{{$count}}">
+      <form method="post" action="{{url('order/product')}}">
+        @csrf
       @foreach($products as $product)
+      <input type="hidden" name="id[]" value="{{$product->id}}">
+      <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
         <div class="buttons">
-         <span class="glyphicon glyphicon-remove"></span>
+          <a href = "{{url('cart/wishlist/'.$product->id)}}">add to wishlist</a><br><br>
+         <a href = "{{url('/delete/cart/product/'.$product->id)}}"><span class="glyphicon glyphicon-trash"></span></a>
         </div>
+
         <div class="image">
-          <img src="{{ URL::asset('uploads/products/'.$product['item']['image'])}}" style="width: 110px; height: 80px" alt="polo shirt img">
+          <img src="{{ URL::asset('uploads/products/'.$product->image)}}" style="width: 110px; height: 80px" alt="{{$product->image}}">
         </div>
 
         <div class="description">
-          <span>{{$product['item']['product_name']}}</span>
-          <span id = "qty">Quantity: {{$product['qty']}}</span>
-          <span>Rs {{$product['item']['price']}}</span>
-          <input type="hidden" name="" id="price{{$product['item']['id']}}" value=" {{$product['item']['price']}}">
+          <span>{{$product->name}}</span>
+          <span id = "qty{{$product->id}}">Quantity: {{$product->quantity}}</span>
+          <span>Rs {{$product->price}}</span>
+          <input type="hidden" name="price[]" id="price{{$product->id}}" value=" {{$product->price}}">
         </div>
 
         <div class="quantity">
-          <button class="plus-btn" type="button" name="button" onclick="calcPricePlus()">
-            <span class="glyphicon glyphicon-plus"></span> 
-          </button>
-          <input type="text" name="name" value="{{$product['qty']}}">
-          <input type="hidden"  id = "totalQuantity{{$product['item']['id']}}" value="{{$product['qty']}}">
-          <button class="minus-btn" type="button" name="button" onclick="calcPriceMinus()">
-               <span class="glyphicon glyphicon-minus"></span> 
-          </button>
+
+ 
+          <input type="number" name="quantity[]" value="{{$product->quantity}}" id = "totalQuantity{{$product->id}}">
+        
         </div>
 
-        <div class="total-price" id = "totalPrice{{$product['item']['id']}}">{{$product['price']}}</div>
+        <div class="total-price" id = "totalPrice{{$product->id}}">{{$product->price}}</div>
       </div>
       @endforeach
-      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; height: 12%;margin-top: 3%">ORDER</button>
+      <div style="width:100%">
+        <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs </h3>
+        <button type="button" class="btn btn-success" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%">Checkout</button>    
+      </div>     
+      </div>
+      <div>
+      </div>
+
+     </div>
+      </form>
+      @else
+      <h4>No Items in Cart!!</h4>
+      @endif
+  </div>
+  
+  <div class="wishlist">
+    <h3>Wish List Items</h3>
+    @if(count($wishlist) > 0)
+    @foreach($wishlist as $wishData)
+      <div class="item">
+        <div class="buttons">
+         <a href = "{{url('addToCart/wishlist/'.$wishData->id)}}">Add to Cart</a>
+        </div>
+        <div class="image">
+          <img src="{{ URL::asset('uploads/products/'.$wishData->image)}}" style="width: 110px; height: 80px" alt="No Image Found">
+        </div>
+
+        <div class="description">
+          <span>{{$wishData->name}}</span>
+          <span>Rs {{$wishData->price}}</span>
+        </div>
+        
+      </div>
+        @endforeach
+        @else
+        <h4>No Items in Wishlist!!</h4>
+        @endif
   </div>
 @include('include.footer')
 
 </body>
 </html>
     <script type="text/javascript">
-      function calcPricePlus() {
-        // var i = document.getElementById('count').value;
-        // for(i = 0; i<=3; i++) {
-          var qty = parseInt(document.getElementById('totalQuantity1').value);
-          var price = parseInt(document.getElementById('price1').value);
-          // console.log(typeof(qty));
-          var result = (qty + 1) * price;
-          // console.log(result);
-          document.getElementById("totalPrice1").innerHTML = result;
+     $(document).ready(function() {
+        @foreach($products as $product)
+        $("#totalQuantity{{$product->id}}").on('change keyup', function() {
+        // alert("akd");
+          var quantity = $("#totalQuantity{{$product->id}}").val();
+          var price = $("#price{{$product->id}}").val();
+          // console.log(quantity);
+          $.ajax({
+            url: "{{url('/cart/update')}}",
+            data: 'quantity=' + quantity + "&price=" + price,
+            type: 'get',
+            success:function(response) {
+              document.getElementById('totalPrice{{$product->id}}').innerHTML = response.quantity * response.price;
+              document.getElementById('qty{{$product->id}}').innerHTML = "Quantity: " +response.quantity;
+              console.log(response);
 
-        }  
-      // }  
-      function calcPriceMinus() {
-        var qty = document.getElementById('totalQuantity1').value;
-        var price = parseInt(document.getElementById('price1').value);
-        // console.log(typeof(qty));
-        var result = (qty - 1) * price;
-        document.getElementById("totalPrice1").innerHTML = result;
-      }  
-      $('.minus-btn').on('click', function(e) {
+              // var sum = 0;
+              // for(var i = 0; i<=response.length; i++) {
+              //   sum = sum + (response.quantity * response.price);
+              // }
+              // document.getElementById('total').innerHTML = sum;
+
+            }
+          });
+        });
+        @endforeach
+
+      
+  
+    $('.minus-btn').on('click', function(e) {
         e.preventDefault();
         var $this = $(this);
         var $input = $this.closest('div').find('input');
@@ -297,6 +358,5 @@ input:focus {
       $('.like-btn').on('click', function() {
         $(this).toggleClass('is-active');
       });
+    });
     </script>
-  </body>
-</html>

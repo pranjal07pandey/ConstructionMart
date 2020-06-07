@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Order;
+use App\ProductOrder;
 use Auth;
 
 
@@ -15,7 +16,9 @@ class DashboardController extends Controller
 
     public function index(){
         $orders = Order::orderBy('created_at','desc')->paginate(7);
-        return view('admin.dashboard')->with('orders', $orders);
+        $productOrders = ProductOrder::paginate(7);
+        return view('admin.dashboard', ['orders' => $orders, 'productOrders' => 
+            $productOrders]);
 
     }
 
@@ -72,6 +75,8 @@ class DashboardController extends Controller
     
     //Service manager
     public function smDashboard(){
+        $orders = Auth::user('created_at','desc')->orderservice;
+        // $orders = Order::orderBy('created_at','desc')->paginate(7);
         // $orders = Auth::user('created_at','desc')->orderservice;
         $orders = Order::orderBy('created_at','desc')->paginate(7);
         return view('admin.service-manager.smDashboard')->with('orders', $orders);
