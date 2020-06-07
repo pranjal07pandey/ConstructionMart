@@ -136,20 +136,20 @@ class ProductController extends Controller
 
     //throws category matchng product to view showProduct
     public function catProducts($id) {
-        $data = Product::where('product_category_id', $id)->orderBy('created_at')
+        $data = Product::where('product_category_id', $id)->orderBy('created_at', 'desc')
         ->get();
         return view('product.showProduct', ['data' => $data]);
     }
     //throws other products
     public function allProducts() {
-        $data = Product::all();
+        $data = Product::orderBy('created_at', 'desc')->paginate(16);
         return view('product.showProduct', ['data' => $data]);
     }
 
     //search product
     public function search(Request $request) {
         $searchData = new SearchHistory;
-          if(Auth::user()) {
+          if(Auth::user() && $request->search) {
             $user_id = Auth::user()->id;
             $searchData->search = $request->search;
             $searchData->user_id = $user_id;
@@ -158,13 +158,13 @@ class ProductController extends Controller
 
         $searchData = $request->search;
         // dd($searchData);
-        $data = Product::where('product_name', 'LIKE', $searchData.'%')->get();
+        $data = Product::where('product_name', 'LIKE', $searchData.'%')->paginate(5);
         // dd($data);
         if($data) {
-            return view('product.showProduct', ['data' => $data]);
+            return view('product.searchData', ['prodDetails' => $data]);
         }
         else {
-            return View::make('product.showProduct')->with('msg', 'no carpet found');
+            return View::make('product.searchData')->with('msg', 'no carpet found');
         }
 
 
@@ -212,11 +212,11 @@ class ProductController extends Controller
 
 
     public function showCart() {
-
+        $recommendProd = Product::paginate(4);
         $cartData = Cart::getContent();
         $wishlist = app('wishlist');
         $wishlistData = $wishlist->getContent();
-        return view('product.cartProducts', ['products' => $cartData, 'wishlist' => $wishlistData]);
+        return view('product.cartProducts', ['products' => $cartData, 'wishlist' => $wishlistData, 'recommendProd' => $recommendProd]);
 
         // if(!Session::has('cart')) {
         //     return view('include.header', ['products' => null]);
@@ -367,6 +367,11 @@ class ProductController extends Controller
         $data->save();
         return redirect()->back();
         
+    }
+    //product Details
+    public function productDetails($id) {
+        $prodDetails = Product::find($id);
+        return view('home.productDetails', ['prodDetails' => $prodDetails]);
     }
 
     /**

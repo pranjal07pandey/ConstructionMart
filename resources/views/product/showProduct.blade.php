@@ -45,7 +45,7 @@
                         @foreach($data as $datas)
                         <li>
                           <figure>
-                            <a class="aa-product-img" href="#"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
                               <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
@@ -58,8 +58,9 @@
                         </li>
                         @endforeach
                       </ul>
-                      <a class="aa-browse-btn" href="#">Browse all Product <span class="fa fa-long-arrow-right"></span></a>
+                      {{ $data->links() }}
                     </div>
+
                     <!-- / men product category -->
                     
  

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ProductOrder;
 use Auth;
+use Carbon\Carbon;
 
 class OrderProductController extends Controller
 {
@@ -15,7 +16,8 @@ class OrderProductController extends Controller
      */
     public function index()
     {
-        //
+        $prodData = Product::paginate(4);
+        return view('home.orderProduct', ['prodData' => $prodData]);
     }
 
     /**
@@ -28,10 +30,8 @@ class OrderProductController extends Controller
         $orderData = new ProductOrder;
 
         $time = Carbon::now();
-        dd($time);
         $user_id = Auth::user()->id;
-        // dd($user_id);
-        // dd($request->all());
+        // dd($request->product);
         if(Auth::user()){
             for($i = 0; $i<sizeof($request->id); $i++) {
                 $orderData = array (
@@ -41,10 +41,13 @@ class OrderProductController extends Controller
                     'location' => $request->location,
                     'email' => $request->email,
                     'message' => $request->message,
+                    'created_at' => $time,
+                    'updated_at' => $time,
                 );
                 ProductOrder::insert($orderData);
             }
         }
+        return redirect()->back();
 
     }
 

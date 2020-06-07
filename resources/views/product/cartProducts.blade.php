@@ -254,18 +254,55 @@ input:focus {
       @endforeach
       <div style="width:100%">
         <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs </h3>
-        <button type="button" class="btn btn-success" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%">Checkout</button>    
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%">Checkout </button>
       </div>     
       </div>
       <div>
       </div>
 
      </div>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Billing Address</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="comments-form contact-form" action="{{url('order/product')}}" method="POST">
+  @csrf
+     <div class="form-group">
+            <label for="recipient-name" class="col-form-label"><span class="glyphicon glyphicon-earphone"></span> Phone Number:</label>
+            <input type="text" class="form-control" id="recipient-name" value="{{Auth::user()->phone}}" name="phoneNumber">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label"><i class="fa fa-institution"></i> Location</label>
+            <input type = "text" class="form-control" id="message-text" name="location"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label"><span class="glyphicon glyphicon-send"></span> Message</label>
+            <input type="text"class="form-control" id="message-text" name="message">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text"class="form-control" id="message-text" name="email" value="{{Auth::user()->email}}">
+          </div>
+          <input type="submit" class="btn btn-primary" value="{{__('customlang.order')}}">
+          
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
       </form>
       @else
       <h4>No Items in Cart!!</h4>
       @endif
   </div>
+
+
   
   <div class="wishlist">
     <h3>Wish List Items</h3>
@@ -290,6 +327,49 @@ input:focus {
         <h4>No Items in Wishlist!!</h4>
         @endif
   </div>
+<div class="container">
+
+  <h1 align="center">{{('You may like other products as well')}}</h1>
+    <hr>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="aa-product-area">
+            <div class="aa-product-inner">
+
+              <!-- start prduct navigation -->
+             
+              <div class="tab-content">
+                <!-- Start men product category -->
+                <div class="tab-pane fade in active" id="men">
+                  <ul class="aa-product-catg">
+                    <!-- start single product item -->
+
+
+                      @foreach ($recommendProd as $datas)
+                    <li>
+                      <figure>
+                        <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}" style="width: 100%; height: 250px" alt="polo shirt img" ></a> 
+                      <p>{{$datas->product_name}}</p>
+                      <p>Rs {{$datas->price}}</p>
+
+                      </figure> 
+                    </li>
+                    @endforeach
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 @include('include.footer')
 
 </body>

@@ -122,6 +122,7 @@ Dashboard
                     <td>{{$order->email}} </td>
                     <td>{{$order->message}} </td>
                     <td>{{$order->product->product_name}}</td>
+                    <td>{{$order->created_at}}</td>
 
                 </tr>
                 @endforeach
