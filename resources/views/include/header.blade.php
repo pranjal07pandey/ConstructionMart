@@ -2,7 +2,7 @@
   <header id="aa-header">
 
     <!-- start header top  -->
-    {{-- <div class="aa-header-top">
+     <div class="aa-header-top">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -38,8 +38,7 @@
                 <ul class="aa-head-top-nav-right">
                   <li><a href="/home">{{__('customlang.My Account')}}</a></li>
                   <li class="hidden-xs"><a href="wishlist.html">{{__('customlang.Wishlist')}}</a></li>
-                  {{-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li> --}}
-                  {{-- <li class="hidden-xs"><a href="checkout.html">Checkout</a></li> --}}
+                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
                   <li>
                     <a href="/login">
                         <span class="glyphicon glyphicon-log-in"></span>
@@ -72,43 +71,14 @@
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
-              
 
-              
 
-              <div class="aa-cartbox">
-                
-              </div>
-
-              
-              {{-- <div class="aa-cartbox">
-               
-                <a href="/login" class="aa-cart-link">
-                  <span class="glyphicon glyphicon-log-in"></span>
-                <span class="aa-cart-title">{{__('customlang.Login')}}</span>
-              
-                </a>
-
-              </div> --}}
-
-              <div class="aa-cartbox">
-               
-                <a href="/login" class="aa-cart-link">
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  <span class="aa-cart-title">LOG IN</span>
-
-                  {{-- <span>Log in</span> --}}
-              
-                </a>
-
-              </div>
 
                 <!-- cart box -->
                 <div class="aa-cartbox">
                     <a class="aa-cart-link" href="{{url('show/cart/products')}}">
                         <span class="fa fa-shopping-basket"></span>
                         <span class="aa-cart-title">{{__('customlang.MY CART')}}</span>
-                        {{-- <span class="aa-cart-notify">2</span> --}}
                     </a>
                     
                 </div>
@@ -225,10 +195,7 @@
                   <li><a href="/view-services">View All</a></li>
 
                 </ul>
-              {{-- <li><a href="#">Gallery</a></li> --}}
-
-              {{-- <li><a href="#">About Us</a></li>
-               --}}
+             
               <li><a href="/contact">{{__('customlang.Contact')}}</a></li>
 
             
