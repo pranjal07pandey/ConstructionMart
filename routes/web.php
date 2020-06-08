@@ -83,10 +83,20 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::get('/service-cat-manager-index','ServiceManagerCatController@index');
     Route::get('/service-cat-manager-create','ServiceManagerCatController@create');
     Route::post('/service-cat-manager-addCategory','ServiceManagerCatController@store');
+    Route::get('/show-service-cat/{id}','ServiceManagerCatController@show');
+    Route::post('/service-cat-delete/{id}', 'ServiceManagerCatController@destroy');
+    Route::get('/service-cat-edit/{id}', 'ServiceManagerCatController@edit');
+    Route::post('/service-cat-update/{id}', 'ServiceManagerCatController@update');
 
 
 
 
+
+
+
+//check delivery for service manager
+    Route::get('/order-details/{id}','Admin\DashboardController@orderDetailsServiceManager');
+    Route::post('/order-details/{id}','Admin\DashboardController@checkDeliveredServiceManger');
     
 
 });

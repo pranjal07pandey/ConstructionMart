@@ -1,9 +1,9 @@
-@extends('admin.layouts.master')
+@extends('admin.layouts.smMaster')
 
 @section('title')
 
-Order Details
-    
+Dashboard
+ 
 @endsection
 
 
@@ -17,10 +17,7 @@ Order Details
                 <div class="card-header">
                     <h3>Order Details</h3>
                 </div>
-                {{-- <div class="container">
-
-                    <a href="/dashboard" class="btn btn-primary">Go Back</a>
-                    </div> --}}
+             
                 <div class="card-body">
                     <form action="/order-details/{{$orders->id}}" method="POST">
                         @csrf
@@ -62,18 +59,15 @@ Order Details
                       </div>
                       <button type="submit" class="btn">save changes</button>
 
-                      <a href="/dashboard" class="btn btn-danger">cancel</a>
-
+                      <a href="/sm-dashboard" class="btn btn-danger">cancel</a>
 
                     </form>
-
 
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 
 @endsection

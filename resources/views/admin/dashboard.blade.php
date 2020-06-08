@@ -24,12 +24,9 @@ Dashboard
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                {{-- <th>User Name</th> --}}
                 <th>Ordered Service</th>
-                {{-- <th>Phone</th> --}}
                 <th>Ordered Location</th>
-                {{-- <th>Email</th> --}}
-                {{-- <th>Message</th> --}}
+
                 <th>Ordered Date</th>
                 <th>Delivered?</th>
                 <th>Option</th>
@@ -45,12 +42,9 @@ Dashboard
 
                 <tr>
 
-                    {{-- <td>{{$order->name}} </td> --}}
                     <td>{{$order->service}} </td>
-                    {{-- <td>{{$order->phone}} </td> --}}
                     <td>{{$order->location}} </td>
-                    {{-- <td>{{$order->email}} </td> --}}
-                    {{-- <td>{{$order->message}} </td> --}}
+
                     <td>{{$order->created_at}} </td>
                     <td>{{$order->delivered}} </td>
                
@@ -58,18 +52,6 @@ Dashboard
                 <td> <a href="order-details/{{$order->id}}" class="btn">View details
                   </a>
                 </td>
-
-
-                    
-                      {{-- <form>
-                      <input type="radio" name="delivered" value="yes"> Yes
-                      </form> --}}
-                      {{-- <label>Yes</label> --}}
-                  
-                      
-                  
-                    
-                    
 
                 </tr>
                 @endforeach

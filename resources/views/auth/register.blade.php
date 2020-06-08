@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('customlang.Register') }}</div>
+                <div class="card-header">
+                    <h3 align="center">{{ __('Register Here') }}</h3>
+                </div>
 
             
 
@@ -90,10 +92,13 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('customlang.Register') }}
                                 </button>
+                                <a class="btn btn-link" href="{{ route('login') }}">
+                                    {{ __('Already Have an account?Login Instead') }}
+                                </a>
                             </div>
                         </div>
                     </form>

@@ -31,7 +31,7 @@ Service Categories
                                 <div class="well">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-4">
-                                        <h3><a href="/services-categories/{{$service->id}}">{{$service->cat_title}}</a></h3>
+                                        <h3><a href="/show-service-cat/{{$service->id}}">{{$service->cat_title}}</a></h3>
                                             
                                         </div>
                                     

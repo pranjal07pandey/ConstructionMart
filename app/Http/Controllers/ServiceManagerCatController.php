@@ -65,6 +65,8 @@ class ServiceManagerCatController extends Controller
      */
     public function show($id)
     {
+        $category = ServiceCategory::find($id);
+        return view('admin.service-manager.service-categories.show')->with('category',$category);
         
     }
 
@@ -76,7 +78,8 @@ class ServiceManagerCatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = ServiceCategory::find($id);
+        return view('admin.service-manager.service-categories.edit')->with('category',$category);
     }
 
     /**
@@ -99,6 +102,8 @@ class ServiceManagerCatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = ServiceCategory::find($id);
+        $category->delete();
+        return redirect('/service-manager-index')->with('success', 'Service Deleted');
     }
 }

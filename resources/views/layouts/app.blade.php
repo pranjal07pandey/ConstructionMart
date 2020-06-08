@@ -24,9 +24,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Construction Mart') }}
-                </a>
+
+                <div class="aa-logo">
+                    <!-- Text based logo -->
+                    <a class="navbar-brand" href="/">
+                      <span class="fa fa-home"></span>
+                    <p>Service<strong style="color:#ff6666">N</strong>Material <span>{{__('customlang.Your Construction Guide')}}</span></p>
+                    </a>
+                    
+                  </div>
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                    <span class="fa fa-home"></span>
+                <p>Service<strong style="color: red">N</strong>Product
+                    </p>
+                </a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,13 +52,13 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('customlang.Login') }}</a>
-                            </li>
+                            </li> --}}
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('customlang.Register') }}</a>
-                                </li>
+                                </li> --}}
                             @endif
                         @else
                             <li class="nav-item dropdown">

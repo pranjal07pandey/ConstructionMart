@@ -52,7 +52,7 @@ our services
 
                                                 @foreach ($service->serviceCategories as $category)
                                                 <ul class="list-group">
-                                                    <a href="/services-categories/{{$category->id}}" >
+                                                    <a href="/show-service-cat/{{$category->id}}" >
                                                 <li class= "list-group-item">
                                                     {{$category->cat_title}}
                                                 </li>
