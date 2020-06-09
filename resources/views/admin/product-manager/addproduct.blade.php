@@ -1,10 +1,6 @@
 
-@extends('admin.layouts.master')
-{{-- @if(Auth::check())
-    @if (Auth::user()->usertype=='productManager')
-    @extends('admin.layouts.pmMaster')
-    @endif
-@endif --}}
+@extends('admin.layouts.smMaster')
+
 
 @section('title')
 
@@ -24,7 +20,7 @@ Edit User Role
                 </div>
                 <div class="card-body">
 
-<form action="/add/product" method="POST" enctype="multipart/form-data" >
+<form action="service-manager-addProduct" method="POST" enctype="multipart/form-data" >
   @csrf
 
   <div class="form-group">
@@ -77,7 +73,7 @@ Edit User Role
     <label for="Unit Select">Unit Select</label>
     <select class="form-control" name="unitSelect" id="exampleFormControlSelect1">
       @foreach($unit as $unitData)
-      <option value="{{$unitData->unit_name}}">{{$unitData->unit_name}}</option>
+      <option value="{{$unitData->id}}">{{$unitData->unit_name}}</option>
     @endforeach
     </select>
   </div>

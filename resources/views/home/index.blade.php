@@ -162,7 +162,7 @@
                               <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
-                              <span class="aa-product-price">Rs {{$datas->price}}</span>
+                              <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit->unit_name}}</span>
                             </figcaption>
                           </figure>                        
 <!--                          -->

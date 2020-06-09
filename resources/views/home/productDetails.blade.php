@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
                                             <p><b>{{$prodDetails->product_name}}</b></p>
-                                            <p><b>Rs {{$prodDetails->price}}</b></p>
+                                            <p><b>Rs {{$prodDetails->price}} per {{$prodDetails->unit->unit_name}}</b></p>
                                             @if($prodDetails->delivery_facility)
                                               <p><b>Delivery Facility: Yes</b></p>
                                               <p><b>Delivery Charge: {{$prodDetails->delivery_charges}}</b></p>

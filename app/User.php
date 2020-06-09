@@ -44,12 +44,18 @@ class User extends Authenticatable
     public function orderService(){
         return $this->hasMany('App\Order');
     }
+    public function orderProducts() {
+        return $this->hasMany('App\ProductOrder');
+    }
 
     public function searches() {
         return $this->hasMany('App\SearchHistory');
     }
     public function addService(){
         return $this->hasMany('App\Service');
+    }
+    public function addProducts() {
+        return $this->hasMany('App\Product');
     }
     public function orders() {
         return $this->hasMany('App\ProductOrder');

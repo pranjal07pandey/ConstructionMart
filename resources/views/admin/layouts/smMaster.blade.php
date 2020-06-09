@@ -48,6 +48,12 @@
               <p>Services</p>
             </a>
           </li>
+          <li class="{{ 'services'== request()->path() ? 'active' :'' }}">
+            <a href="/product-manager-index">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Products</p>
+            </a>
+          </li>
           <li class="{{ 'services-categories'== request()->path() ? 'active' :'' }}">
             <a href="/service-cat-manager-index">
               <i class="now-ui-icons location_map-big"></i>

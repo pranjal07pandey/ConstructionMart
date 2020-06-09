@@ -176,7 +176,7 @@
                     </ul>
                   </li>
                 @endforeach          
-                  <li><a href="{{url('other/products')}}">Others</a>
+                  <li><a href="{{url('other/products')}}">View All</a>
                   </li>
                 </ul>
               </li>
