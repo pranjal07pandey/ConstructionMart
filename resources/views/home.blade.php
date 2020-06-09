@@ -41,7 +41,7 @@ Home
                     <th>Delivered</th>
                    
                   </thead>
-    
+                  
                   <tbody>
     
 
@@ -79,16 +79,15 @@ Home
 
 
                   </thead>
-    
+            
                   <tbody>
-    
+                    @foreach($prodOrder as $datas)
                     <tr>
-                        <td>Cornice</td>
-                        <td>2019-2-15</td>
-                        <td>{{$order->delivered}} </td>
-
-                      
+                        <td>{{$datas->phone_number}}</td>
+                        <td>{{$datas->created_at}}</td>
+                        <td> </td>
                     </tr>
+                    @endforeach
                                             
                   </tbody>
     
@@ -196,18 +195,18 @@ Home
                               <tbody>
                 
 
-                                
+                                @foreach($prodOrder as $data)
 
                                 <tr>
-                                    <td>Cornice</td>
-                                    <td>2019-2-15</td>
+                                    <td>{{$data->product->product_name}}</td>
+                                    <td>{{$data->created_at}}</td>
                                     <td>no</td>
 
 
                                    
                 
                                 </tr>
-                                    
+                                    @endforeach
                               
 
                                 

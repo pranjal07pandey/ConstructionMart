@@ -1,7 +1,6 @@
 
 @extends('admin.layouts.smMaster')
 
-
 @section('title')
 
 Add new service

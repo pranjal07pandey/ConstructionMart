@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin.layouts.smMaster')
 
 
 
@@ -18,13 +18,13 @@ Product Index
             <div class="card">
                 <div class="card-header">
                     <h3>Our Products</h3>
-                        <a href="/product" class="btn btn-primary ">Add new Product</a>
+                        <a href="/service-manager-addProduct-index" class="btn btn-primary ">Add new Product</a>
                 </div>
 
                 <br>
 
                     <div class="card-body">
-                      {{$prodData}}
+                      
                   
                                 @if(count($prodData)>0)
 
@@ -39,19 +39,19 @@ Product Index
 
                                             </div>
                                             <div style="width: 50%; margin-left: 10%;margin-top: 7%">
-                                      		 <b style="">Features</b><br><p>{{$prod->features}}</p>
-                                      		 <b>Price</b><p>Rs {{$prod->price}} per {{$prod->unit->unit_name}}</p>
-                                      		 @if($prod->delivery_facility)
-                                      		 	<b>Delivery Facility</b><p>Yes</p>
-                                      		 	<b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
-                                      		 @else
-                                      		 	<b>Delivery Facility</b><p>No</p>
-                                      		 		<b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
-                                      		 @endif
-                                      		</div>
-                                    	</div>
-                                    	<a href="{{url('edit/product/'.$prod->id)}}" class="btn btn-primary ">Edit</a>
-                                      		 <a href="{{url('delete/product/'.$prod->id)}}" class="btn btn-primary ">Delete</a>
+                                             <b style="">Features</b><br><p>{{$prod->features}}</p>
+                                             <b>Price</b><p>Rs {{$prod->price}}</p>
+                                             @if($prod->delivery_facility)
+                                                <b>Delivery Facility</b><p>Yes</p>
+                                                <b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
+                                             @else
+                                                <b>Delivery Facility</b><p>No</p>
+                                                    <b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
+                                             @endif
+                                            </div>
+                                        </div>
+                                        <a href="{{url('edit/product/'.$prod->id)}}" class="btn btn-primary ">Edit</a>
+                                             <a href="{{url('delete/product/service-manager/'.$prod->id)}}" class="btn btn-primary ">Delete</a>
                                     </div>
 
 
@@ -70,7 +70,7 @@ Product Index
                                 </div>
                                 @endif
 
-                	
+                    
             </div>
         </div>
     </div>

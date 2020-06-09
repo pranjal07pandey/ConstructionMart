@@ -30,7 +30,9 @@ class HomeController extends Controller
 
     {
         $orders = Auth::user()->orderservice;
-        return view('/home')->with('orders', $orders);
+        $prodOrder = Auth::user()->orderProducts;
+        // dd($prodOrder);
+        return view('/home', ['orders' => $orders, 'prodOrder' => $prodOrder]);
     }
 
     // public function viewprofile($id)

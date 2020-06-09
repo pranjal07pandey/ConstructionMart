@@ -72,7 +72,24 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::get('/sm-dashboard', 'Admin\DashboardController@smDashboard');
     Route::get('/service-manager-index', 'ServiceManagerController@index');
     Route::get('/service-manager-create', 'ServiceManagerController@create');
+    Route::any('/product-manager-index', 
+        'ServiceManagerController@productIndex');
     Route::post('/service-manager-addService', 'ServiceManagerController@store');
+
+    //return to the add product index
+    Route::any('/service-manager-addProduct-index', 
+        'ServiceManagerController@addProductIndex');
+    //adds products
+    Route::post('/service-manager-addProduct', 
+        'ServiceManagerController@addProduct');
+    //return to edit product page
+    Route::any('/service-manager-editProduct-index/{id}', 
+        'ServiceManagerController@editProductIndex');
+    //updates the product
+    Route::any('update/product/service-manager/{product_id}/{category_id}/{subcategory_id}/{unit_id}', 'ServiceManagerController@updateProduct');
+    //Deletes the product of service manager
+    Route::any('delete/product/service-manager/{id}', 'ServiceManagerController@deleteProd');
+     
     Route::get('/show-service/{id}', 'ServiceManagerController@show');
     Route::post('/service-delete/{id}', 'ServiceManagerController@destroy');
     Route::get('/service-manager-edit/{id}', 'ServiceManagerController@edit');
@@ -136,7 +153,7 @@ Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 Route::post('order/product', 'OrderProductController@create');
 Route::any('order/index', 'OrderProductController@index');
 
-
+Route::get('product/index', 'ProductController@productIndex');
 Route::any('view-products/{id}', 'ProductController@productDetails');
 
 // Product Admin

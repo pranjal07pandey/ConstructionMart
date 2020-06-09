@@ -24,11 +24,12 @@ class CreateProductsTable extends Migration
             $table->boolean('insurance_on_delivery');
             $table->date('product_manufactured_date')->nullable();
             $table->date('product_expiry_date')->nullable();
-            $table->unsignedBigInteger('unit_id');
-            $table->foreign('unit_id')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                     ->references('id')
-                    ->on('units')
+                    ->on('users')
                     ->onDelete('cascade');
+            
             $table->unsignedBigInteger('product_category_id');
             $table->foreign('product_category_id')
                     ->references('id')

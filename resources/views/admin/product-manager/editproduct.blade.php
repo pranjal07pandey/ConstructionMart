@@ -20,21 +20,21 @@ Edit User Role
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Add New Product</h3>
+                    <h3>Edit Product</h3>
                 </div>
                 <div class="card-body">
 
-<form action="/add/product" method="POST" enctype="multipart/form-data" >
+<form action="{{url('update/product/service-manager'.$editProd->id.'/'.$editProd->product_category_id.'/'.$editProd->product_sub_category_id.'/'.$editProd->unit_id )}}" method="POST" enctype="multipart/form-data" >
   @csrf
 
   <div class="form-group">
     <label for="title">Product Name:</label><br>
-    <input type="text" name="name" class="form-control" placeholder="Product Name" required><br>
+    <input type="text" name="name" class="form-control"  required value="{{$editProd->product_name}}"><br>
     </div>
 
     <div >
       <label for="Select Image">Select Image</label><br>
-      <input type="file" name="image"><br>
+      <input type="file" name="image" value="{{$editProd->image}}"><br>
       </div>
 <div class="form-group">
     <label for="Category Name">Category Name</label>
@@ -62,12 +62,12 @@ Edit User Role
   </div>
    <div class="form-group">
     <label for="Features">Features</label>
-    <textarea class="form-control" name="features" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" name="features" id="exampleFormControlTextarea1" rows="3" value = "{{$editProd->features}}"></textarea>
   </div>
       
 <div class="form-group">
     <label for="Price Per Unit">Price Per Unit</label>
-    <input type="number" name = "price" class="form-control" id="exampleFormControlInput1" placeholder="Price">
+    <input type="number" name = "price" class="form-control" id="exampleFormControlInput1" placeholder="Price" value="{{$editProd->price}}">
   </div> 
   <div class="form-group">
     <label for="Unit">Unit</label>
@@ -77,7 +77,7 @@ Edit User Role
     <label for="Unit Select">Unit Select</label>
     <select class="form-control" name="unitSelect" id="exampleFormControlSelect1">
       @foreach($unit as $unitData)
-      <option value="{{$unitData->unit_name}}">{{$unitData->unit_name}}</option>
+      <option value="{{$unitData->id}}">{{$unitData->unit_name}}</option>
     @endforeach
     </select>
   </div>
@@ -97,7 +97,7 @@ Edit User Role
 </div>
 <div class="form-group">
     <label for="Delivery Charge">Delivery Charge</label>
-    <input type="text" name = "deliveryCharge" class="form-control" id="exampleFormControlInput1" placeholder="Delivery Charge">
+    <input type="text" name = "deliveryCharge" class="form-control" id="exampleFormControlInput1" placeholder="Delivery Charge" value="{{$editProd->delivery_charges}}">
   </div>
     <div class="form-check">
     <p>Insurance On Delivery</p>
@@ -115,15 +115,15 @@ Edit User Role
 </div>
 <div class="form-group">
     <label for="Product Manufactured Date">Product Manufactured Date</label>
-    <input type="date" name = "manufacturedDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date">
+    <input type="date" name = "manufacturedDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date" value="{{$editProd->product_manufactured_date}}">
   </div>
 
     <div class="form-group">
     <label for="exampleFormControlInput1">Product Expiry Date</label>
-    <input type="date" name = "expiryDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date">
+    <input type="date" name = "expiryDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date" value="product_expiry_date">
   </div>
 
-  <input type="submit" class="btn btn-primary" value="Add">
+  <input type="submit" class="btn btn-primary" value="Edit">
 
 
 </form>
@@ -142,6 +142,20 @@ Edit User Role
   @section('scripts')
       
   @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

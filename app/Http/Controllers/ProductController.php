@@ -10,6 +10,8 @@ use App\ProductCategory;
 use App\Product;
 use App\SearchHistory;
 use App\Unit;
+use File;
+use DB;
 use Auth;
 // use Validator;
 
@@ -24,7 +26,8 @@ class ProductController extends Controller
     {
         $category = ProductCategory::all();
         $subCategory = ProductSubCategory::all();
-        $unit = Unit::all();
+        $unit = DB::table('units')->distinct('unit_name')->get();
+        // dd($unit);
 
         if($category == null) {
             return view('product.addProduct');
@@ -103,17 +106,6 @@ class ProductController extends Controller
             $data->product_sub_category_id = $request->subCat;
         }
 
-        if($request->unit !=null ) {
-            // dd($request->unit);
-            $id = Unit::all();
-            $unitData = new Unit;
-            $unitData->unit_name = $request->unit;
-            $data->unit_id = sizeof($id) + 1;
-            $unitData->save();
-        }
-        else {
-            $data->unit_id = $request->unitSelect;
-        }
 
         $data->product_name = $request->name;
         $data->image = $filename;
@@ -124,25 +116,44 @@ class ProductController extends Controller
         $data->insurance_on_delivery = $request->insuranceOnDelivery;
         $data->product_manufactured_date = $request->manufacturedDate;
         $data->product_expiry_date = $request->expiryDate;
+        $data->user_id = Auth::user()->id;
         
         $data->save();
+
+        if($request->unit !=null ) {
+            $unitData = new Unit;
+            $id = Product::all();
+            $unitData->unit_name = $request->unit;
+            $unitData->product_id = sizeof($id);
+            $unitData->save();
+
+        }
+        else {
+            $id = Product::all();
+            $unitData = new Unit;
+            // dd($request->unitSelect);
+            $unitData->unit_name = $request->unitSelect;
+            $unitData->product_id = sizeof($id);
+            $unitData->save();
+
+        }
         return redirect()->back();
     }
 
     public function subCatProducts($id) {
-        $data = Product::where('product_sub_category_id', $id)->orderBy('created_at')->get();
+        $data = Product::where('product_sub_category_id', $id)->orderBy('created_at', 'desc')->paginate(12);
         return view('product.showProduct', ['data' => $data]);
     }
 
     //throws category matchng product to view showProduct
     public function catProducts($id) {
         $data = Product::where('product_category_id', $id)->orderBy('created_at', 'desc')
-        ->get();
+        ->paginate(12);
         return view('product.showProduct', ['data' => $data]);
     }
     //throws other products
     public function allProducts() {
-        $data = Product::orderBy('created_at', 'desc')->paginate(16);
+        $data = Product::orderBy('created_at', 'desc')->paginate(12);
         return view('product.showProduct', ['data' => $data]);
     }
 
@@ -254,12 +265,7 @@ class ProductController extends Controller
         return redirect()->back();       
     }
 
-    //throws vendor products
-    public function adminProducts() {
-        // $user_id = Auth::id();
-        $products = Product::all();
-        return view('product.adminProduct', ['products' => $products]);
-    }
+    
 
     public function productIndex() {
         $prodData = Product::paginate(15);
@@ -382,7 +388,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
+        $product = Product::find($id);
+        if($product->image !='noimage.jpg'){
+            //delete Image
+            File::delete('uploads/products/'.$product->image);
+        }
+        // dd($product);
+        $product->delete();
         return redirect()->back();
     }
 }

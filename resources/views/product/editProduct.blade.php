@@ -1,5 +1,6 @@
 
-@extends('admin.layouts.master')
+@extends('admin.layouts.smMaster')
+
 {{-- @if(Auth::check())
     @if (Auth::user()->usertype=='productManager')
     @extends('admin.layouts.pmMaster')
