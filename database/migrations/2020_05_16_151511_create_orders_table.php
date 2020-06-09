@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('delivered')->default('No')->nullable();
             $table->string('email')->nullable();
             $table->string('message');
+            $table->string('cover_image')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')

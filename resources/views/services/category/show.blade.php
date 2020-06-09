@@ -48,8 +48,12 @@ Edit User Role
     <a href="/services-categories" class="btn btn-primary">Go Back</a>
     <br><br>
    
+<img style="width:100%; height:400px" src="/storage/cover_images/{{$category->cover_image}}">
+
 
     <h5>Added on: {{$category->created_at}}</h5><br>
+    <h5>Descrption: {{$category->description}}</h5><br>
+
     <h4>Belongs to : {{$category->service->title}} </h4>
 <br>
                 <a href="/services-categories/edit/{{$category->id}}" class="btn">Edit</a>

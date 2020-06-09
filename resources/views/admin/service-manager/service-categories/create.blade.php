@@ -19,7 +19,7 @@ Add Service Category
                 </div>
                 <div class="card-body">
 
-                    <form method="POST" action="/service-cat-manager-addCategory">
+                    <form method="POST" action="/service-cat-manager-addCategory" enctype="multipart/form-data">
                         @csrf
 
 
@@ -27,6 +27,16 @@ Add Service Category
                             <label for="cat_title">Category:</label><br>
                             <input type="text" name="cat_title" class="form-control" required><br>
                               </div>
+
+                              <div class="form-group">
+                                <label for="description">Description:</label><br>
+                                <input type="text" name="description" class="form-control" ><br>
+                                  </div>
+                          
+                                  <label for="cover_image">Image upload:</label><br>
+                                  <input type="file" name="cover_image"><br>
+                          
+                                  <br>
                           
                               <div class="form-group">
                           

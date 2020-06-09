@@ -43,11 +43,38 @@ class ServiceCategoryController extends Controller
         $this->validate($request,[
             'cat_title' => 'required',
             'service_id' =>'required',
+            'descrition'=>'nullable',
+            'cover_image'=>'image|nullable'
+
         ]);
+
+        //handle file upload
+
+        if($request->hasFile('cover_image')){
+            //get file name with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+
+            //get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            ///filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $category = new ServiceCategory;
         $category->cat_title = $request->input('cat_title');
         $category->service_id = $request->input('service_id');
+        $category->description = $request->input('description');
+        $category->cover_image = $fileNameToStore;
         Auth::user()->addServiceCat()->save($category);
         
         return redirect('/services')->with('success', 'category Added');
@@ -86,7 +113,48 @@ class ServiceCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'cat_title' => 'required',
+            'service_id' =>'required',
+            'descrition'=>'nullable',
+            'cover_image'=>'image|nullable'
+
+        ]);
+
+        //handle file upload
+
+        if($request->hasFile('cover_image')){
+            //get file name with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+
+            //get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            ///filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+        
+        }
+
+        $category = ServiceCategory::find($id);
+        $category->cat_title = $request->input('cat_title');
+        $category->service_id = $request->input('service_id');
+        $category->description = $request->input('description');
+
+        if($request->hasFile('cover_image')){
+            $category->cover_image = $fileNameToStore;
+        }
+    
+        Auth::user()->addServiceCat()->save($category);
+        
+        return redirect('/services')->with('success', 'category Updated');
+        
     }
 
     /**
@@ -97,6 +165,16 @@ class ServiceCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = ServiceCategory::find($id);
+
+        if($category->cover_image !='noimage.jpg'){
+            //delete Image
+            Storage::delete('public/cover_images/'.$category->cover_image);
+
+        }
+
+        // Auth::user()->addService()->delete($service);
+        $category->delete();
+        return redirect('/services')->with('success', 'category Deleted');
     }
 }

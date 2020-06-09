@@ -41,7 +41,7 @@ class ServicesController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'description'=>'nullable',
-            'cover_image'=>'image|nullable|max:1999'
+            'cover_image'=>'image|nullable'
         ]);
 
         //handle file upload

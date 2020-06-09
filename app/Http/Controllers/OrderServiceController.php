@@ -57,7 +57,31 @@ class OrderServiceController extends Controller
             'email'=> 'nullable|email',
             'location' =>'required',
             'message' => 'nullable',
+            'cover_image'=>'image|nullable'
         ]);
+
+         //handle file upload
+
+         if($request->hasFile('cover_image')){
+            //get file name with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+
+            //get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            ///filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+
 
         $order = new Order;
         $order->service = $request->input('service');
@@ -67,6 +91,7 @@ class OrderServiceController extends Controller
         $order->email = $request->input('email');
         $order->location = $request->input('location');
         $order->message = $request->input('message');
+        $order->cover_image = $fileNameToStore;
 
         Auth::user()->orderService()->save($order);
 

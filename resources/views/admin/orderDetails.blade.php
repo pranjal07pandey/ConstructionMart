@@ -46,6 +46,9 @@ Order Details
                     <option type="text" class="form-control" >{{$orders->email}}</option>
                       </div>
 
+                    <img style="width:100%; height:400px" src="/storage/cover_images/{{$orders->cover_image}}" alt="no image uploaded">
+
+
                       <div class="form-group">
                         <label>message:</label>
                     <option type="text" class="form-control" >{{$orders->message}}</option>

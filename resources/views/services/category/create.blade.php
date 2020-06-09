@@ -20,7 +20,7 @@ Edit User Role
                 <div class="card-body">
 
 
-<form action="{{ action('ServiceCategoryController@store') }}" method="POST">
+<form action="{{ action('ServiceCategoryController@store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -28,6 +28,15 @@ Edit User Role
   <input type="text" name="cat_title" class="form-control" required><br>
     </div>
 
+    <div class="form-group">
+      <label for="description">Description:</label><br>
+      <input type="text" name="description" class="form-control" required><br>
+        </div>
+
+        <label for="cover_image">Image upload:</label><br>
+        <input type="file" name="cover_image"><br>
+
+        <br>
     <div class="form-group">
 
   <label for="belonging_to">Belongs to:</label><br>

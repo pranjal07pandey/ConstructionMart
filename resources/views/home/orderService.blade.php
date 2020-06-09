@@ -50,7 +50,7 @@
         {{-- <h2 align = "center">{{__('customlang.Order service')}}</h2> --}}
        
     {{-- <div class="jumbotron"> --}}
-    <form class="comments-form contact-form" action="/order-categories/{{$category->id}}" method="POST">
+    <form class="comments-form contact-form" action="/order-categories/{{$category->id}}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="row">
         <div class="col-md-6">
@@ -93,8 +93,8 @@
         </div>
 
         <div class="form-group">
-          <label>{{__('customlang.insert image')}} </label> 
-          <input type="file" name="image">                       
+          <label>{{__('customlang.insert image of your problem if you want')}} </label> 
+          <input type="file" name="cover_image">                       
         
         </div>
 
