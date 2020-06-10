@@ -23,7 +23,7 @@
 
 .shopping-cart {
   width: 750px;
-  height: 423px;
+  height: auto;
   margin: 80px auto;
   background: #FFFFFF;
   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
@@ -31,11 +31,14 @@
 
   display: flex;
   flex-direction: column;
+  
+  
+
 }
 
 .wishlist {
   width: 750px;
-  height: 423px;
+  height: auto;
   margin: 80px auto;
   background: #FFFFFF;
   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
@@ -223,6 +226,7 @@ input:focus {
       <form method="post" action="{{url('order/product')}}">
         @csrf
       @foreach($products as $product)
+      <input type="hidden" name="ids" id = "ids{{$product->id}}" value="{{$product->id}}">
       <input type="hidden" name="id[]" value="{{$product->id}}">
       <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
@@ -245,51 +249,25 @@ input:focus {
         <div class="quantity">
 
  
-          <input type="number" name="quantity[]" value="{{$product->quantity}}" id = "totalQuantity{{$product->id}}">
+          <input type="number"  min="0" name="quantity[]" value="{{$product->quantity}}" id = "totalQuantity{{$product->id}}">
         
         </div>
 
-        <div class="total-price" id = "totalPrice{{$product->id}}">{{$product->price}}</div>
+        <div class="total-price" id = "totalPrice{{$product->id}}" value = "{{$product->price}}" name = "totalPrice[]">{{$product->price}}</div>
+        <input type="hidden" name="" id = "total{{$product->id}}" value="{{$product->price}}">
       </div>
+      
       @endforeach
       <div style="width:100%">
-        <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs </h3>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%">Checkout </button>
+        <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs {{Cart::getTotal()}} </h3>
+        <input type="submit" name="" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%" value=" Checkout">
       </div>     
       </div>
       <div>
       </div>
 
      </div>
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Billing Address</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="comments-form contact-form" action="{{url('order/product')}}" method="POST">
-  @csrf
-     <div class="form-group">
-            <label for="recipient-name" class="col-form-label"><span class="glyphicon glyphicon-earphone"></span> Phone Number:</label>
-            <input type="text" class="form-control" id="recipient-name" value="{{Auth::user()->phone}}" name="phoneNumber">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label"><i class="fa fa-institution"></i> Location</label>
-            <input type = "text" class="form-control" id="message-text" name="location"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label"><span class="glyphicon glyphicon-send"></span> Message</label>
-            <input type="text"class="form-control" id="message-text" name="message">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text"class="form-control" id="message-text" name="email" value="{{Auth::user()->email}}">
-          </div>
-          <input type="submit" class="btn btn-primary" value="{{__('customlang.order')}}">
+     
           
   </form>
       </div>
@@ -378,31 +356,29 @@ input:focus {
 </html>
     <script type="text/javascript">
      $(document).ready(function() {
+      var sum = 0;
         @foreach($products as $product)
         $("#totalQuantity{{$product->id}}").on('change keyup', function() {
         // alert("akd");
           var quantity = $("#totalQuantity{{$product->id}}").val();
           var price = $("#price{{$product->id}}").val();
-          // console.log(quantity);
+          var id = $("#ids{{$product->id}}").val();
+          console.log(id);
           $.ajax({
             url: "{{url('/cart/update')}}",
-            data: 'quantity=' + quantity + "&price=" + price,
+            data: 'quantity=' + quantity + "&price=" + price + "&ids=" + id,
             type: 'get',
             success:function(response) {
               document.getElementById('totalPrice{{$product->id}}').innerHTML = response.quantity * response.price;
-              document.getElementById('qty{{$product->id}}').innerHTML = "Quantity: " +response.quantity;
-              console.log(response);
+              document.getElementById('qty{{$product->id}}').innerHTML = "Quantity: " + response.quantity;
+              document.getElementById('total{{$product->id}}').value = response.quantity * response.price;
 
-              // var sum = 0;
-              // for(var i = 0; i<=response.length; i++) {
-              //   sum = sum + (response.quantity * response.price);
-              // }
-              // document.getElementById('total').innerHTML = sum;
-
+              document.getElementById('total').innerHTML = "Total " + "Rs " + response.total;
             }
           });
         });
         @endforeach
+
 
       
   

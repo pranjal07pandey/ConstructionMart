@@ -19,6 +19,16 @@ class OrderProductController extends Controller
         $prodData = Product::paginate(4);
         return view('home.orderProduct', ['prodData' => $prodData]);
     }
+    public function indexOrder(Request $request) {
+         // dd($request->quantity);
+        $product_name = $request->product;
+        $product_id = $request->id;
+        // dd($request->totalPrice);
+
+        // dd($product_name);
+        $totalQuantity = $request->quantity;
+         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +38,6 @@ class OrderProductController extends Controller
     public function create(Request $request)
     {
         $orderData = new ProductOrder;
-
         $time = Carbon::now();
         $user_id = Auth::user()->id;
         // dd($request->product);

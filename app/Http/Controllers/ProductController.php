@@ -240,11 +240,27 @@ class ProductController extends Controller
 
     public function updateCart(Request $request) {
 
-       $quantity = $request->quantity;
-       $price = $request->price;
+        $id = $request->ids;
+        $quantity = $request->quantity;
+        $price = $request->price;
+
+        // for($i = 0; $i <  sizeof($id); $i++) {
+        //     $total = $sum + ($quantity * $price);
+        // }
+        Cart::update($id, array(
+            'quantity' => array(
+                'relative' =>false,
+                'value' => $quantity
+            ),
+        ));
+
+        $total = Cart::getTotal();
+
         return response()->json([
             'quantity' => $quantity,
-            'price' => $price
+            'price' => $price,
+            'id' => $id,
+            'total' => $total,
         ]);
     }
 
@@ -369,7 +385,7 @@ class ProductController extends Controller
         $data->insurance_on_delivery = $request->insuranceOnDelivery;
         $data->product_manufactured_date = $request->manufacturedDate;
         $data->product_expiry_date = $request->expiryDate;
-        
+        $subCat->save();
         $data->save();
         return redirect()->back();
         

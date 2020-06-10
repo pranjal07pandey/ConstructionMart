@@ -140,7 +140,8 @@ Route::get('/cart/update', 'ProductController@updateCart');
 Route::any('cart/wishlist/{id}', 'ProductController@wishlistCart');
 Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 
-Route::post('order/product', 'OrderProductController@create');
+Route::any('order/product', 'OrderProductController@indexOrder');
+Route::any('final/order/product', 'OrderProductController@create');
 Route::any('order/index', 'OrderProductController@index');
 
 Route::get('product/index', 'ProductController@productIndex');
