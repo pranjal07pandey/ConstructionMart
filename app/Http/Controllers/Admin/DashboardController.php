@@ -27,6 +27,22 @@ class DashboardController extends Controller
         return view('admin.orderDetails')->with('orders', $orders);
     }
 
+    //order details for products
+    public function orderDetailsProducts($id){
+        $productOrders = ProductOrder::find($id);
+        return view('admin.orderDetailsProducts')->with('productOrders', $productOrders);
+
+    }
+
+    //check if product is deliverd
+    public function checkDeliveredProducts(Request $request,$id){
+        $productOrders = ProductOrder::find($id);
+        $productOrders->delivered = $request->input('delivered');
+        $productOrders->update();
+        return redirect('/dashboard');
+
+    }
+
     public function orderDetailsServiceManager($id){
         $orders = Order::find($id);
         return view('admin.service-manager.orderDetailsSm')->with('orders', $orders);

@@ -81,7 +81,18 @@ return [
     'Delivered'=>'वितरित',
     'Order Details'=>'आदेश विवरण',
     'Service Description'=>'सेवा विवरण',
-    'Billing Address'=>'बिलि ठेगाना'
+    'Billing Address'=>'बिलि ठेगाना',
+    'Dashboard'=>'ड्यासबोर्ड',
+    'My Cart'=>'मेरो कार्ट',
+    'Login To Your Account'=>'तपाईको खातामा लगईन गर्नुहोस्',
+    'Do not have an account?Register Here'=>'खाता छैन? यहाँ दर्ता गर्नुहोस्',
+    'Already Have an account?Login Instead'=>'पहिले नै खाता छ? यसको सट्टामा लगईन गर्नुहोस्',
+    'Register Here'=>'यहाँ दर्ता गर्नुहोस्',
+    'Customer'=>'ग्राहक',
+    'Vendor'=>'विक्रेता',
+    'Hi'=>'नमस्ते',
+    'No services found'=>'कुनै सेवा फेला परेन',
+    'We are wating to assist you..'=>'हामी तपाईंलाई सहयोग गर्न पर्खिरहेका छौं ..'
 
     
 ];

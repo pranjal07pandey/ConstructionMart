@@ -51,14 +51,7 @@ User Profile
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Ordered service</label>
-                  <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
-                </div>
-              </div>
-            </div>
+           
             
           </form>
         </div>
@@ -70,18 +63,15 @@ User Profile
           <h4 class="card-title">Search History</h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table">
-              <thead class=" text-primary">
-                <th>All Searches</th>
-              </thead>
-              <tbody>
-                <td>okay</td>
 
-              </tbody>
+          @foreach ($user->searches as $searchHistory)
 
-            </table>
-          </div>
+
+            <a href="#" class="btn btn-primary">{{$searchHistory->search}}</a>
+                
+            @endforeach
+
+         
         </div>
       </div>
 

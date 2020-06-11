@@ -18,12 +18,28 @@
 
 <div class="container">
 <div class="jumbotron">
+
+
+
 {!! Form::open(['action' => ['ServicesController@update',$service->id],'method'=>'POST','enctype'=> 'multipart/form-data']) !!}
+
+@csrf
 
 <div class="form-group">
   {{form::label('title', 'Title')}}
   {{form::text('title',$service->title,['class'=>'form-control','placeholder'=>'Title'])}}
 </div>
+
+<div class="form-group">
+  {{form::label('description', 'Description')}}
+  {{form::text('title',$service->description,['class'=>'form-control','placeholder'=>'description'])}}
+</div>
+
+<img style="width:50%; height:350px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}">
+<br>
+
+<label for="cover_image">New Image:</label><br>
+        <input type="file" name="cover_image"><br>
 
     {{form::hidden('_method', 'PUT')}}
     {{form::submit('Submit', ['class'=>'btn btn-primary'])}}
@@ -38,3 +54,11 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+

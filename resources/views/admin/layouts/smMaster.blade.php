@@ -28,40 +28,49 @@
     -->
       <div class="logo">
         <a href="/sm-dashboard" class="simple-text logo-mini">
-          S&P
+          SM
         </a>
         <a href="/sm-dashboard" class="simple-text logo-normal">
-          Service N Product
+          Service N Material
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{ 'dashboard'== request()->path() ? 'active' :'' }}">
+          <li class="{{ 'sm-dashboard'== request()->path() ? 'active' :'' }}">
             <a href="/sm-dashboard">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{ 'services'== request()->path() ? 'active' :'' }}">
+          <li class="{{ 'service-manager-index'== request()->path() ? 'active' :'' }}">
             <a href="/service-manager-index">
               <i class="now-ui-icons education_atom"></i>
               <p>Services</p>
             </a>
           </li>
-          <li class="{{ 'services'== request()->path() ? 'active' :'' }}">
-            <a href="/product-manager-index">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Products</p>
-            </a>
-          </li>
-          <li class="{{ 'services-categories'== request()->path() ? 'active' :'' }}">
+        
+          <li class="{{ 'service-cat-manager-index'== request()->path() ? 'active' :'' }}">
             <a href="/service-cat-manager-index">
               <i class="now-ui-icons location_map-big"></i>
               <p>Services Categories</p>
             </a>
           </li>
 
+          <li class="{{ 'product-manager-index'== request()->path() ? 'active' :'' }}">
+            <a href="/product-manager-index">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Products</p>
+            </a>
+          </li>
+
+          <li class="{{ '/'== request()->path() ? 'active' :'' }}">
+            <a href="/">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Return to site</p>
+            </a>
+          </li>
 {{--         
+  
           <li class="{{ 'role-register'== request()->path() ? 'active' :'' }}">
             <a href="/role-register">
               <i class="now-ui-icons users_single-02"></i>

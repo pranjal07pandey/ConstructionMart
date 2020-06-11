@@ -22,37 +22,33 @@ Order Details
                     <a href="/dashboard" class="btn btn-primary">Go Back</a>
                     </div> --}}
                 <div class="card-body">
-                    <form action="/order-details/{{$orders->id}}" method="POST">
+                    <form action="/order-details-products/{{$productOrders->id}}" method="POST">
                         @csrf
 
                     <div class="form-group">
                         <label>Ordered By:</label>
-                    <option type="text" class="form-control" >{{$orders->name}}</option>
+                    <option type="text" class="form-control" >{{$productOrders->user->name}}</option>
                       </div>
                       <div class="form-group">
-                        <label>Ordered Service:</label>
-                    <option type="text" class="form-control" >{{$orders->service}}</option>
+                        <label>Ordered Products:</label>
+                    <option type="text" class="form-control" >{{$productOrders->product->product_name}}</option>
                       </div>
                       <div class="form-group">
                         <label>Loation:</label>
-                    <option type="text" class="form-control" >{{$orders->location}}</option>
+                    <option type="text" class="form-control" >{{$productOrders->location}}</option>
                       </div>
                       <div class="form-group">
                         <label>Phone:</label>
-                    <option type="text" class="form-control" >{{$orders->phone}}</option>
+                    <option type="text" class="form-control" >{{$productOrders->phone_number}}</option>
                       </div>
                       <div class="form-group">
                         <label>Email:</label>
-                    <option type="text" class="form-control" >{{$orders->email}}</option>
+                    <option type="text" class="form-control" >{{$productOrders->email}}</option>
                       </div>
-
-                      <img style="width:100%;height:400px" src="{{ URL::asset('uploads/services/'.$orders->cover_image)}}" alt="no image uploaded">
-                    {{-- <img style="width:100%; height:400px" src="/storage/cover_images/{{$orders->cover_image}}" alt="no image uploaded"> --}}
-
 
                       <div class="form-group">
                         <label>message:</label>
-                    <option type="text" class="form-control" >{{$orders->message}}</option>
+                    <option type="text" class="form-control" >{{$productOrders->message}}</option>
                       </div>
 
                       <div class="form-group">

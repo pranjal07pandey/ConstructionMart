@@ -77,6 +77,19 @@ return [
     'Order Details'=>'Order Details',
     'Service Description'=>'Service Description',
     'Billing Address'=>'Billing Address',
+    'Dashboard'=>'Dashboard',
+    'My Cart'=>'My Cart',
+    'Login To Your Account'=>'Login To Your Account',
+    'Do not have an account?Register Here'=>'Do not have an account?Register Here',
+    'Already Have an account?Login Instead'=>'Already Have an account?Login Instead',
+    'Register Here'=>'Register Here',
+    'Customer'=>'Customer',
+    'Vendor'=>'Vendor',
+    'Hi'=>'Hi',
+    'No services found'=>'No services found',
+    'We are wating to assist you..'=>'We are wating to assist you..'
+    
+
 
 
 

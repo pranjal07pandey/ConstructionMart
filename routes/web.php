@@ -38,6 +38,9 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
    
     Route::get('/dashboard', 'Admin\DashboardController@index')->middleware('auth');
     
+    //test
+    // /services/{{$service->id}}/edit
+    // Route::get('services/{id}/edit', 'ServicesController@edit');
     
     Route::resource('services', 'ServicesController');
     Route::resource('services-categories', 'ServiceCategoryController');
@@ -61,8 +64,8 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
 
 
-    Route::get('/order-details/{id}','Admin\DashboardController@orderDetails');
-    Route::post('/order-details/{id}','Admin\DashboardController@checkDelivered');
+    Route::get('/order-details-products/{id}','Admin\DashboardController@orderDetailsProducts');
+    Route::post('/order-details-products/{id}','Admin\DashboardController@checkDeliveredProducts');
 
 
 });

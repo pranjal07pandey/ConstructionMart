@@ -36,15 +36,34 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="/home">{{__('customlang.My Account')}}</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">{{__('customlang.Wishlist')}}</a></li>
-                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
+                  @if (Auth::user())
+
                   <li>
-                    <a href="/login">
-                        <span class="glyphicon glyphicon-log-in"></span>
-                        <span class="aa-cart-title">{{__('customlang.Login')}}</span>
+                    <a href="/home">
+                        <span class="fa fa-home"></span>
+                        <span class="aa-cart-title">{{__('customlang.Dashboard')}}</span>
                     </a>
                   </li>
+                  <li class="hidden-xs"><a href="/show/cart/products">{{__('customlang.My Cart')}}</a></li>
+
+
+                      <li class="hidden-xs">{{__('customlang.Hi')}}, {{Auth::user()->name}}!</li>
+                      
+
+                      @else
+                          <li><a href="/home">{{__('customlang.My Account')}}</a></li>
+                          {{-- <li class="hidden-xs"><a href="wishlist.html">{{__('customlang.Wishlist')}}</a></li> --}}
+                          <li class="hidden-xs"><a href="/show/cart/products">{{__('customlang.My Cart')}}</a></li>
+                          <li>
+                            <a href="/login">
+                                <span class="glyphicon glyphicon-log-in"></span>
+                                <span class="aa-cart-title">{{__('customlang.Login')}}</span>
+                            </a>
+                          </li>
+
+                      
+                  @endif
+             
                 </ul>
               </div>
             </div>
@@ -192,7 +211,7 @@
 
                   </li>
                   <li><a href="#">Wall Seepage</a></li>
-                  <li><a href="/view-services">View All</a></li>
+                  <li><a href="/view-services">Our Services</a></li>
 
                 </ul>
              

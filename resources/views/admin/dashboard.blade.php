@@ -79,15 +79,21 @@ Dashboard
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>User Name</th>
+                {{-- <th>User Name</th>
                 <th>Phone</th>
                 <th>Ordered Location</th>
                   
                 <th>Email</th>
                 <th>Message</th>
                 <th>Product Ordered</th>  
-                <th>Ordered Date</th>
+                <th>Ordered Date</th> --}}
 
+                <th>Ordered Product</th>
+                <th>Ordered Location</th>
+
+                <th>Ordered Date</th>
+                <th>Delivered?</th>
+                <th>Option</th>
 
 
               </thead>
@@ -97,14 +103,21 @@ Dashboard
 
 
                 <tr>
+                  <td>{{$order->product->product_name}}</td>
+                  <td>{{$order->location}} </td>
+                  <td>{{$order->created_at}}</td>
+                  <td>{{$order->delivered}}</td>
+                  <td> <a href="order-details-products/{{$order->id}}" class="btn">View details
+                  </a>
+                </td>
 
-                    <td>{{$order->user->name}} </td>
+
+
+
+                    {{-- <td>{{$order->user->name}} </td>
                     <td>{{$order->phone_number}} </td>
-                    <td>{{$order->location}} </td>
                     <td>{{$order->email}} </td>
-                    <td>{{$order->message}} </td>
-                    <td>{{$order->product->product_name}}</td>
-                    <td>{{$order->created_at}}</td>
+                    <td>{{$order->message}} </td> --}}
 
                 </tr>
                 @endforeach

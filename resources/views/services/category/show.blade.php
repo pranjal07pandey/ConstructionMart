@@ -48,7 +48,7 @@ Edit User Role
     <a href="/services-categories" class="btn btn-primary">Go Back</a>
     <br><br>
    
-<img style="width:100%; height:400px" src="/storage/cover_images/{{$category->cover_image}}">
+    <img style="width:60%;height:400px" src="{{ URL::asset('uploads/services/'.$category->cover_image)}}">
 
 
     <h5>Added on: {{$category->created_at}}</h5><br>

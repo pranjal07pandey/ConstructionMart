@@ -10,6 +10,7 @@ use App\ServiceCategory;
 use App\Order;
 use App\User;
 use Auth;
+use Image;
 
 class OrderServiceController extends Controller
 {
@@ -63,23 +64,16 @@ class OrderServiceController extends Controller
          //handle file upload
 
          if($request->hasFile('cover_image')){
-            //get file name with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            
+            $file = $request->file('cover_image');
+            // dd($file);
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extension;
+            $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
 
-            //get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            //get just extension
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-
-            ///filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
 
         }else{
-            $fileNameToStore = 'noimage.jpg';
+            $filename = 'noimage.jpg';
         }
 
 
@@ -91,7 +85,7 @@ class OrderServiceController extends Controller
         $order->email = $request->input('email');
         $order->location = $request->input('location');
         $order->message = $request->input('message');
-        $order->cover_image = $fileNameToStore;
+        $order->cover_image = $filename;
 
         Auth::user()->orderService()->save($order);
 

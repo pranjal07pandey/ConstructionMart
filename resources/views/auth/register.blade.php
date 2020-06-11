@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3 align="center">{{ __('Register Here') }}</h3>
+                    <h3 align="center">{{ __('customlang.Register Here') }}</h3>
                 </div>
 
             
@@ -48,9 +48,9 @@
 
                             <div class="col-md-6">
                                 <select name="registered_as" id="registered_as" class="form-control">
-                                    <option value="customer">Customer</option>
-                                    <option value="vendor">Vendor</option>
-                                    <option value="service_manager">Service manager</option>
+                                    <option value="customer">{{__('customlang.Customer')}}</option>
+                                    <option value="vendor">{{__('customlang.Vendor')}}</option>
+                                    <option value="service_manager">{{__('customlang.Service Manager')}}</option>
                                   </select>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                     {{ __('customlang.Register') }}
                                 </button>
                                 <a class="btn btn-link" href="{{ route('login') }}">
-                                    {{ __('Already Have an account?Login Instead') }}
+                                    {{ __('customlang.Already Have an account?Login Instead') }}
                                 </a>
                             </div>
                         </div>

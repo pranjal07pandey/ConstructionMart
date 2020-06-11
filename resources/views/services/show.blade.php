@@ -40,7 +40,7 @@ service details
                                     <div class="well">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
-                                            <img style="width:100%;height:300px" src="/storage/cover_images/{{$service->cover_image}}">
+                                                <img style="width:100%;height:450px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}">
                                                 
                                             <h3>Description:
                                               {{$service->description}}</h3>
@@ -73,7 +73,7 @@ service details
 
                                 </div>
 
-                                <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a>
+                                {{-- <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a> --}}
 
     
                                 {!!Form::open(['action'=>['ServicesController@destroy',$service->id], 'method'=>'POST','class'=>'pull-right'])!!}

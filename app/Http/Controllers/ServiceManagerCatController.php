@@ -8,6 +8,7 @@ use App\Service;
 use App\ServiceCategory;
 use App\User;
 use Auth;
+use File;
 
 class ServiceManagerCatController extends Controller
 {
@@ -53,30 +54,22 @@ class ServiceManagerCatController extends Controller
         //handle file upload
 
         if($request->hasFile('cover_image')){
-            //get file name with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $file = $request->file('cover_image');
+            // dd($file);
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extension;
+            $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
 
-            //get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            //get just extension
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-
-            ///filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
 
         }else{
-            $fileNameToStore = 'noimage.jpg';
+            $filename = 'noimage.jpg';
         }
 
         $category = new ServiceCategory;
         $category->cat_title = $request->input('cat_title');
         $category->service_id = $request->input('service_id');
         $category->description = $request->input('description');
-        $category->cover_image = $fileNameToStore;
+        $category->cover_image = $filename;
         // $category->save();
         Auth::user()->addServiceCat()->save($category);
         return redirect('/service-manager-index');
@@ -128,20 +121,12 @@ class ServiceManagerCatController extends Controller
         //handle file upload
 
         if($request->hasFile('cover_image')){
-            //get file name with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-
-            //get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            //get just extension
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-
-            ///filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+           
+            $file = $request->file('cover_image');
+            // dd($file);
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extension;
+            $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
 
         
         }
@@ -152,7 +137,7 @@ class ServiceManagerCatController extends Controller
         $category->description = $request->input('description');
 
         if($request->hasFile('cover_image')){
-            $category->cover_image = $fileNameToStore;
+            $category->cover_image = $filename;
         }
     
         Auth::user()->addServiceCat()->save($category);

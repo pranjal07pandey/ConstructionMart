@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3 align="center">{{ __('Login To Your Account') }}</h3>
+                    <h3 align="center">{{ __('customlang.Login To Your Account') }}</h3>
                 </div>
 
                 <div class="card-body">
@@ -74,7 +74,7 @@
                         <div class="form-group row ">
                             <div class="col-md-6 offset-md-4">
                                 <a class="btn btn-link" href="{{ route('register') }}">
-                                    {{ __('Do not have an account?Register Here') }}
+                                    {{ __('customlang.Do not have an account?Register Here') }}
                                 </a>
                             </div>
 

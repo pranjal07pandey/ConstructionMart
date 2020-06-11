@@ -37,7 +37,9 @@ our services
                                             
 			                                
 
-                                                <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
+                                                <img style="width:100%;height:250px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}">
+
+                                                {{-- <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}"> --}}
 
                                            
 

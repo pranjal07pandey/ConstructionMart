@@ -27,11 +27,11 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="/dashboard" class="simple-text logo-mini">
-          CM
+        <a href="/" class="simple-text logo-mini">
+          SM
         </a>
-        <a href="/dashboard" class="simple-text logo-normal">
-          Contruction Mart
+        <a href="/" class="simple-text logo-normal">
+          Service N Material
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -65,6 +65,13 @@
             <a href="/role-register">
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profile</p>
+            </a>
+          </li>
+
+          <li class="{{ 'sm-dashboard'== request()->path() ? 'active' :'' }}">
+            <a href="/service-manager-index">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Edit services and products here</p>
             </a>
           </li>
   

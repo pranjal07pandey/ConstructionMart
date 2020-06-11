@@ -35,7 +35,7 @@ Product Index
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
                                             <h3>{{$prod->product_name}}</h3>
-                                              <a class="aa-product-img" href="#"><img src="{{ URL::asset('uploads/products/'.$prod->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                                              <a class="aa-product-img" href="#"><img src="{{ URL::asset('uploads/products/'.$prod->image)}}"style="width: 100%; height: 250px" alt="polo shirt img" ></a>
 
                                             </div>
                                             <div style="width: 50%; margin-left: 10%;margin-top: 7%">

@@ -117,8 +117,8 @@
           </div>
 
           <div class="form-group">
-
-          <img style="width:100%;height:200px" src="/storage/cover_images/{{$category->cover_image}}">
+            <img style="width:100%;height:200px" src="{{ URL::asset('uploads/services/'.$category->cover_image)}}">
+          {{-- <img style="width:100%;height:200px" src="/storage/cover_images/{{$category->cover_image}}"> --}}
           </div>
 
           <div class="form-group">

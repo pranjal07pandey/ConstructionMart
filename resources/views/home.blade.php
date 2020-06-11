@@ -200,7 +200,7 @@ Home
                                 <tr>
                                     <td>{{$data->product->product_name}}</td>
                                     <td>{{$data->created_at}}</td>
-                                    <td>no</td>
+                                    <td>{{$data->delivered}}</td>
 
 
                                    

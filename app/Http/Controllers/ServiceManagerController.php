@@ -13,6 +13,7 @@ use App\SearchHistory;
 use App\Unit;
 use File;
 use Auth;
+use Image;
 
 class ServiceManagerController extends Controller
 {
@@ -231,36 +232,29 @@ class ServiceManagerController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'description'=>'nullable',
-            'cover_image'=>'image|nullable|max:1999'
+            'description'=>'required',
+            'cover_image'=>'image|nullable'
         ]);
 
         //handle file upload
 
         if($request->hasFile('cover_image')){
-            //get file name with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            
+            $file = $request->file('cover_image');
+            // dd($file);
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extension;
+            $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
 
-            //get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            //get just extension
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-
-            ///filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
 
         }else{
-            $fileNameToStore = 'noimage.jpg';
+            $filename = 'noimage.jpg';
         }
 
         $service = new Service;
         $service->title = $request->input('title');
         $service->description = $request->input('description');
-        $service->cover_image = $fileNameToStore;
+        $service->cover_image = $filename;
         Auth::user()->addService()->save($service);
         // $service->save();
         return redirect('/service-manager-index')->with('success', 'Service Added');
@@ -302,24 +296,16 @@ class ServiceManagerController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'description'=>'nullable'
+            'description'=>'required'
         ]);
 
         if($request->hasFile('cover_image')){
-            //get file name with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-
-            //get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            //get just extension
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
-
-            ///filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //upload image
-            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+            
+            $file = $request->file('cover_image');
+            // dd($file);
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extension;
+            $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
 
         }
 
@@ -328,7 +314,7 @@ class ServiceManagerController extends Controller
         $service->description = $request->input('description');
 
         if($request->hasFile('cover_image')){
-            $service->cover_image = $fileNameToStore;
+            $service->cover_image = $filename;
         }
 
         Auth::user()->addService()->save($service);
@@ -349,7 +335,7 @@ class ServiceManagerController extends Controller
 
         if($service->cover_image !='noimage.jpg'){
             //delete Image
-            Storage::delete('public/cover_images/'.$service->cover_image);
+            File::delete('uploads/services/'.$service->cover_image);
 
         }
         // Auth::user()->addService()->delete($service);

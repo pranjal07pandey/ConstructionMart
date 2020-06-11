@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderProduct;
 use App\ProductOrder;
 use Auth;
 use Carbon\Carbon;
@@ -45,6 +47,8 @@ class OrderProductController extends Controller
                     'updated_at' => $time,
                 );
                 ProductOrder::insert($orderData);
+                // Mail::to('pranjalpandey92@gmail.com')->send(new OrderProduct());
+
             }
         }
         return redirect()->back();

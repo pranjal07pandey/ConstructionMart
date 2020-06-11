@@ -141,7 +141,8 @@
                       @foreach ($services as $service)
                     <li>
                       <figure>
-                        <a class="aa-product-img" href="/view-services/{{$service->id}}"><img src="/storage/cover_images/{{$service->cover_image}}" style="width: 100%; height: 250px" alt="polo shirt img" ></a>
+                                              
+                                              <a class="aa-product-img" href="/view-services/{{$service->id}}"><img style="width:100%;height:250px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}"></a>
                           <a class="aa-add-card-btn"href="/view-services/{{$service->id}}"><span class=""></span>{{__('customlang.view details')}}</a>
                           <figcaption>
                           <h3 class="aa-product-title"><a href="/view-services/{{$service->id}}">{{$service->title}}</a></h3>

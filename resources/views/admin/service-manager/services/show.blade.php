@@ -23,9 +23,11 @@ Show Services
     <a href="/service-manager-index" class="btn btn-primary">Go Back</a>
     <br><br>
 
-<img style="width:100%; height:400px" src="/storage/cover_images/{{$service->cover_image}}">
+<img style="width:70%;height:400px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}">
 
-                <small>{{$service->description}}</small>
+{{-- <img style="width:100%; height:400px" src="/storage/cover_images/{{$service->cover_image}}"> --}}
+
+                <p>Description: {{$service->description}}</p>
                 <P>Uploaded by user: {{$service->user->name}}</P>
 
    

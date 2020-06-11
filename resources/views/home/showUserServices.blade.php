@@ -46,7 +46,10 @@
                                     <div class="well">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
-                                            <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}">
+                                              
+                                              <img style="width:100%;height:250px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}">
+                                              
+                                            {{-- <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}"> --}}
                                               <h3>
                                               {{__('customlang.Description')}}
                                               {{$service->description}}</h3>

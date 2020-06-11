@@ -33,7 +33,7 @@
         <div class="col-md-12">
           <div class="aa-contact-area">
             <div class="aa-contact-top">
-              <h2>We are wating to assist you..</h2>
+            <h2>{{__('customlang.We are wating to assist you..')}}</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quos.</p>
             </div>
             <!-- contact map -->
