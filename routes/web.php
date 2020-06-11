@@ -86,7 +86,7 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::any('/service-manager-editProduct-index/{id}', 
         'ServiceManagerController@editProductIndex');
     //updates the product
-    Route::any('update/product/service-manager/{product_id}/{category_id}/{subcategory_id}/{unit_id}', 'ServiceManagerController@updateProduct');
+    Route::any('update/product/service-manager/{product_id}/{category_id}/{subcategory_id}', 'ServiceManagerController@updateProduct');
     //Deletes the product of service manager
     Route::any('delete/product/service-manager/{id}', 'ServiceManagerController@deleteProd');
      

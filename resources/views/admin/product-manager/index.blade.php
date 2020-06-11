@@ -50,7 +50,7 @@ Product Index
                                              @endif
                                             </div>
                                         </div>
-                                        <a href="{{url('edit/product/'.$prod->id)}}" class="btn btn-primary ">Edit</a>
+                                        <a href="{{url('/service-manager-editProduct-index/'.$prod->id)}}" class="btn btn-primary ">Edits</a>
                                              <a href="{{url('delete/product/service-manager/'.$prod->id)}}" class="btn btn-primary ">Delete</a>
                                     </div>
 
