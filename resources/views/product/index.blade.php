@@ -40,7 +40,7 @@ Product Index
                                             </div>
                                             <div style="width: 50%; margin-left: 10%;margin-top: 7%">
                                       		 <b style="">Features</b><br><p>{{$prod->features}}</p>
-                                      		 <b>Price</b><p>Rs {{$prod->price}} per {{$prod->unit->unit_name}}</p>
+                                      		 <b>Price</b><p>Rs {{$prod->price}} per {{$prod->unit}}</p>
                                       		 @if($prod->delivery_facility)
                                       		 	<b>Delivery Facility</b><p>Yes</p>
                                       		 	<b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>

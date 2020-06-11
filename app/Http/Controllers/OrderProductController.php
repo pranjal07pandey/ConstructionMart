@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderProduct;
 use App\ProductOrder;
+use App\Product;
 use Auth;
+use Cart;
 use Carbon\Carbon;
 
 class OrderProductController extends Controller
@@ -21,6 +23,19 @@ class OrderProductController extends Controller
         $prodData = Product::paginate(4);
         return view('home.orderProduct', ['prodData' => $prodData]);
     }
+    public function indexOrder(Request $request) {
+         // dd($request->quantity);
+        $prod = Product::paginate(4);
+        $product_name = $request->product;
+        $product_id = $request->id;
+        for($i = 0; $i < sizeof($product_id); $i++) {
+            Cart::remove($product_id);
+        }
+
+        // dd($product_name);
+        $totalQuantity = $request->quantity;
+         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity, 'prod' => $prod]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +45,6 @@ class OrderProductController extends Controller
     public function create(Request $request)
     {
         $orderData = new ProductOrder;
-
         $time = Carbon::now();
         $user_id = Auth::user()->id;
         // dd($request->product);
@@ -51,7 +65,7 @@ class OrderProductController extends Controller
 
             }
         }
-        return redirect()->back();
+        return redirect('home');
 
     }
 

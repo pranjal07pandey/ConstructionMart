@@ -162,8 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
-
             
 
         /*
@@ -234,8 +232,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
-
 
     ],
 

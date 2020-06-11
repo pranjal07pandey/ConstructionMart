@@ -98,6 +98,7 @@
                     <a class="aa-cart-link" href="{{url('show/cart/products')}}">
                         <span class="fa fa-shopping-basket"></span>
                         <span class="aa-cart-title">{{__('customlang.MY CART')}}</span>
+                         <span class="aa-cart-notify">{{Cart::getContent()->count()}}</span> 
                     </a>
                     
                 </div>

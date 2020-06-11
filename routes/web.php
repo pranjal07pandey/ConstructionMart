@@ -144,6 +144,7 @@ Route::any('/show/cat/products/{id}', 'ProductController@catProducts');
 Route::any('/other/products', 'ProductController@allProducts');
 //search products
 Route::any('search/product', 'ProductController@search');
+Route::any('admin/search/product', 'ProductController@adminSearch');
 
 //Cart
 Route::any('add/to/cart/{id}','ProductController@cart');
@@ -153,7 +154,8 @@ Route::get('/cart/update', 'ProductController@updateCart');
 Route::any('cart/wishlist/{id}', 'ProductController@wishlistCart');
 Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 
-Route::post('order/product', 'OrderProductController@create');
+Route::any('order/product', 'OrderProductController@indexOrder');
+Route::any('final/order/product', 'OrderProductController@create');
 Route::any('order/index', 'OrderProductController@index');
 
 Route::get('product/index', 'ProductController@productIndex');
@@ -166,7 +168,7 @@ Route::group(['middleware'=>['auth', 'productManager']], function(){
     Route::post('add/product', 'ProductController@store');
     Route::get('show/admin/products', 'ProductController@adminProducts');
     Route::any('edit/product/{id}', 'ProductController@edit');
-    Route::any('update/product/{product_id}/{category_id}/{subcategory_id}/{unit_id}', 'ProductController@update');
+    Route::any('update/product/{product_id}/{category_id}/{subcategory_id}', 'ProductController@update');
 
 });
 

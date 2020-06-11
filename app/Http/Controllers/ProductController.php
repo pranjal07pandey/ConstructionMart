@@ -9,10 +9,12 @@ use App\ProductSubCategory;
 use App\ProductCategory;
 use App\Product;
 use App\SearchHistory;
-use App\Unit;
 use File;
+use App\Service;
 use DB;
 use Auth;
+use Image;
+
 // use Validator;
 
 class ProductController extends Controller
@@ -26,14 +28,12 @@ class ProductController extends Controller
     {
         $category = ProductCategory::all();
         $subCategory = ProductSubCategory::all();
-        $unit = DB::table('units')->distinct('unit_name')->get();
-        // dd($unit);
 
         if($category == null) {
             return view('product.addProduct');
         }
         else {
-        return view('product.addProduct',['category' => $category, 'subCategory' => $subCategory, 'unit' => $unit]);
+        return view('product.addProduct',['category' => $category, 'subCategory' => $subCategory]);
         }
     }
 
@@ -62,23 +62,28 @@ class ProductController extends Controller
         $data = new Product;
         $cat = new ProductCategory;
         $subCat = new ProductSubCategory;
+
         
 
         $this->validate($request, [
             'name' => 'required',
             'features' => 'required',
             'price' => 'required',
+            'image' => 'image|nullable'
         ]);
 
         // dd($request);
 
         if($request->hasFile('image')) {
+            // dd("success");
             $file = $request->file('image');
             // dd($file);
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' .$extension;
-            $file->move('uploads/products', $filename);
+            $img = Image::make($request->file('image'))->resize(300, 200)->save('uploads/products/'.$filename, 60);
+            // dd($img);
         } else {
+            // dd("fail");
             $filename = "noimage.jpg";
         }
 
@@ -111,6 +116,7 @@ class ProductController extends Controller
         $data->image = $filename;
         $data->features = $request->features;
         $data->price = $request->price;
+        $data->unit = $request->unit;
         $data->delivery_facility = $request->delivery;
         $data->delivery_charges = $request->deliveryCharge;
         $data->insurance_on_delivery = $request->insuranceOnDelivery;
@@ -119,24 +125,6 @@ class ProductController extends Controller
         $data->user_id = Auth::user()->id;
         
         $data->save();
-
-        if($request->unit !=null ) {
-            $unitData = new Unit;
-            $id = Product::all();
-            $unitData->unit_name = $request->unit;
-            $unitData->product_id = sizeof($id);
-            $unitData->save();
-
-        }
-        else {
-            $id = Product::all();
-            $unitData = new Unit;
-            // dd($request->unitSelect);
-            $unitData->unit_name = $request->unitSelect;
-            $unitData->product_id = sizeof($id);
-            $unitData->save();
-
-        }
         return redirect()->back();
     }
 
@@ -170,16 +158,39 @@ class ProductController extends Controller
         $searchData = $request->search;
         // dd($searchData);
         $data = Product::where('product_name', 'LIKE', $searchData.'%')->paginate(5);
-        // dd($data);
+        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->paginate(5);
+        // dd($serviceData);
         if($data) {
-            return view('product.searchData', ['prodDetails' => $data]);
+            return view('product.searchData', ['prodDetails' => $data, 'serviceData' => 
+                $serviceData]);
         }
         else {
             return View::make('product.searchData')->with('msg', 'no carpet found');
+        } 
+    }
+
+    public function adminSearch(Request $request) {
+        $searchData = new SearchHistory;
+          if(Auth::user() && $request->search) {
+            $user_id = Auth::user()->id;
+            $searchData->search = $request->search;
+            $searchData->user_id = $user_id;
+            $searchData->save();
         }
 
+        $searchData = $request->search;
+        // dd($searchData);
+        $data = Product::where('product_name', 'LIKE', $searchData.'%')->paginate(5);
+        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->paginate(5);
+        // dd($serviceData);
+        if($data) {
+            return view('admin.product-manager.adminSearch', ['prodDetails' => $data, 'serviceData' => 
+                $serviceData]);
+        }
+        else {
+            return View::make('admin.product-manager.adminSearch')->with('msg', 'no carpet found');
+        } 
 
-      
     }
 
     //Add to cart
@@ -240,11 +251,27 @@ class ProductController extends Controller
 
     public function updateCart(Request $request) {
 
-       $quantity = $request->quantity;
-       $price = $request->price;
+        $id = $request->ids;
+        $quantity = $request->quantity;
+        $price = $request->price;
+
+        // for($i = 0; $i <  sizeof($id); $i++) {
+        //     $total = $sum + ($quantity * $price);
+        // }
+        Cart::update($id, array(
+            'quantity' => array(
+                'relative' =>false,
+                'value' => $quantity
+            ),
+        ));
+
+        $total = Cart::getTotal();
+
         return response()->json([
             'quantity' => $quantity,
-            'price' => $price
+            'price' => $price,
+            'id' => $id,
+            'total' => $total,
         ]);
     }
 
@@ -283,10 +310,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         $editProd = Product::find($id);
+        // dd($editProd);
         $category = ProductCategory::all();
         $subCategory = ProductSubCategory::all();
-        $unit = Unit::all();
-        return view('product.editProduct', ['editProd' => $editProd, 'category' => $category, 'subCategory' => $subCategory, 'unit' => $unit]);
+        return view('product.editProduct', ['editProd' => $editProd, 'category' => $category, 'subCategory' => $subCategory]);
     }
 
     /**
@@ -297,7 +324,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $product_id, $category_id, 
-        $subcategory_id, $unit_id)
+        $subcategory_id)
     {
          $data = Product::find($product_id);
          // dd($subcategory_id);
@@ -348,28 +375,17 @@ class ProductController extends Controller
             $data->product_sub_category_id = $request->subCat;
         }
 
-        if($request->unit !=null ) {
-            // dd($request->unit);
-            $id = Unit::all();
-            $unitData = Unit::find($unit_id);
-            $unitData->unit_name = $request->unit;
-            $data->unit_id = sizeof($id) + 1;
-            $unitData->save();
-        }
-        else {
-            $data->unit_id = $request->unitSelect;
-        }
-
         $data->product_name = $request->name;
         $data->image = $filename;
         $data->features = $request->features;
         $data->price = $request->price;
+        $data->unit = $request->unit;
         $data->delivery_facility = $request->delivery;
         $data->delivery_charges = $request->deliveryCharge;
         $data->insurance_on_delivery = $request->insuranceOnDelivery;
         $data->product_manufactured_date = $request->manufacturedDate;
         $data->product_expiry_date = $request->expiryDate;
-        
+        $subCat->save();
         $data->save();
         return redirect()->back();
         
