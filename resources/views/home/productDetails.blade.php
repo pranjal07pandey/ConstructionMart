@@ -47,12 +47,14 @@
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
                                             <img style="width:100%;height:200px" src="{{ URL::asset('uploads/products/'.$prodDetails->image)}}">
+
+                                             <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $prodDetails->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                                                 
 
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
                                             <p><b>{{$prodDetails->product_name}}</b></p>
-                                            <p><b>Rs {{$prodDetails->price}} per {{$prodDetails->unit->unit_name}}</b></p>
+                                            <p><b>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</b></p>
                                             @if($prodDetails->delivery_facility)
                                               <p><b>Delivery Facility: Yes</b></p>
                                               <p><b>Delivery Charge: {{$prodDetails->delivery_charges}}</b></p>
@@ -62,7 +64,9 @@
                                               <p><b>
                                               {{$prodDetails->features}}</b></p>
 
+
                                             </div>
+
 
                                 
                                     </div>

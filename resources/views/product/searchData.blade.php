@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,84 +13,162 @@
   </head>
   <body> 
    <!-- wpf loader Two -->
-    <div id="wpf-loader-two">          
-      <div class="wpf-loader-two-inner">
-        <span>Loading</span>
-      </div>
-    </div> 
+
     <!-- / wpf loader Two -->       
   <!-- SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+
   <!-- END SCROLL TOP BUTTON -->
 
 
   @include('include.header')
+@include('include.js')
+<section id="aa-product">
+    <h1 align="center">Searched Product</h1>
+    <hr>
 
-  
-
-  <div class="container">
-    <div class="row">
+    <div class="container">
+      <div class="row">
         <div class="col-md-12">
-            <div class="card">
-              <br>
-                <div class="">
-                <h2 align="center">{{'Searched Data'}}</h2>
-                </div>
-                <hr>
-                
-                <div class="card-body">
+          <div class="row">
+            <div class="aa-product-area">
+              <div class="aa-product-inner">
+                <!-- start prduct navigation -->
+                 <ul class="nav nav-tabs aa-products-tab">
+                    <li class="active"><a href="#men" data-toggle="tab"></a></li>
+                  </ul>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <!-- Start men product category -->
+                    <div class="tab-pane fade in active" id="men">
+                      <ul class="aa-product-catg">
+                        <!-- start single product item -->
+                        @foreach($prodDetails as $datas)
+                        <li>
+                          <figure>
+                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                              <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
+                              <figcaption>
+                              <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
+                              <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit}}</span>
+                            </figcaption>
+                          </figure>                        
+<!--                          -->
+                          <!-- product badge -->
+<!--                          <span class="aa-badge aa-sale" href="#">SALE!</span>-->
+                        </li>
+                        @endforeach
+                      </ul>
+                      <ul class="aa-product-catg">
+                        <!-- start single product item -->
+                         @foreach($serviceData as $datas)
+                        <li>
+                          <figure>
+                            <a class="aa-product-img" href="/view-services/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                              <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Order Now</a>
+                              <figcaption>
+                              <h4 class="aa-product-title"><a href="#">{{$datas->title}}</a></h4>
+                              <span class="aa-product-price">Rs {{$datas->description}}</span>
+                            </figcaption>
+                          </figure>                        
+<!--                          -->
+                          <!-- product badge -->
+<!--                          <span class="aa-badge aa-sale" href="#">SALE!</span>-->
+                        </li>
+                        @endforeach
+                      </ul>
+                      {{ $serviceData->links() }}
+                    </div>
 
-                    
+                  </div>
+                  <!-- quick view modal -->                  
+                  <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">                      
+                        <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <div class="row">
+                            <!-- Modal view slider -->
+                            <div class="col-md-6 col-sm-6 col-xs-12">                              
+                              <div class="aa-product-view-slider">                                
+                                <div class="simpleLens-gallery-container" id="demo-1">
+                                  <div class="simpleLens-container">
+                                      <div class="simpleLens-big-image-container">
+                                          <a class="simpleLens-lens-image" data-lens-image="{{ asset('frontEnd') }}/img/view-slider/large/polo-shirt-1.png">
+                                              <img src="{{ asset('frontEnd') }}/img/view-slider/medium/polo-shirt-1.png" class="simpleLens-big-image">
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <div class="simpleLens-thumbnails-container">
+                                      <a href="#" class="simpleLens-thumbnail-wrapper"
+                                         data-lens-image="{{ asset('frontEnd') }}/img/view-slider/large/polo-shirt-1.png"
+                                         data-big-image="{{ asset('frontEnd') }}/img/view-slider/medium/polo-shirt-1.png">
+                                          <img src="{{ asset('frontEnd') }}/img/view-slider/thumbnail/polo-shirt-1.png">
+                                      </a>                                    
+                                      <a href="#" class="simpleLens-thumbnail-wrapper"
+                                         data-lens-image="{{ asset('frontEnd') }}/img/view-slider/large/polo-shirt-3.png"
+                                         data-big-image="{{ asset('frontEnd') }}/img/view-slider/medium/polo-shirt-3.png">
+                                          <img src="{{ asset('frontEnd') }}/img/view-slider/thumbnail/polo-shirt-3.png">
+                                      </a>
 
-                                <div class="container">
-                                  @foreach($prodDetails as $datas)
-                                    <div class="well">
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-4">
-                                            <img style="width:100%;height:200px" src="{{ URL::asset('uploads/products/'.$datas->image)}}">
-                                                
-
-                                            </div>
-                                           
-                                            <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
-                                            <p><b>{{$datas->product_name}}</b></p>
-                                            <p><b>Rs {{$datas->price}} per {{$datas->unit->unit_name}}</b></p>
-                                            @if($datas->delivery_facility)
-                                              <p><b>Delivery Facility: Yes</b></p>
-                                              <p><b>Delivery Charge: {{$datas->delivery_charges}}</b></p>
-                                              @else
-                                                <p><b>Delivery Facility: Sorry there is no delivery facility</b></p>
-                                              @endif
-                                              <p><b>
-                                              {{$datas->features}}</b></p>
-
-                                            </div>
-
-                                
-                                    </div>
-                                    </div>
-                                    @endforeach
-
-                                    {{$prodDetails->links()}}
+                                      <a href="#" class="simpleLens-thumbnail-wrapper"
+                                         data-lens-image="{{ asset('frontEnd') }}/img/view-slider/large/polo-shirt-4.png"
+                                         data-big-image="{{ asset('frontEnd') }}/img/view-slider/medium/polo-shirt-4.png">
+                                          <img src="{{ asset('frontEnd') }}/img/view-slider/thumbnail/polo-shirt-4.png">
+                                      </a>
+                                  </div>
                                 </div>
-                              
-                               
-                               
-                               
-                                    
-
+                              </div>
+                            </div>
+                            <!-- Modal view content -->
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="aa-product-view-content">
+                                <h3>T-Shirt</h3>
+                                <div class="aa-price-block">
+                                  <span class="aa-product-view-price">$34.99</span>
+                                  <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
                                 </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
+                                <h4>Size</h4>
+                                <div class="aa-prod-view-size">
+                                  <a href="#">S</a>
+                                  <a href="#">M</a>
+                                  <a href="#">L</a>
+                                  <a href="#">XL</a>
                                 </div>
-
-                </div>
+                                <div class="aa-prod-quantity">
+                                  <form action="">
+                                    <select name="">
+                                      <option value="0" selected="1">1</option>
+                                      <option value="1">2</option>
+                                      <option value="2">3</option>
+                                      <option value="3">4</option>
+                                      <option value="4">5</option>
+                                      <option value="5">6</option>
+                                    </select>
+                                  </form>
+                                  <p class="aa-prod-category">
+                                    Category: <a href="#">Polo T-Shirt</a>
+                                  </p>
+                                </div>
+                                <div class="aa-prod-view-bottom">
+                                  <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                                  <a href="#" class="aa-add-to-cart-btn">View Details</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>                        
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- / quick view modal -->              
+              </div>
             </div>
+          </div>
         </div>
-  
+      </div>
+    </div>
+@include('include.footer')
 
-
-  @include('include.footer')
-
-  @include('include.js')
-
-  </body>
+  </section>
+</body>
 </html>

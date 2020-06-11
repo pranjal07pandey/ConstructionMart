@@ -226,7 +226,6 @@ input:focus {
       <form method="post" action="{{url('order/product')}}">
         @csrf
       @foreach($products as $product)
-      <input type="hidden" name="ids" id = "ids{{$product->id}}" value="{{$product->id}}">
       <input type="hidden" name="id[]" value="{{$product->id}}">
       <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
@@ -333,7 +332,7 @@ input:focus {
                               <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
-                              <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit->unit_name}}</span>
+                              <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit}}</span>
                             </figcaption>
                           </figure>       
                     </li>

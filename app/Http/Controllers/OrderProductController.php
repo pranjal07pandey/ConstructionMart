@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ProductOrder;
+use App\Product;
 use Auth;
+use Cart;
 use Carbon\Carbon;
 
 class OrderProductController extends Controller
@@ -21,13 +23,16 @@ class OrderProductController extends Controller
     }
     public function indexOrder(Request $request) {
          // dd($request->quantity);
+        $prod = Product::paginate(4);
         $product_name = $request->product;
         $product_id = $request->id;
-        // dd($request->totalPrice);
+        for($i = 0; $i < sizeof($product_id); $i++) {
+            Cart::remove($product_id);
+        }
 
         // dd($product_name);
         $totalQuantity = $request->quantity;
-         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity]);
+         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity, 'prod' => $prod]);
     }
 
     /**
@@ -56,7 +61,7 @@ class OrderProductController extends Controller
                 ProductOrder::insert($orderData);
             }
         }
-        return redirect()->back();
+        return redirect('home');
 
     }
 

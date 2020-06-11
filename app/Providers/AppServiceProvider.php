@@ -27,8 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $cat = ProductCategory::get();
-        // $quantCount = Cart::getContent();
-        // $count = $quantCount->count();
         View::share(['shareData' => $cat]);
     }
 }

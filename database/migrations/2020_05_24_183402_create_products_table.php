@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->boolean('delivery_facility');
             $table->string('delivery_charges')->nullable();
             $table->boolean('insurance_on_delivery');
+            $table->string('unit');
             $table->date('product_manufactured_date')->nullable();
             $table->date('product_expiry_date')->nullable();
             $table->unsignedBigInteger('user_id');

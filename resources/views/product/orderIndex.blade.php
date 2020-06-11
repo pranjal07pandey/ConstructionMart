@@ -126,6 +126,50 @@
 
   
   </div>
+  <div class="container">
+
+  <h1 align="center">{{('You may like other products as well')}}</h1>
+    <hr>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="aa-product-area">
+            <div class="aa-product-inner">
+
+              <!-- start prduct navigation -->
+             
+              <div class="tab-content">
+                <!-- Start men product category -->
+                <div class="tab-pane fade in active" id="men">
+                  <ul class="aa-product-catg">
+                    <!-- start single product item -->
+
+
+                      @foreach ($prod as $datas)
+                    <li>
+                    <figure>
+                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                              <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
+                              <figcaption>
+                              <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
+                              <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit}}</span>
+                            </figcaption>
+                          </figure>       
+                    </li>
+                    @endforeach
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
