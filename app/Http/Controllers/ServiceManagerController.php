@@ -49,21 +49,23 @@ class ServiceManagerController extends Controller
         $subCat = ProductSubCategory::find($subcategory_id);
         
 
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'features' => 'required',
-        //     'price' => 'required',
-        // ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'features' => 'required',
+            'price' => 'required',
+        ]);
 
         // dd($request);
-
         if($request->hasFile('image')) {
+            // dd("success");
             $file = $request->file('image');
             // dd($file);
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' .$extension;
-            $file->move('uploads/products', $filename);
+            $img = Image::make($request->file('image'))->resize(300, 200)->save('uploads/products/'.$filename, 60);
+            // dd($img);
         } else {
+            // dd("fail");
             $filename = "noimage.jpg";
         }
 
@@ -160,7 +162,6 @@ class ServiceManagerController extends Controller
             // dd("fail");
             $filename = "noimage.jpg";
         }
-
         if( $request->category != null) {   
             $id = ProductCategory::all(); 
             $data->product_category_id = sizeof($id) + 1;
