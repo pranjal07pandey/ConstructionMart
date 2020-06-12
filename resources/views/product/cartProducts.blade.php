@@ -226,7 +226,7 @@ input:focus {
       <form method="post" action="{{url('order/product')}}">
         @csrf
       @foreach($products as $product)
-      <input type="hidden" name="id[]" value="{{$product->id}}">
+      <input type="hidden" name="id[]" id = "ids{{$product->id}}" value="{{$product->id}}">
       <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
         <div class="buttons">
@@ -355,14 +355,13 @@ input:focus {
 </html>
     <script type="text/javascript">
      $(document).ready(function() {
-      var sum = 0;
         @foreach($products as $product)
         $("#totalQuantity{{$product->id}}").on('change keyup', function() {
         // alert("akd");
           var quantity = $("#totalQuantity{{$product->id}}").val();
           var price = $("#price{{$product->id}}").val();
           var id = $("#ids{{$product->id}}").val();
-          console.log(id);
+          // console.log(id);
           $.ajax({
             url: "{{url('/cart/update')}}",
             data: 'quantity=' + quantity + "&price=" + price + "&ids=" + id,

@@ -132,6 +132,7 @@ Route::any('/other/products', 'ProductController@allProducts');
 //search products
 Route::any('search/product', 'ProductController@search');
 Route::any('admin/search/product', 'ProductController@adminSearch');
+Route::any('serviceManager/search', 'ProductController@serviceManagerSearch');
 
 //Cart
 Route::any('add/to/cart/{id}','ProductController@cart');
@@ -141,7 +142,7 @@ Route::get('/cart/update', 'ProductController@updateCart');
 Route::any('cart/wishlist/{id}', 'ProductController@wishlistCart');
 Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 
-Route::any('order/product', 'OrderProductController@indexOrder');
+Route::any('order/product', 'OrderProductController@indexOrder')->middleware('auth');
 Route::any('final/order/product', 'OrderProductController@create');
 Route::any('order/index', 'OrderProductController@index');
 

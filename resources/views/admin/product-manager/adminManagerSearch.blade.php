@@ -1,4 +1,11 @@
-@extends('admin.layouts.master')
+@extends('admin.layouts.smMaster')
+
+{{-- @if(Auth::check())
+    @if (Auth::user()->usertype=='serviceManager')
+    @extends('admin.layouts.smMaster')
+    @endif
+@endif --}}
+
 
 @section('title')
 
