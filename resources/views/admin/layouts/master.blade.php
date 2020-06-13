@@ -68,6 +68,13 @@
             </a>
           </li>
 
+          <li class="{{ 'view-newsletter'== request()->path() ? 'active' :'' }}">
+            <a href="/view-newsletter">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Newsletter Subscribers</p>
+            </a>
+          </li>
+
          
   
 

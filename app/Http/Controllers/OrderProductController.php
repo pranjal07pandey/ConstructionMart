@@ -55,7 +55,8 @@ class OrderProductController extends Controller
         $data = request()->validate([
             'phoneNumber' =>'required',
             'location' =>'required',
-            'email'=> 'nullable|email'
+            'email'=> 'nullable|email',
+            
         ]);
         
         $orderData = new ProductOrder;
@@ -74,14 +75,15 @@ class OrderProductController extends Controller
                     'updated_at' => $time,
                 );
                 ProductOrder::insert($orderData);
-                // Mail::to('pranjalpandey92@gmail.com')->send(new OrderProduct());
+                
 
             }
         }
           //uncomment to activate email send
         // Mail::to('pranjalpandey92@gmail.com')->send(new OrderService($data));
+        Mail::to('pranjalpandey92@gmail.com')->send(new OrderProduct($data));
 
-        return redirect('home');
+        return redirect('home')->with('success', 'Order palced, we will contact you shortly');
 
     }
 

@@ -46,16 +46,16 @@
                                     <div class="well">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
-                                            <img style="width:100%;height:200px" src="{{ URL::asset('uploads/products/'.$prodDetails->image)}}">
+                                            <img style="width:100%;height:250px" src="{{ URL::asset('uploads/products/'.$prodDetails->image)}}">
 
-                                             <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $prodDetails->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
+                                             <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $prodDetails->id)}}"><span class="fa fa-shopping-cart"></span>Add to cart</a>
                                                 
 
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
-                                            <p><b>Product Name</b></p>
+                                            <p><b>Product Name:</b></p>
                                             <p>{{$prodDetails->product_name}}</p>
-                                            <p><b>Price</b></p>
+                                            <p><b>Price:</b></p>
                                             <p>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</p>
                                             @if($prodDetails->delivery_facility)
                                             <p><b>{{__('customlang.Delivery Facility: Yes')}}</b></p>
@@ -63,6 +63,7 @@
                                               @else
                                                 <p><b>{{__('customlang.Delivery Facility: Sorry there is no delivery facility')}}</b></p>
                                               @endif
+                                              <p><b>Features:</b></p>
                                               <p><b>
                                               {{$prodDetails->features}}</b></p>
 

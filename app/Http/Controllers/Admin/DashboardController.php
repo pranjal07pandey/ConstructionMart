@@ -8,6 +8,7 @@ use App\User;
 use App\Order;
 use App\ProductOrder;
 use Auth;
+use App\Newsletter;
 
 
 
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $productOrders = ProductOrder::paginate(7);
         return view('admin.dashboard', ['orders' => $orders, 'productOrders' => 
             $productOrders]);
+
 
     }
 
@@ -117,5 +119,11 @@ class DashboardController extends Controller
     public function viewUserProfile($id){
         $user = User::findOrFail($id);
         return view('admin.userprofile')->with('user',$user);
+    }
+
+    //view newsletter
+    public function viewNewsletter(){
+        $news = Newsletter::orderBy('created_at','desc')->paginate(10);
+        return view('admin.newsletter')->with('news', $news);
     }
 }

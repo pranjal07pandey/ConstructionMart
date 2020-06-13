@@ -30,6 +30,8 @@ Route::post('/order-categories/{id}', 'OrderServiceController@store')->middlewar
 Route::get('/contact', 'ContactFormController@create');
 Route::post('/contact', 'ContactFormController@store');
 
+//newsletter
+Route::post('/subscribe-newsletter', 'NewsletterController@store');
 
 
 
@@ -67,6 +69,9 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 
     Route::get('/order-details-products/{id}','Admin\DashboardController@orderDetailsProducts');
     Route::post('/order-details-products/{id}','Admin\DashboardController@checkDeliveredProducts');
+
+    //view newsletter
+    Route::get('/view-newsletter','Admin\DashboardController@viewNewsletter');
 
 
 });

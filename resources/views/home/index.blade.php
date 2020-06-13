@@ -365,16 +365,34 @@
   <!-- / Testimonial -->
 
 
+
+
   <!-- Subscribe section -->
   <section id="aa-subscribe">
     <div class="container">
+
+      
+
       <div class="row">
+        
         <div class="col-md-12">
+
+         
           <div class="aa-subscribe-area">
+
+            <div class="card-body">
+              @if (session('success'))
+                  <div class="alert alert-success alert-dismissible" role="alert">
+                    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      {{ session('success') }}
+                  </div>
+              @endif
+          </div>
             <h3>{{__('customlang.Subscribe our newsletter')}} </h3>
             <p>Subscribe to Never miss any updates</p>
-            <form action="" class="aa-subscribe-form">
-              <input type="email" name="" id="" placeholder="Enter your Email">
+            <form action="/subscribe-newsletter" method="POST" class="aa-subscribe-form">
+              @csrf
+              <input type="email" name="email" placeholder="Enter your Email">
               <input type="submit" value="Subscribe">
             </form>
           </div>

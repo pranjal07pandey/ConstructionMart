@@ -85,7 +85,7 @@
                 <!-- Text based logo -->
                 <a href="/">
                   <span class="fa fa-home"></span>
-                <p>Service<strong>N</strong>Material <span>{{__('customlang.Your Construction Guide')}}</span></p>
+                <p>SERVICE <strong>N</strong> MATERIAL <span>{{__('customlang.Your Construction Guide')}}</span></p>
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
