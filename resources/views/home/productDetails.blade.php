@@ -53,8 +53,10 @@
 
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
-                                            <p><b>{{$prodDetails->product_name}}</b></p>
-                                            <p><b>{{__('customlang.Rs')}} {{$prodDetails->price}} {{__('customlang.per')}} {{$prodDetails->unit}}</b></p>
+                                            <p><b>Product Name</b></p>
+                                            <p>{{$prodDetails->product_name}}</p>
+                                            <p><b>Price</b></p>
+                                            <p>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</p>
                                             @if($prodDetails->delivery_facility)
                                             <p><b>{{__('customlang.Delivery Facility: Yes')}}</b></p>
                                             <p><b>{{__('customlang.Delivery Charge')}}: {{$prodDetails->delivery_charges}}</b></p>

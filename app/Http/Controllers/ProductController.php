@@ -69,7 +69,8 @@ class ProductController extends Controller
             'name' => 'required',
             'features' => 'required',
             'price' => 'required',
-            'image' => 'image|nullable'
+            'unit' => 'required',
+            'image' => 'image|nullable',
         ]);
 
         // dd($request);
@@ -180,17 +181,38 @@ class ProductController extends Controller
 
         $searchData = $request->search;
         // dd($searchData);
-        $data = Product::where('product_name', 'LIKE', $searchData.'%')->paginate(5);
-        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->paginate(5);
-        // dd($serviceData);
+        $data = Product::where('product_name', 'LIKE', $searchData.'%')->get();
+        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->get();
+        // dd($data);
         if($data) {
-            return view('admin.product-manager.adminSearch', ['prodDetails' => $data, 'serviceData' => 
-                $serviceData]);
+            return view('admin.product-manager.adminSearch', ['data' => $data, 'serviceData' => $serviceData]);
         }
         else {
             return View::make('admin.product-manager.adminSearch')->with('msg', 'no carpet found');
         } 
 
+    }
+
+    public function serviceManagerSearch(Request $request) {
+        $searchData = new SearchHistory;
+          if(Auth::user() && $request->search) {
+            $user_id = Auth::user()->id;
+            $searchData->search = $request->search;
+            $searchData->user_id = $user_id;
+            $searchData->save();
+        }
+
+        $searchData = $request->search;
+        // dd($searchData);
+        $data = Product::where('product_name', 'LIKE', $searchData.'%')->get();
+        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->get();
+        // dd($data);
+        if($data) {
+            return view('admin.product-manager.adminManagerSearch', ['data' => $data, 'serviceData' => $serviceData]);
+        }
+        else {
+            return View::make('admin.product-manager.adminManagerSearch')->with('msg', 'no carpet found');
+        }       
     }
 
     //Add to cart
@@ -333,24 +355,26 @@ class ProductController extends Controller
         $subCat = ProductSubCategory::find($subcategory_id);
         
 
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'features' => 'required',
-        //     'price' => 'required',
-        // ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'features' => 'required',
+            'price' => 'required',
+        ]);
 
-        // dd($request);
 
         if($request->hasFile('image')) {
+            // dd("success");
             $file = $request->file('image');
             // dd($file);
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' .$extension;
-            $file->move('uploads/products', $filename);
+            $img = Image::make($request->file('image'))->resize(300, 200)->save('uploads/products/'.$filename, 60);
+            // dd($img);
         } else {
+            // dd("fail");
             $filename = "noimage.jpg";
         }
-
+        
         if( $request->category != null) {   
             $id = ProductCategory::all(); 
             $data->product_category_id = sizeof($id) + 1;

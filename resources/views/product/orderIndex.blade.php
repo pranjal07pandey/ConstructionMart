@@ -84,12 +84,6 @@
           <input type="email" placeholder="Email, if any" class="form-control" name="email" value="{{Auth::user()->email}}">
         </div>
              
-     
-        <div class="form-group">
-          <label>{{__('customlang.State your problem')}} </label>                        
-        <textarea class="form-control" rows="3" placeholder="Message" name="message"></textarea>
-        </div>
-
 
 <br>
 
@@ -105,9 +99,17 @@
           <h2 align = "center">{{__('customlang.Order Details')}}</h2>
 
           <div class="form-group">
-            <label><i class="fa fa-work"></i> {{__('customlang.Ordered service')}} </label>
+            <label><i class="fa fa-work"></i> {{__('Ordered products')}} </label>
             @foreach((array) $product_name as $name)                        
           <option type="text"  class="form-control" name="service">{{$name}}</option>@endforeach
+          </div>
+          <div class="form-group">
+            <label><i class="fa fa-work"></i> {{__('Total Quantity Ordered')}} </label>                      
+          <option type="text"  class="form-control" name="service">{{$totalQuantity}}</option>
+          </div>
+          <div class="form-group">
+            <label><i class="fa fa-work"></i> {{__('Total Price')}} </label>                      
+          <option type="text"  class="form-control" name="service">Rs {{$totalPrice}}</option>
           </div>
         </div>
           </div>
@@ -145,12 +147,10 @@
                 <div class="tab-pane fade in active" id="men">
                   <ul class="aa-product-catg">
                     <!-- start single product item -->
-
-
                       @foreach ($prod as $datas)
                     <li>
                     <figure>
-                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
+                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 100%; height: 250px" alt="polo shirt img" ></a>
                               <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>

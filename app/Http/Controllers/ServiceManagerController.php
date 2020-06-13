@@ -10,10 +10,10 @@ use App\ProductSubCategory;
 use App\ProductCategory;
 use App\Product;
 use App\SearchHistory;
-use App\Unit;
+use Image;
 use File;
 use Auth;
-use Image;
+
 
 class ServiceManagerController extends Controller
 {
@@ -36,35 +36,37 @@ class ServiceManagerController extends Controller
         $editProd = Product::find($id);
         $category = ProductCategory::all();
         $subCategory = ProductSubCategory::all();
-        $unit = Unit::all();
-        return view('admin.product-manager.editproduct', ['editProd' => $editProd, 'category' => $category, 'subCategory' => $subCategory, 'unit' => $unit]);
+        return view('admin.product-manager.editproduct', ['editProd' => $editProd, 'category' => $category, 'subCategory' => $subCategory
+    ]);
 
     }
     public function updateProduct(Request $request, $product_id, $category_id, 
-        $subcategory_id, $unit_id)
+        $subcategory_id)
         {
-             $data = Product::find($product_id);
+                  $data = Product::find($product_id);
          // dd($subcategory_id);
         $cat = ProductCategory::find($category_id);
 
         $subCat = ProductSubCategory::find($subcategory_id);
         
 
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'features' => 'required',
-        //     'price' => 'required',
-        // ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'features' => 'required',
+            'price' => 'required',
+        ]);
 
         // dd($request);
-
         if($request->hasFile('image')) {
+            // dd("success");
             $file = $request->file('image');
             // dd($file);
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' .$extension;
-            $file->move('uploads/products', $filename);
+            $img = Image::make($request->file('image'))->resize(300, 200)->save('uploads/products/'.$filename, 60);
+            // dd($img);
         } else {
+            // dd("fail");
             $filename = "noimage.jpg";
         }
 
@@ -92,30 +94,20 @@ class ServiceManagerController extends Controller
             $data->product_sub_category_id = $request->subCat;
         }
 
-        if($request->unit !=null ) {
-            // dd($request->unit);
-            $id = Unit::all();
-            $unitData = Unit::find($unit_id);
-            $unitData->unit_name = $request->unit;
-            $data->unit_id = sizeof($id) + 1;
-            $unitData->save();
-        }
-        else {
-            $data->unit_id = $request->unitSelect;
-        }
-
         $data->product_name = $request->name;
         $data->image = $filename;
         $data->features = $request->features;
         $data->price = $request->price;
+        $data->unit = $request->unit;
         $data->delivery_facility = $request->delivery;
         $data->delivery_charges = $request->deliveryCharge;
         $data->insurance_on_delivery = $request->insuranceOnDelivery;
         $data->product_manufactured_date = $request->manufacturedDate;
         $data->product_expiry_date = $request->expiryDate;
-        
+        $subCat->save();
         $data->save();
         return redirect()->back();
+          
         
     }
     public function deleteProd($id) {
@@ -142,13 +134,13 @@ class ServiceManagerController extends Controller
     public function addProductIndex() {
         $category = ProductCategory::all();
         $subCategory = ProductSubCategory::all();
-        $unit = Unit::all();
-        return view('admin.product-manager.addproduct', ['category' => $category, 'subCategory' => $subCategory, 'unit' => $unit]);
+        return view('admin.product-manager.addproduct', ['category' => $category, 'subCategory' => $subCategory]);
     }
-    public function addProduct() {
-        $data = new Product;
+    public function addProduct(Request $request) {
+     $data = new Product;
         $cat = new ProductCategory;
         $subCat = new ProductSubCategory;
+
         
 
         $this->validate($request, [
@@ -160,15 +152,17 @@ class ServiceManagerController extends Controller
         // dd($request);
 
         if($request->hasFile('image')) {
+            // dd("success");
             $file = $request->file('image');
             // dd($file);
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' .$extension;
-            $file->move('uploads/products', $filename);
+            $img = Image::make($request->file('image'))->resize(300, 200)->save('uploads/products/'.$filename, 60);
+            // dd($img);
         } else {
+            // dd("fail");
             $filename = "noimage.jpg";
         }
-
         if( $request->category != null) {   
             $id = ProductCategory::all(); 
             $data->product_category_id = sizeof($id) + 1;
@@ -193,22 +187,12 @@ class ServiceManagerController extends Controller
             $data->product_sub_category_id = $request->subCat;
         }
 
-        if($request->unit !=null ) {
-            // dd($request->unit);
-            $id = Unit::all();
-            $unitData = new Unit;
-            $unitData->unit_name = $request->unit;
-            $data->unit_id = sizeof($id) + 1;
-            $unitData->save();
-        }
-        else {
-            $data->unit_id = $request->unitSelect;
-        }
 
         $data->product_name = $request->name;
         $data->image = $filename;
         $data->features = $request->features;
         $data->price = $request->price;
+        $data->unit = $request->unit;
         $data->delivery_facility = $request->delivery;
         $data->delivery_charges = $request->deliveryCharge;
         $data->insurance_on_delivery = $request->insuranceOnDelivery;

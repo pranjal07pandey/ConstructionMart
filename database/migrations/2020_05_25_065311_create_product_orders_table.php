@@ -18,7 +18,6 @@ class CreateProductOrdersTable extends Migration
             $table->unsignedBigInteger('phone_number');
             $table->string('location');
             $table->string('email');
-            $table->string('message');
             $table->string('delivered')->default('No')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')

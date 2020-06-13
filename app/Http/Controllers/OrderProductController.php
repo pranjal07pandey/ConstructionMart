@@ -28,13 +28,20 @@ class OrderProductController extends Controller
         $prod = Product::paginate(4);
         $product_name = $request->product;
         $product_id = $request->id;
+        $totalPrice = $request->total;
+
+        $totalPrice = Cart::getTotal();
+
         for($i = 0; $i < sizeof($product_id); $i++) {
             Cart::remove($product_id);
         }
 
-        // dd($product_name);
-        $totalQuantity = $request->quantity;
-         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity, 'prod' => $prod]);
+        $sum = 0;
+        for($i = 0; $i < sizeof($product_id); $i++) {
+            $totalQuantity = $sum + $request->quantity[$i];
+        }
+
+         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity, 'prod' => $prod, 'totalPrice' => $totalPrice]);
     }
 
     /**
@@ -44,6 +51,13 @@ class OrderProductController extends Controller
      */
     public function create(Request $request)
     {
+
+        $data = request()->validate([
+            'phoneNumber' =>'required',
+            'location' =>'required',
+            'email'=> 'nullable|email'
+        ]);
+        
         $orderData = new ProductOrder;
         $time = Carbon::now();
         $user_id = Auth::user()->id;
@@ -56,7 +70,6 @@ class OrderProductController extends Controller
                     'phone_number' => $request->phoneNumber,
                     'location' => $request->location,
                     'email' => $request->email,
-                    'message' => $request->message,
                     'created_at' => $time,
                     'updated_at' => $time,
                 );
@@ -65,6 +78,9 @@ class OrderProductController extends Controller
 
             }
         }
+          //uncomment to activate email send
+        // Mail::to('pranjalpandey92@gmail.com')->send(new OrderService($data));
+
         return redirect('home');
 
     }

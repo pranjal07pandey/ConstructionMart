@@ -90,7 +90,7 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::any('/service-manager-editProduct-index/{id}', 
         'ServiceManagerController@editProductIndex');
     //updates the product
-    Route::any('update/product/service-manager/{product_id}/{category_id}/{subcategory_id}/{unit_id}', 'ServiceManagerController@updateProduct');
+    Route::any('update/product/service-manager/{product_id}/{category_id}/{subcategory_id}', 'ServiceManagerController@updateProduct');
     //Deletes the product of service manager
     Route::any('delete/product/service-manager/{id}', 'ServiceManagerController@deleteProd');
      
@@ -146,6 +146,7 @@ Route::any('/other/products', 'ProductController@allProducts');
 //search products
 Route::any('search/product', 'ProductController@search');
 Route::any('admin/search/product', 'ProductController@adminSearch');
+Route::any('serviceManager/search', 'ProductController@serviceManagerSearch');
 
 //Cart
 Route::any('add/to/cart/{id}','ProductController@cart');
@@ -155,7 +156,7 @@ Route::get('/cart/update', 'ProductController@updateCart');
 Route::any('cart/wishlist/{id}', 'ProductController@wishlistCart');
 Route::any('addToCart/wishlist/{id}', 'ProductController@moveToCart');
 
-Route::any('order/product', 'OrderProductController@indexOrder');
+Route::any('order/product', 'OrderProductController@indexOrder')->middleware('auth');
 Route::any('final/order/product', 'OrderProductController@create');
 Route::any('order/index', 'OrderProductController@index');
 

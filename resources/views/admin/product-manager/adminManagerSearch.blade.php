@@ -1,6 +1,10 @@
 @extends('admin.layouts.smMaster')
 
-
+{{-- @if(Auth::check())
+    @if (Auth::user()->usertype=='serviceManager')
+    @extends('admin.layouts.smMaster')
+    @endif
+@endif --}}
 
 
 @section('title')
@@ -17,18 +21,16 @@ Product Index
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Our Products</h3>
-                        <a href="/service-manager-addProduct-index" class="btn btn-primary ">Add new Product</a>
+                    <h3>Search Result</h3>
                 </div>
 
                 <br>
 
                     <div class="card-body">
-                      
                   
-                                @if(count($prodData)>0)
+                                @if(count($data)>0 || count($serviceData) > 0)
 
-                                @foreach ($prodData as $prod)
+                                @foreach ($data as $prod)
                                 <div class="container">
                                     
                                     <div class="well">
@@ -39,19 +41,17 @@ Product Index
 
                                             </div>
                                             <div style="width: 50%; margin-left: 10%;margin-top: 7%">
-                                             <b style="">Features</b><br><p>{{$prod->features}}</p>
-                                             <b>Price</b><p>Rs {{$prod->price}}</p>
-                                             @if($prod->delivery_facility)
-                                                <b>Delivery Facility</b><p>Yes</p>
-                                                <b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
-                                             @else
-                                                <b>Delivery Facility</b><p>No</p>
-                                                    <b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
-                                             @endif
-                                            </div>
-                                        </div>
-                                        <a href="{{url('/service-manager-editProduct-index/'.$prod->id)}}" class="btn btn-primary ">Edits</a>
-                                             <a href="{{url('delete/product/service-manager/'.$prod->id)}}" class="btn btn-primary ">Delete</a>
+                                      		 <b style="">Features</b><br><p>{{$prod->features}}</p>
+                                      		 <b>Price</b><p>Rs {{$prod->price}} per {{$prod->unit}}</p>
+                                      		 @if($prod->delivery_facility)
+                                      		 	<b>Delivery Facility</b><p>Yes</p>
+                                      		 	<b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
+                                      		 @else
+                                      		 	<b>Delivery Facility</b><p>No</p>
+                                      		 		<b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
+                                      		 @endif
+                                      		</div>
+                                    	</div>
                                     </div>
 
 
@@ -59,9 +59,6 @@ Product Index
                                 <br>
                                 <hr>
                                 @endforeach
-
-                                {{-- {{$prodData->links()}} --}}
-
                                 @else
                                 <p>No products found</p>
                                     
@@ -70,7 +67,7 @@ Product Index
                                 </div>
                                 @endif
 
-                    
+                	
             </div>
         </div>
     </div>

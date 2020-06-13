@@ -155,7 +155,7 @@
                     <div class="tab-pane fade in active" id="men">
                       
                       <ul class="aa-product-catg">
-                        <div class="tab-pane fade in active" id="men">
+                      <div class="tab-pane fade in active" id="men">
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
                         @foreach($products as $datas)

@@ -226,7 +226,7 @@ input:focus {
       <form method="post" action="{{url('order/product')}}">
         @csrf
       @foreach($products as $product)
-      <input type="hidden" name="id[]" value="{{$product->id}}">
+      <input type="hidden" name="id[]" id = "ids{{$product->id}}" value="{{$product->id}}">
       <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
         <div class="buttons">
@@ -328,8 +328,8 @@ input:focus {
                       @foreach ($recommendProd as $datas)
                     <li>
                     <figure>
-                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
-                    <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
+                            <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 100%; height: 250px" alt="polo shirt img" ></a>
+                              <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
                               <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit}}</span>
@@ -355,14 +355,13 @@ input:focus {
 </html>
     <script type="text/javascript">
      $(document).ready(function() {
-      var sum = 0;
         @foreach($products as $product)
         $("#totalQuantity{{$product->id}}").on('change keyup', function() {
         // alert("akd");
           var quantity = $("#totalQuantity{{$product->id}}").val();
           var price = $("#price{{$product->id}}").val();
           var id = $("#ids{{$product->id}}").val();
-          console.log(id);
+          // console.log(id);
           $.ajax({
             url: "{{url('/cart/update')}}",
             data: 'quantity=' + quantity + "&price=" + price + "&ids=" + id,

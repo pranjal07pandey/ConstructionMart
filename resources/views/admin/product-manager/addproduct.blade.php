@@ -69,14 +69,6 @@ Edit User Role
     <label for="Unit">Unit</label>
     <input type="text" name = "unit" class="form-control" id="exampleFormControlInput1" placeholder="Unit">
   </div>
-  <div class="form-group">
-    <label for="Unit Select">Unit Select</label>
-    <select class="form-control" name="unitSelect" id="exampleFormControlSelect1">
-      @foreach($unit as $unitData)
-      <option value="{{$unitData->id}}">{{$unitData->unit_name}}</option>
-    @endforeach
-    </select>
-  </div>
   <div class="form-check">
     <p>Delivery Facility</p>
   <input class="form-check-input" type="radio" name="delivery" id="exampleRadios1" value="1" checked>
@@ -123,7 +115,15 @@ Edit User Role
 
 
 </form>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </div>
 
 </div>
@@ -131,6 +131,7 @@ Edit User Role
 </div>
 </div>
 </div>
+
 
 
 @endsection

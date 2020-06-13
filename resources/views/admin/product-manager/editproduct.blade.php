@@ -1,5 +1,6 @@
 
-@extends('admin.layouts.master')
+@extends('admin.layouts.smMaster')
+
 
 
 @section('title')
@@ -20,7 +21,9 @@ Edit User Role
                 </div>
                 <div class="card-body">
 
-<form action="{{url('update/product/service-manager'.$editProd->id.'/'.$editProd->product_category_id.'/'.$editProd->product_sub_category_id.'/'.$editProd->unit_id )}}" method="POST" enctype="multipart/form-data" >
+
+<form action="{{url('/update/product/service-manager/'.$editProd->id.'/'.
+  $editProd->product_category_id.'/'.$editProd->product_sub_category_id)}}" method="POST" enctype="multipart/form-data" >
   @csrf
 
   <div class="form-group">
@@ -58,7 +61,7 @@ Edit User Role
   </div>
    <div class="form-group">
     <label for="Features">Features</label>
-    <textarea class="form-control" name="features" id="exampleFormControlTextarea1" rows="3" value = "{{$editProd->features}}"></textarea>
+    <input type = "text" class="form-control" name="features" id="exampleFormControlTextarea1" rows="3" value = "{{$editProd->features}}"></textarea>
   </div>
       
 <div class="form-group">
@@ -67,15 +70,8 @@ Edit User Role
   </div> 
   <div class="form-group">
     <label for="Unit">Unit</label>
-    <input type="text" name = "unit" class="form-control" id="exampleFormControlInput1" placeholder="Unit">
-  </div>
-  <div class="form-group">
-    <label for="Unit Select">Unit Select</label>
-    <select class="form-control" name="unitSelect" id="exampleFormControlSelect1">
-      @foreach($unit as $unitData)
-      <option value="{{$unitData->id}}">{{$unitData->unit_name}}</option>
-    @endforeach
-    </select>
+    <input type="text" name = "unit" class="form-control" id="exampleFormControlInput1" placeholder="Unit" value=
+    "{{$editProd->unit}}">
   </div>
   <div class="form-check">
     <p>Delivery Facility</p>
@@ -116,7 +112,7 @@ Edit User Role
 
     <div class="form-group">
     <label for="exampleFormControlInput1">Product Expiry Date</label>
-    <input type="date" name = "expiryDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date" value="product_expiry_date">
+    <input type="date" name = "expiryDate" class="form-control" id="exampleFormControlInput1" placeholder="Product Manufactured Date" value="{{$editProd->product_expiry_date}}">
   </div>
 
   <input type="submit" class="btn btn-primary" value="Edit">
