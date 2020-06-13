@@ -73,7 +73,7 @@ service details
 
                                 </div>
 
-                                {{-- <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a> --}}
+                                <a href="/services/{{$service->id}}/edit" class="btn ">Edit</a>
 
     
                                 {!!Form::open(['action'=>['ServicesController@destroy',$service->id], 'method'=>'POST','class'=>'pull-right'])!!}

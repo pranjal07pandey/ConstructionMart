@@ -92,7 +92,26 @@ return [
     'Vendor'=>'विक्रेता',
     'Hi'=>'नमस्ते',
     'No services found'=>'कुनै सेवा फेला परेन',
-    'We are wating to assist you..'=>'हामी तपाईंलाई सहयोग गर्न पर्खिरहेका छौं ..'
+    'We are wating to assist you..'=>'हामी तपाईंलाई सहयोग गर्न पर्खिरहेका छौं ..',
 
+    'Product Details'=>'उत्पादन विवरण',
+    'Rs'=>'रु',
+    'Delivery Facility: Yes'=>'डेलिभरी सुविधा: छ',
+    'Delivery Charge'=>'डेलिभरी शुल्क',
+    'Delivery Facility: Sorry there is no delivery facility'=>'डेलिभरी सुविधा: माफ गर्नुहोस् कुनै डेलिभरी सुविधा छैन',
+    'per'=>'प्रति',
+
+    'Cart Items'=>'कार्ट आईटमहरू',
+    'add to wishlist'=>'चाहेको सूचीमा राख्नुहोस',
+    'Quantity'=>'मात्रा',
+    'Total'=>'कुल',
+    'No Items in Cart!'=>'कार्टमा कुनै आईटमहरू छैनन्!',
+    'Add to Cart'=>'कार्ट हाल',
+    'Wish List Items'=>'सूची आईटमहरू',
+    'No Items in Wishlist!'=>'ईच्छा सूचीमा कुनै वस्तुहरू छैनन्!',
+    'You may like other products as well'=>'तपाईलाई अन्य उत्पादनहरू पनि मनपर्दछ',
+
+    'Service Manager Dashboard'=>'सेवा प्रबन्धक ड्यासबोर्ड',
+    'Admin Dashboard'=>'प्रशासन ड्यासबोर्ड',
     
 ];

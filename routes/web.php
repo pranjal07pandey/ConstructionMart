@@ -41,6 +41,7 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
     //test
     // /services/{{$service->id}}/edit
     // Route::get('services/{id}/edit', 'ServicesController@edit');
+    Route::post('/services-update/{id}', 'ServicesController@update');
     
     Route::resource('services', 'ServicesController');
     Route::resource('services-categories', 'ServiceCategoryController');

@@ -25,10 +25,10 @@
                   <div class="aa-footer-widget">
                     <h3>{{__('customlang.Useful Link')}}</h3>
                     <ul class="aa-footer-nav">
-                      <li><a href="#">{{__('customlang.Site Map')}}</a></li>
-                      <li><a href="#">{{__('customlang.Search')}}</a></li>
-                      <li><a href="#">{{__('customlang.Advanced Search')}}</a></li>
-                      <li><a href="#">{{__('customlang.Suppliers')}}</a></li>
+                      <li><a href="/contact">{{__('customlang.Site Map')}}</a></li>
+                      <li><a href="/">{{__('customlang.Search')}}</a></li>
+                      <li><a href="/sm-dashboard">{{__('customlang.Service Manager Dashboard')}}</a></li>
+                      <li><a href="/dashboard">{{__('customlang.Admin Dashboard')}}</a></li>
                       <li><a href="#">{{__('customlang.FAQ')}}</a></li>
                     </ul>
                   </div>

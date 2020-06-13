@@ -41,7 +41,7 @@
                <span data-seq>Save Up to 75%</span>
                 <h2 data-seq>New Generation Construction</h2>
                 <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">ORDER SERVICE</a>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -142,7 +142,7 @@
                     <li>
                       <figure>
                                               
-                                              <a class="aa-product-img" href="/view-services/{{$service->id}}"><img style="width:100%;height:250px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}"></a>
+                          <a class="aa-product-img" href="/view-services/{{$service->id}}"><img style="width:100%;height:250px" src="{{ URL::asset('uploads/services/'.$service->cover_image)}}"></a>
                           <a class="aa-add-card-btn"href="/view-services/{{$service->id}}"><span class=""></span>{{__('customlang.view details')}}</a>
                           <figcaption>
                           <h3 class="aa-product-title"><a href="/view-services/{{$service->id}}">{{$service->title}}</a></h3>

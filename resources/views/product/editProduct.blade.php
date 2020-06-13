@@ -1,20 +1,14 @@
+@extends('admin.layouts.master')
 
-@extends('admin.layouts.smMaster')
-
-{{-- @if(Auth::check())
-    @if (Auth::user()->usertype=='productManager')
-    @extends('admin.layouts.pmMaster')
-    @endif
-@endif --}}
 
 @section('title')
 
-Edit User Role
+Edit Product
     
 @endsection
 
-
 @section('content')
+
 
 <div class="container">
     <div class="row">
@@ -132,12 +126,12 @@ Edit User Role
 </div>
 </div>
 
-
 @endsection
 
-  @section('scripts')
-      
-  @endsection
+@section('scripts')
+    
+@endsection
+
 
 
 

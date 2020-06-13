@@ -128,20 +128,22 @@ class ServicesController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $this->validate($request,[
             'title' => 'required',
             'description'=>'required'
         ]);
 
         if($request->hasFile('cover_image')){
-      
+            
             $file = $request->file('cover_image');
             // dd($file);
             $extension = $file->getClientOriginalExtension();
             $filename = time(). '.' .$extension;
             $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
+
         }
- 
+
         $service = Service::find($id);
         $service->title = $request->input('title');
         $service->description = $request->input('description');
@@ -152,8 +154,38 @@ class ServicesController extends Controller
 
         Auth::user()->addService()->save($service);
 
-
         return redirect('/services')->with('success', 'Service Edited');
+
+
+        // return redirect('/service-manager-index')->with('success', 'Service Edited');
+
+
+        // $this->validate($request,[
+        //     'title' => 'required',
+        //     'description'=>'required'
+        // ]);
+
+        // if($request->hasFile('cover_image')){
+      
+        //     $file = $request->file('cover_image');
+        //     // dd($file);
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time(). '.' .$extension;
+        //     $img = Image::make($request->file('cover_image'))->resize(500, 500)->save('uploads/services/'.$filename, 60);
+        // }
+ 
+        // $service = Service::find($id);
+        // $service->title = $request->input('title');
+        // $service->description = $request->input('description');
+
+        // if($request->hasFile('cover_image')){
+        //     $service->cover_image = $filename;
+        // }
+
+        // Auth::user()->addService()->save($service);
+
+
+        // return redirect('/services')->with('success', 'Service Edited');
 
         
     }

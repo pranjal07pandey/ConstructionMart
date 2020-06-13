@@ -42,15 +42,7 @@ class OrderServiceController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'service'=>'reqiured',
-        //     'user_id'=>'required',
-        //     'name' => 'required',
-        //     'phone'=> 'required',
-        //     'email'=>'nullable|email',
-        //     'location'=> 'required',
-        //     'message'=>'required',
-        // ]);
+        
         $data = request()->validate([
             'service' =>'required',
             'name' =>'required',

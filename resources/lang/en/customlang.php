@@ -87,8 +87,27 @@ return [
     'Vendor'=>'Vendor',
     'Hi'=>'Hi',
     'No services found'=>'No services found',
-    'We are wating to assist you..'=>'We are wating to assist you..'
-    
+    'We are wating to assist you..'=>'We are wating to assist you..',
+
+    'Product Details'=>'Product Details',
+    'Rs'=>'Rs',
+    'Delivery Facility: Yes'=>'Delivery Facility: Yes',
+    'Delivery Charge'=>'Delivery Charge',
+    'Delivery Facility: Sorry there is no delivery facility'=>'Delivery Facility: Sorry there is no delivery facility',
+    'per'=>'per',
+
+    'Cart Items'=>'Cart Items',
+    'add to wishlist'=>'add to wishlist',
+    'Quantity'=>'Quantity',
+    'Total'=>'Total',
+    'No Items in Cart!'=>'No Items in Cart!',
+    'Add to Cart'=>'Add to Cart',
+    'Wish List Items'=>'Wish List Items',
+    'No Items in Wishlist!'=>'No Items in Wishlist!',
+    'You may like other products as well'=>'You may like other products as well',
+
+    'Service Manager Dashboard'=>'Service Manager Dashboard',
+    'Admin Dashboard'=>'Admin Dashboard',
 
 
 

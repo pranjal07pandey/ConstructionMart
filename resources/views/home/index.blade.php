@@ -7,6 +7,7 @@
     <title>Construction Mart</title>
     
     @include('include.css')
+    <link rel="manifest" href="manifest.json">
  
 
   </head>
@@ -26,6 +27,8 @@
 
   @include('include.header')
 
+    
+  
   <!-- Start slider -->
   <section id="aa-slider">
     <div class="aa-slider-area">
@@ -406,6 +409,8 @@
     </div><!-- /.modal-dialog -->
   </div>    
   
+
+
 @include('include.js')
 
   </body>

@@ -220,7 +220,7 @@ input:focus {
       <!-- Title -->
       <div class="title">   
       </div>
-      <h3>Cart Items</h3>
+    <h3>{{__('customlang.Cart Items')}}</h3>
       @if(count($products) > 0)
       <!-- Product #3 -->
       <form method="post" action="{{url('order/product')}}">
@@ -230,7 +230,7 @@ input:focus {
       <input type="hidden" name="product[]" value="{{$product->name}}">
       <div class="item">
         <div class="buttons">
-          <a href = "{{url('cart/wishlist/'.$product->id)}}">add to wishlist</a><br><br>
+        <a href = "{{url('cart/wishlist/'.$product->id)}}">{{__('customlang.add to wishlist')}}</a><br><br>
          <a href = "{{url('/delete/cart/product/'.$product->id)}}"><span class="glyphicon glyphicon-trash"></span></a>
         </div>
 
@@ -240,7 +240,7 @@ input:focus {
 
         <div class="description">
           <span>{{$product->name}}</span>
-          <span id = "qty{{$product->id}}">Quantity: {{$product->quantity}}</span>
+          <span id = "qty{{$product->id}}">{{__('customlang.Quantity')}}: {{$product->quantity}}</span>
           <span>Rs {{$product->price}}</span>
           <input type="hidden" name="price[]" id="price{{$product->id}}" value=" {{$product->price}}">
         </div>
@@ -258,7 +258,7 @@ input:focus {
       
       @endforeach
       <div style="width:100%">
-        <h3 id = "total"style=" float: right;margin-right: 10%">Total &nbsp&nbsp&nbsp&nbsp&nbsp Rs {{Cart::getTotal()}} </h3>
+        <h3 id = "total"style=" float: right;margin-right: 10%">{{__('customlang.Total')}} &nbsp&nbsp&nbsp&nbsp&nbsp {{__('customlang.Rs')}} {{Cart::getTotal()}} </h3>
         <input type="submit" name="" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%" value=" Checkout">
       </div>     
       </div>
@@ -275,19 +275,19 @@ input:focus {
 </div>
       </form>
       @else
-      <h4>No Items in Cart!!</h4>
+    <h4>{{__('customlang.No Items in Cart!')}}</h4>
       @endif
   </div>
 
 
   
   <div class="wishlist">
-    <h3>Wish List Items</h3>
+  <h3>{{__('customlang.Wish List Items')}}</h3>
     @if(count($wishlist) > 0)
     @foreach($wishlist as $wishData)
       <div class="item">
         <div class="buttons">
-         <a href = "{{url('addToCart/wishlist/'.$wishData->id)}}">Add to Cart</a>
+         <a href = "{{url('addToCart/wishlist/'.$wishData->id)}}">{{__('customlang.Add to Cart')}}</a>
         </div>
         <div class="image">
           <img src="{{ URL::asset('uploads/products/'.$wishData->image)}}" style="width: 110px; height: 80px" alt="No Image Found">
@@ -301,12 +301,12 @@ input:focus {
       </div>
         @endforeach
         @else
-        <h4>No Items in Wishlist!!</h4>
+        <h4>{{__('customlang.No Items in Wishlist!')}}</h4>
         @endif
   </div>
 <div class="container">
 
-  <h1 align="center">{{('You may like other products as well')}}</h1>
+  <h1 align="center">{{__('customlang.You may like other products as well')}}</h1>
     <hr>
 
     <div class="container">
@@ -329,7 +329,7 @@ input:focus {
                     <li>
                     <figure>
                             <a class="aa-product-img" href="/view-products/{{$datas->id}}"><img src="{{ URL::asset('uploads/products/'.$datas->image)}}"style="width: 350px; height: 300px" alt="polo shirt img" ></a>
-                              <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
+                    <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>{{__('customlang.Order Now')}}</a>
                               <figcaption>
                               <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
                               <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit}}</span>

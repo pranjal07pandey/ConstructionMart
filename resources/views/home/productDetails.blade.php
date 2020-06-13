@@ -33,7 +33,7 @@
             <div class="card">
               <br>
                 <div class="">
-                <h2 align="center">{{'Product Details'}}</h2>
+                <h2 align="center">{{__('customlang.Product Details')}}</h2>
                 </div>
                 <hr>
                 
@@ -54,12 +54,12 @@
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
                                             <p><b>{{$prodDetails->product_name}}</b></p>
-                                            <p><b>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</b></p>
+                                            <p><b>{{__('customlang.Rs')}} {{$prodDetails->price}} {{__('customlang.per')}} {{$prodDetails->unit}}</b></p>
                                             @if($prodDetails->delivery_facility)
-                                              <p><b>Delivery Facility: Yes</b></p>
-                                              <p><b>Delivery Charge: {{$prodDetails->delivery_charges}}</b></p>
+                                            <p><b>{{__('customlang.Delivery Facility: Yes')}}</b></p>
+                                            <p><b>{{__('customlang.Delivery Charge')}}: {{$prodDetails->delivery_charges}}</b></p>
                                               @else
-                                                <p><b>Delivery Facility: Sorry there is no delivery facility</b></p>
+                                                <p><b>{{__('customlang.Delivery Facility: Sorry there is no delivery facility')}}</b></p>
                                               @endif
                                               <p><b>
                                               {{$prodDetails->features}}</b></p>

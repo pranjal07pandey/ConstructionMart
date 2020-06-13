@@ -1,10 +1,6 @@
 
 @extends('admin.layouts.master')
-{{-- @if(Auth::check())
-    @if (Auth::user()->usertype=='productManager')
-    @extends('admin.layouts.pmMaster')
-    @endif
-@endif --}}
+
 
 @section('title')
 
