@@ -19,6 +19,8 @@ class CreateProductOrdersTable extends Migration
             $table->string('location');
             $table->string('email');
             $table->unsignedBigInteger('product_id');
+            $table->bigInteger('quantity');
+            $table->bigInteger('price');
             $table->foreign('product_id')
                     ->references('id')->on('products')
                     ->onDelete('cascade');

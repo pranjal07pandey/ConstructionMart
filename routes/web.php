@@ -101,11 +101,6 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
     Route::get('/service-cat-manager-create','ServiceManagerCatController@create');
     Route::post('/service-cat-manager-addCategory','ServiceManagerCatController@store');
 
-
-
-
-    
-
 });
 
 

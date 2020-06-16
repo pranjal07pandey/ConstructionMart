@@ -158,8 +158,8 @@ class ProductController extends Controller
 
         $searchData = $request->search;
         // dd($searchData);
-        $data = Product::where('product_name', 'LIKE', $searchData.'%')->paginate(5);
-        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->paginate(5);
+        $data = Product::where('product_name', 'LIKE', '%'.$searchData.'%')->paginate(5);
+        $serviceData = Service::where('title', 'LIKE', '%'.$searchData.'%')->paginate(5);
         // dd($serviceData);
         if($data) {
             return view('product.searchData', ['prodDetails' => $data, 'serviceData' => 
@@ -181,8 +181,8 @@ class ProductController extends Controller
 
         $searchData = $request->search;
         // dd($searchData);
-        $data = Product::where('product_name', 'LIKE', $searchData.'%')->get();
-        $serviceData = Service::where('title', 'LIKE', $searchData.'%')->get();
+        $data = Product::where('product_name', 'LIKE', '%'.$searchData.'%')->get();
+        $serviceData = Service::where('title', 'LIKE', '%'.$searchData.'%')->get();
         // dd($data);
         if($data) {
             return view('admin.product-manager.adminSearch', ['data' => $data, 'serviceData' => $serviceData]);
@@ -354,7 +354,6 @@ class ProductController extends Controller
 
         $subCat = ProductSubCategory::find($subcategory_id);
         
-
         $this->validate($request, [
             'name' => 'required',
             'features' => 'required',
@@ -372,7 +371,7 @@ class ProductController extends Controller
             // dd($img);
         } else {
             // dd("fail");
-            $filename = "noimage.jpg";
+            $filename = Product::find($product_id)->image;
         }
         
         if( $request->category != null) {   

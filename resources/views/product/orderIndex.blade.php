@@ -97,11 +97,14 @@
         <div class="col-md-5">
 
           <h2 align = "center">{{__('customlang.Order Details')}}</h2>
-
+           
           <div class="form-group">
+
             <label><i class="fa fa-work"></i> {{__('Ordered products')}} </label>
-            @foreach((array) $product_name as $name)                        
-          <option type="text"  class="form-control" name="service">{{$name}}</option>@endforeach
+          @foreach($products as $data) 
+          <input type="hidden" name="quantity[]" value="{{$data->quantity}}">     
+          <input type="hidden" name="price[]" value="{{$data->price}}">
+          <option type="text"  class="form-control" name="service">{{$data->name}}</option>@endforeach
           </div>
           <div class="form-group">
             <label><i class="fa fa-work"></i> {{__('Total Quantity Ordered')}} </label>                      

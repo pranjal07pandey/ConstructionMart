@@ -26,7 +26,7 @@ Edit User Role
                 <div class="card-body">
 
 
-<form action="{{url('update/product/'.$editProd->id.'/'.
+<form action="{{url('/update/product/'.$editProd->id.'/'.
   $editProd->product_category_id.'/'.$editProd->product_sub_category_id)}}" method="POST" enctype="multipart/form-data" >
   @csrf
 
@@ -35,9 +35,9 @@ Edit User Role
     <input type="text" name="name" class="form-control"  required value="{{$editProd->product_name}}"><br>
     </div>
 
-    <div >
+    <div>
       <label for="Select Image">Select Image</label><br>
-      <input type="file" name="image" value="{{$editProd->image}}"><br>
+      <input type="file" name="image" value="{{ URL::asset('uploads/products/'.$editProd->image)}}"><br>
       </div>
 <div class="form-group">
     <label for="Category Name">Category Name</label>

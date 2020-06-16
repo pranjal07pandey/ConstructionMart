@@ -24,22 +24,20 @@ class OrderProductController extends Controller
     public function indexOrder(Request $request) {
          // dd($request->quantity);
         $prod = Product::paginate(4);
-        $product_name = $request->product;
+        // $product_name = $request->product;
         $product_id = $request->id;
         $totalPrice = $request->total;
+        $products = Cart::getContent();
 
         $totalPrice = Cart::getTotal();
+        $totalQuantity = Cart::getTotalQuantity();
+        // dd
 
-        for($i = 0; $i < sizeof($product_id); $i++) {
+        // for($i = 0; $i < sizeof($product_id); $i++) {
             Cart::remove($product_id);
-        }
+        // }
 
-        $sum = 0;
-        for($i = 0; $i < sizeof($product_id); $i++) {
-            $totalQuantity = $sum + $request->quantity[$i];
-        }
-
-         return view('product.orderIndex', ['product_name' => $product_name, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity, 'prod' => $prod, 'totalPrice' => $totalPrice]);
+         return view('product.orderIndex', ['products' => $products, 'product_id' => $product_id, 'totalQuantity' => $totalQuantity, 'prod' => $prod, 'totalPrice' => $totalPrice]);
     }
 
     /**
@@ -68,6 +66,8 @@ class OrderProductController extends Controller
                     'phone_number' => $request->phoneNumber,
                     'location' => $request->location,
                     'email' => $request->email,
+                    'quantity' => $request->quantity[$i],
+                    'price' => $request->price[$i],
                     'created_at' => $time,
                     'updated_at' => $time,
                 );
