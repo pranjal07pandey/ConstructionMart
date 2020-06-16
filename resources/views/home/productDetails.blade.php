@@ -53,10 +53,10 @@
 
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
-                                            <p><b>Product Name</b></p>
-                                            <p>{{$prodDetails->product_name}}</p>
-                                            <p><b>Price</b></p>
-                                            <p>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</p>
+                                            <p><b>Product Name:&nbsp&nbsp </b>{{$prodDetails->product_name}}</p>
+                                            
+                                            <p><b>Price: &nbsp&nbsp</b>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</p>
+                                            <p></p>
                                             @if($prodDetails->delivery_facility)
                                               <p><b>Delivery Facility: Yes</b></p>
                                               <p><b>Delivery Charge: {{$prodDetails->delivery_charges}}</b></p>
@@ -64,7 +64,8 @@
                                                 <p><b>Delivery Facility: Sorry there is no delivery facility</b></p>
                                               @endif
                                               <p><b>
-                                              {{$prodDetails->features}}</b></p>
+                                                <p><b>Product Features: &nbsp&nbsp</b>{{$prodDetails->features}}</p>
+                                              </b></p>
 
 
                                             </div>
