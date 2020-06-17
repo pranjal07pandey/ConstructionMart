@@ -33,7 +33,7 @@ Edit User Role
 
     <div >
       <label for="Select Image">Select Image</label><br>
-      <input type="file" name="image" value="{{$editProd->image}}"><br>
+      <input type="file" name="image"><br>
       </div>
 <div class="form-group">
     <label for="Category Name">Category Name</label>

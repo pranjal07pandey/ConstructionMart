@@ -20,6 +20,8 @@ class CreateProductOrdersTable extends Migration
             $table->string('email');
             $table->string('delivered')->default('No')->nullable();
             $table->unsignedBigInteger('product_id');
+            $table->bigInteger('quantity');
+            $table->bigInteger('price');
             $table->foreign('product_id')
                     ->references('id')->on('products')
                     ->onDelete('cascade');

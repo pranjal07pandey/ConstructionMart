@@ -19,10 +19,9 @@ Product Index
 
                 <br>
 
-                    <div class="card-body">
-                  
-                                @if(count($data)>0 || count($serviceData) > 0)
+                    <div class="card-body"> 
 
+                                @if(count($data) > 0)
                                 @foreach ($data as $prod)
                                 <div class="container">
                                     
@@ -46,19 +45,32 @@ Product Index
                                       		</div>
                                     	</div>
                                     </div>
-
-
                                 </div>
                                 <br>
                                 <hr>
                                 @endforeach
-                                @else
-                                <p>No products found</p>
-                                    
+                                @elseif(count($serviceData) > 0)
+                                @foreach($serviceData as $serv)
+                                <div class="container">             
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                            <h3>{{$serv->title}}</h3>
+                                              <a class="aa-product-img" href="#"><img src="{{ URL::asset('uploads/services/'.$serv->cover_image)}}"style="width: 100%; height: 300px" alt="no image" ></a>
 
+                                            </div>
+                                            <div style="width: 50%; margin-left: 10%;margin-top: 7%">
+                                           <b style="">Features</b><br><p>{{$serv->description}}</p>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    @endforeach
+                                    @else
+                                    <p>No search result found</p>
+                                    @endif
                                 </div>
                                 </div>
-                                @endif
+                                </div>
 
                 	
             </div>
