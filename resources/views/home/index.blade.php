@@ -285,15 +285,15 @@
               <div class="aa-support-single">
                 <span class="fa fa-truck"></span>
                 <h4>{{__('customlang.AFFORDABLE SHIPPING')}}</h4>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                <P>We provide an affordable shipping all over Kathmandu valley*</P>
               </div>
             </div>
             <!-- single support -->
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="aa-support-single">
                 <span class="fa fa-clock-o"></span>
-                <h4>30 DAYS MONEY BACK</h4>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+              <h4>{{('customlang.NO MIDDLEMAN IN BETWEEN')}}</h4>
+                <P>You get to contact directly with the dealers. No middleman in between us!</P>
               </div>
             </div>
             <!-- single support -->
@@ -301,7 +301,7 @@
               <div class="aa-support-single">
                 <span class="fa fa-phone"></span>
                 <h4>{{__('customlang.SUPPORT 24/7')}}</h4>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                <P>Our customer support are always there for you in case of any queries.</P>
               </div>
             </div>
           </div>
@@ -324,8 +324,8 @@
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui.</p>
                   <div class="aa-testimonial-info">
-                    <p>Allison</p>
-                    <span>Designer</span>
+                    <p>Mandil Thapa</p>
+                    <span>Manager</span>
                     <a href="#">Dribble.com</a>
                   </div>
                 </div>
@@ -337,7 +337,7 @@
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui.</p>
                   <div class="aa-testimonial-info">
-                    <p>KEVIN MEYER</p>
+                    <p>Mandil Thapa</p>
                     <span>CEO</span>
                     <a href="#">Alphabet</a>
                   </div>
@@ -350,7 +350,7 @@
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui.</p>
                   <div class="aa-testimonial-info">
-                    <p>Luner</p>
+                    <p>Mandil Thapa</p>
                     <span>COO</span>
                     <a href="#">Kinatic Solution</a>
                   </div>

@@ -18,9 +18,7 @@ Dashboard
           <h4 class="card-title">Service order history</h4>
         </div>
         <div class="card-body">
-          {{-- <div class="card-header">
-            <h5 class="card-title">Service order history</h5>
-          </div> --}}
+          
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
@@ -79,15 +77,7 @@ Dashboard
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                {{-- <th>User Name</th>
-                <th>Phone</th>
-                <th>Ordered Location</th>
-                  
-                <th>Email</th>
-                <th>Message</th>
-                <th>Product Ordered</th>  
-                <th>Ordered Date</th> --}}
-
+               
                 <th>Ordered Product</th>
                 <th>Ordered Location</th>
 
@@ -114,11 +104,7 @@ Dashboard
 
 
 
-                    {{-- <td>{{$order->user->name}} </td>
-                    <td>{{$order->phone_number}} </td>
-                    <td>{{$order->email}} </td>
-                    <td>{{$order->message}} </td> --}}
-
+                    
                 </tr>
                 @endforeach
 

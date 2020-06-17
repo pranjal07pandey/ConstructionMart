@@ -121,8 +121,8 @@ Route::group(['middleware'=>['auth', 'serviceManager']], function(){
 
 
 //check delivery for service manager
-    Route::get('/order-details/{id}','Admin\DashboardController@orderDetailsServiceManager');
-    Route::post('/order-details/{id}','Admin\DashboardController@checkDeliveredServiceManger');
+    // Route::get('/order-details/{id}','Admin\DashboardController@orderDetailsServiceManager');
+    // Route::post('/order-details/{id}','Admin\DashboardController@checkDeliveredServiceManger');
     
 
 });

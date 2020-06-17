@@ -55,7 +55,7 @@ Dashboard
                                             
                                             </a>{{$service->title}}</h3>
                                                 </a>
-
+                                            <p>Uploaded By: {{$service->user->name}}</p>
                                             </div>
 
                                             <div class="col-md-4 col-sm-4">

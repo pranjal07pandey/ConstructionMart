@@ -45,10 +45,10 @@ class DashboardController extends Controller
 
     }
 
-    public function orderDetailsServiceManager($id){
-        $orders = Order::find($id);
-        return view('admin.service-manager.orderDetailsSm')->with('orders', $orders);
-    }
+    // public function orderDetailsServiceManager($id){
+    //     $orders = Order::find($id);
+    //     return view('admin.service-manager.orderDetailsSm')->with('orders', $orders);
+    // }
 
     public function checkDelivered(Request $request, $id){
         $orders = Order::find($id);
@@ -59,14 +59,14 @@ class DashboardController extends Controller
         return redirect('/dashboard');
     }
 
-    public function checkDeliveredServiceManger(Request $request, $id){
-        $orders = Order::find($id);
-        $orders->delivered = $request->input('delivered');
+    // public function checkDeliveredServiceManger(Request $request, $id){
+    //     $orders = Order::find($id);
+    //     $orders->delivered = $request->input('delivered');
 
-        $orders->update();
+    //     $orders->update();
 
-        return redirect('/sm-dashboard');
-    }
+    //     return redirect('/sm-dashboard');
+    // }
 
     public function registered(){
 

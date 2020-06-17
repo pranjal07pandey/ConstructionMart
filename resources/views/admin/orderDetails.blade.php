@@ -33,8 +33,14 @@ Order Details
                         <label>Ordered Service:</label>
                     <option type="text" class="form-control" >{{$orders->service}}</option>
                       </div>
+
                       <div class="form-group">
-                        <label>Loation:</label>
+                        <label>Service offered by:</label>
+                    <option type="text" class="form-control" >{{$orders->user->name}}</option>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Delivery Loation:</label>
                     <option type="text" class="form-control" >{{$orders->location}}</option>
                       </div>
                       <div class="form-group">
@@ -46,24 +52,45 @@ Order Details
                     <option type="text" class="form-control" >{{$orders->email}}</option>
                       </div>
 
-                      <img style="width:100%;height:400px" src="{{ URL::asset('uploads/services/'.$orders->cover_image)}}" alt="no image uploaded">
+                      <div class="form=group">
+                        <label>Uploaded Image:</label>
+<br>
+                      <img style="width:80%;height:400px" src="{{ URL::asset('uploads/services/'.$orders->cover_image)}}" alt="no image uploaded">
                     {{-- <img style="width:100%; height:400px" src="/storage/cover_images/{{$orders->cover_image}}" alt="no image uploaded"> --}}
 
-
+                      </div>
                       <div class="form-group">
                         <label>message:</label>
                     <option type="text" class="form-control" >{{$orders->message}}</option>
                       </div>
 
+                      @if ($orders->delivered == 'No')
+
                       <div class="form-group">
                         <label>Delivered?</label>
                         <select name="delivered"  class="form-control">
-                            <option value="no">No</option>
+                            <option value="No">No</option>
                             <option value="Yes">Yes</option>
-                            <option value="pending">Pending</option>
-
                         </select>
                       </div>
+                          
+                      @else
+
+                          <div class="form-group">
+                            <label>Delivered?</label>
+                            <select name="delivered"  class="form-control">
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+
+                          </select>
+                        
+                        </div>
+
+                          
+                      @endif
+
+
+                      
                       <button type="submit" class="btn">save changes</button>
 
                       <a href="/dashboard" class="btn btn-danger">cancel</a>

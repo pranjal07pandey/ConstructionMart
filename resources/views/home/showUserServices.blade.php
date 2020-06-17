@@ -51,9 +51,10 @@
                                               
                                             {{-- <img style="width:100%;height:200px" src="/storage/cover_images/{{$service->cover_image}}"> --}}
                                               <h3>
-                                              {{__('customlang.Description')}}
+                                              {{__('customlang.Description')}}:
                                               {{$service->description}}</h3>
                                                 
+                                              <h3>Offered By:{{$service->user->name}}</h3>
 
 
                                             </div>

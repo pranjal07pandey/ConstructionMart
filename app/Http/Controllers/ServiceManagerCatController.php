@@ -9,6 +9,7 @@ use App\ServiceCategory;
 use App\User;
 use Auth;
 use File;
+use Image;
 
 class ServiceManagerCatController extends Controller
 {

@@ -29,7 +29,7 @@
                     <!-- Text based logo -->
                     <a class="navbar-brand" href="/">
                       <span class="fa fa-home"></span>
-                    <p>SERVICE<strong style="color:#ff6666"> N</strong> MATERIAL<span>{{__('customlang.Your Construction Guide')}}</span></p>
+                    <p>SERVICE<strong style="color:#ff6666"> N</strong> MATERIAL<sup>β</sup><span>{{__('customlang.Your Construction Guide')}}</span></p>
                     </a>
                     
                   </div>

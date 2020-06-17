@@ -102,7 +102,8 @@
                 <div class="col-md-4">
                   <div class="aa-contact-address-right">
                     <address>
-                      <h4>Construction Mart</h4>
+                      <h4>SERVICE <strong style="color: red">N</strong> MATERIAL</h4>
+                      {{-- <p>SERVICE <strong style="color: brown" >N</strong> MATERIAL --}}
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum modi dolor facilis! Nihil error, eius.</p>
                       <p><span class="fa fa-home"></span>Tinkune, AL 35813, Nepal</p>
                       <p><span class="fa fa-phone"></span>+ 021.343.7575</p>

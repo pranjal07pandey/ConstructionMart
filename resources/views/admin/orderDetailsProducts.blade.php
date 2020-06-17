@@ -46,20 +46,36 @@ Order Details
                     <option type="text" class="form-control" >{{$productOrders->email}}</option>
                       </div>
 
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label>message:</label>
                     <option type="text" class="form-control" >{{$productOrders->message}}</option>
-                      </div>
+                      </div> --}}
+
+                      @if ($productOrders->delivered == 'No')
 
                       <div class="form-group">
                         <label>Delivered?</label>
                         <select name="delivered"  class="form-control">
-                            <option value="no">No</option>
+                            <option value="No">No</option>
                             <option value="Yes">Yes</option>
-                            <option value="pending">Pending</option>
-
                         </select>
                       </div>
+                          
+                      @else
+
+                          <div class="form-group">
+                            <label>Delivered?</label>
+                            <select name="delivered"  class="form-control">
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+
+                          </select>
+                        
+                        </div>
+
+                          
+                      @endif
+
                       <button type="submit" class="btn">save changes</button>
 
                       <a href="/dashboard" class="btn btn-danger">cancel</a>

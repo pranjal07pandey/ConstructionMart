@@ -73,6 +73,17 @@ body {
   color: #212529;
   text-align: left;
   background-color:#ccdce2;
+  background-image: url('rsezise.png');
+
+   /* Add the blur effect */
+   
+ 
+   /* Full height */
+   /* height: 100%; 
+
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover; */
 }
 
 /* header logo */

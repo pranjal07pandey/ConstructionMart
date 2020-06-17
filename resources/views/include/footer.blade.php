@@ -39,7 +39,7 @@
                   <div class="aa-footer-widget">
                     <h3>{{__('customlang.Contact Us')}}</h3>
                     <address>
-                      <p> {{__('customlang.Construction Mart, Kathmandu, Nepal')}}</p>
+                      <p> {{__('SERVICE N MATERIAL, Kathmandu, Nepal')}}</p>
                       <p><span class="fa fa-phone"></span>+977 212-982-4589</p>
                       <p><span class="fa fa-envelope"></span>abc@gmail.com</p>
                     </address>
