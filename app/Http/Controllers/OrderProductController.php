@@ -54,9 +54,8 @@ class OrderProductController extends Controller
             'phoneNumber' =>'required',
             'location' =>'required',
             'email'=> 'nullable|email',
-            
         ]);
-        
+        // dd($data);  
         $orderData = new ProductOrder;
         $time = Carbon::now();
         $user_id = Auth::user()->id;
@@ -75,10 +74,10 @@ class OrderProductController extends Controller
                     'updated_at' => $time,
                 );
                 ProductOrder::insert($orderData);
-                
-
             }
         }
+        // dd($orderData); 
+         
           //uncomment to activate email send
         // Mail::to('pranjalpandey92@gmail.com')->send(new OrderService($data));
         Mail::to('pranjalpandey92@gmail.com')->send(new OrderProduct($data));

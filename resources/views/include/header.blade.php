@@ -155,7 +155,7 @@
             <!-- Left nav -->
            <ul class="nav navbar-nav">
               {{-- <li><a href="index.html">Home</a></li> --}}
-              <li class="{{ '/'== request()->path() ? 'active' :'' }}"><a href="/product">{{__('customlang.Products')}}<span class="caret"></span></a>
+              <li class="{{ '/'== request()->path() ? 'active' :'' }}"><a href="/">{{__('customlang.Products')}}<span class="caret"></span></a>
                 <ul class="dropdown-menu {{ '/'== request()->path() ? 'active' :'' }}"> 
                 @foreach($shareData as $datas)              
                   <li><a href="{{url('show/cat/products/'.$datas->id)}}">{{$datas->category_name}}<span class="caret"></span></a>

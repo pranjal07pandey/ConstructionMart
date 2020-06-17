@@ -80,6 +80,9 @@ Dashboard
                
                 <th>Ordered Product</th>
                 <th>Ordered Location</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                
 
                 <th>Ordered Date</th>
                 <th>Delivered?</th>
@@ -95,6 +98,8 @@ Dashboard
                 <tr>
                   <td>{{$order->product->product_name}}</td>
                   <td>{{$order->location}} </td>
+                  <td>{{$order->quantity}}</td>
+                  <td>{{$order->price}}</td>
                   <td>{{$order->created_at}}</td>
                   <td>{{$order->delivered}}</td>
                   <td> <a href="order-details-products/{{$order->id}}" class="btn">View details

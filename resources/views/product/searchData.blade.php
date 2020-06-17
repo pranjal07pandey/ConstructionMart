@@ -57,8 +57,8 @@
                             <a class="aa-product-img" href="/view-services/{{$datas->id}}"><img src="{{ URL::asset('uploads/services/'.$datas->cover_image)}}"style="width: 100%; height: 250px" alt="polo shirt img" ></a>
                               <a class="aa-add-card-btn"href="{{url('add/to/cart/'. $datas->id)}}"><span class="fa fa-shopping-cart"></span>Order Now</a>
                               <figcaption>
-                              <h4 class="aa-product-title"><a href="#">{{$datas->product_name}}</a></h4>
-                              <span class="aa-product-price">Rs {{$datas->price}} per {{$datas->unit}}</span>
+                              <h4 class="aa-product-title"><a href="#">{{$datas->title}}</a></h4>
+                              
                             </figcaption>
                           </figure>       
                     </li>

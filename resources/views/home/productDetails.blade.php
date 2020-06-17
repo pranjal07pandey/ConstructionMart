@@ -53,7 +53,7 @@
 
                                             </div>
                                             <div class="col-md-4 col-sm-4" style="margin-left: 3%;">
-                                               <p><b>Uploaded By:&nbsp&nbsp </b>{{$user->name}}</p>
+                                               <p><b>Uploaded By:&nbsp&nbsp </b>{{$prodDetails->user->name}}</p>
                                             <p><b>Product Name:&nbsp&nbsp </b>{{$prodDetails->product_name}}</p>
                                             
                                             <p><b>Price: &nbsp&nbsp</b>Rs {{$prodDetails->price}} per {{$prodDetails->unit}}</p>

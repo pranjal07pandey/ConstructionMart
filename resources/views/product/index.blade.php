@@ -48,7 +48,7 @@ Product Index
                                       		 	<b>Delivery Facility</b><p>No</p>
                                       		 		<b>Delivery Charge</b><p>{{$prod->delivery_charges}}</p>
                                                @endif
-                                            <b>Offered By:</b><br><p></p>
+                                            <b>Offered By: {{$prod->user->name}}</b><br><p></p>
                                       		</div>
                                     	</div>
                                     	<a href="{{url('edit/product/'.$prod->id)}}" class="btn btn-primary ">Edit</a>

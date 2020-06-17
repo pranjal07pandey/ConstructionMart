@@ -185,6 +185,9 @@ Home
                             <table class="table">
                               <thead class=" text-primary">
                                 <th>{{__('customlang.Ordered Product')}}</th>
+                                <th>{{__('customlang.Ordered Quantity')}}</th>
+                                <th>{{__('customlang.Ordered Price')}}</th>
+
                                 <th>{{__('customlang.Ordered Date')}}</th>
                                 <th>{{__('customlang.Delivered')}}</th>
 
@@ -199,6 +202,8 @@ Home
 
                                 <tr>
                                     <td>{{$data->product->product_name}}</td>
+                                    <td>{{$data->quantity}}</td>
+                                    <td>{{$data->price}}</td>
                                     <td>{{$data->created_at}}</td>
                                     <td>{{$data->delivered}}</td>
 

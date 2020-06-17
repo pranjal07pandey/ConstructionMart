@@ -104,7 +104,7 @@
           @foreach($products as $data) 
           <input type="hidden" name="quantity[]" value="{{$data->quantity}}">     
           <input type="hidden" name="price[]" value="{{$data->price}}">
-          <option type="text"  class="form-control" name="service">{{$data->name}}</option>@endforeach
+          <option type="text"  class="form-control" name="products[]">{{$data->name}}</option>@endforeach
           </div>
           <div class="form-group">
             <label><i class="fa fa-work"></i> {{__('Total Quantity Ordered')}} </label>                      

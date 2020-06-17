@@ -32,7 +32,7 @@ class DashboardController extends Controller
     //order details for products
     public function orderDetailsProducts($id){
         $productOrders = ProductOrder::find($id);
-        return view('admin.orderDetailsProducts')->with('productOrders', $productOrders);
+        return view('admin.orderDetailsProducts')->with('products', $productOrders);
 
     }
 
