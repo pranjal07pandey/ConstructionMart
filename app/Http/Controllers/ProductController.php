@@ -8,6 +8,7 @@ use Cart;
 use App\ProductSubCategory;
 use App\ProductCategory;
 use App\Product;
+use App\User;
 use App\SearchHistory;
 use File;
 use App\Service;
@@ -416,7 +417,11 @@ class ProductController extends Controller
     //product Details
     public function productDetails($id) {
         $prodDetails = Product::find($id);
-        return view('home.productDetails', ['prodDetails' => $prodDetails]);
+        // $user = User::find($prodDetails);
+        $id = $prodDetails->id;
+        $user = User::find($id);
+       // dd($user->phone);
+        return view('home.productDetails', ['prodDetails' => $prodDetails, 'user' => $user]);
     }
 
     /**

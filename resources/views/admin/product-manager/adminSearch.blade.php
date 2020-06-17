@@ -56,7 +56,7 @@ Product Index
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4">
                                             <h3>{{$serv->title}}</h3>
-                                              <a class="aa-product-img" href="#"><img src="#"style="width: 100%; height: 300px" alt="no image" ></a>
+                                              <a class="aa-product-img" href="#"><img src="{{ URL::asset('uploads/services/'.$serv->cover_image)}}"style="width: 100%; height: 300px" alt="no image" ></a>
 
                                             </div>
                                             <div style="width: 50%; margin-left: 10%;margin-top: 7%">
