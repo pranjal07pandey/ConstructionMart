@@ -125,7 +125,7 @@ class ProductController extends Controller
         $data->product_manufactured_date = $request->manufacturedDate;
         $data->product_expiry_date = $request->expiryDate;
         $data->user_id = Auth::user()->id;
-        
+        $subCat->save();
         $data->save();
         return redirect()->back();
     }

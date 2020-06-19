@@ -50,7 +50,7 @@
                                 <select name="registered_as" id="registered_as" class="form-control">
                                     <option value="customer">{{__('customlang.Customer')}}</option>
                                     <option value="vendor">{{__('customlang.Vendor')}}</option>
-                                    <option value="service_manager">{{__('customlang.Service Manager')}}</option>
+                                    {{-- <option value="service_manager">{{__('customlang.Service Manager')}}</option> --}}
                                   </select>
                             </div>
                         </div>

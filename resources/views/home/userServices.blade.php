@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Construction Mart</title>
+    <title>Service N Material</title>
+    <link rel="icon" href="{{ asset('frontEnd') }}/img/title/logo.png" type="image/icon type">
     
     @include('include.css')
  
@@ -38,10 +39,10 @@
                 <img data-seq src="{{ asset('frontEnd') }}/img/slider/building.jpg" alt="Men slide img" />
               </div>
               <div class="seq-title">
-               <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>New Generation Construction</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+               <span data-seq>{{__('customlang.Save Up to 25%')}}</span>
+                <h2 data-seq>{{__('customlang.New Generation Construction')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="/view-services-all" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.ORDER SERVICE')}}</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -50,10 +51,10 @@
                 <img data-seq src="{{ asset('frontEnd') }}/img/slider/construction.jpg" alt="Wristwatch slide img" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 40%</span>
-                <h2 data-seq>Building Construction</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">ORDER SERVICE</a>
+                <span data-seq>{{__('customlang.Save Up to 35%')}}</span>
+                <h2 data-seq>{{__('customlang.Building Construction')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="/view-services-all" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.ORDER SERVICE')}}</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -62,10 +63,10 @@
                 <img data-seq src="{{ asset('frontEnd') }}/img/slider/livingroom.jpg" alt="Women Jeans slide img" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>Interior Design</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">ORDER SERVICE</a>
+                <span data-seq>{{__('customlang.Save Up to 45%')}}</span>
+                <h2 data-seq>{{__('customlang.Interior Design')}}</h2>
+                <p data-seq>.</p>
+                <a data-seq href="/view-services-all" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.ORDER SERVICE')}}</a>
               </div>
             </li>
             <!-- single slide item -->           
@@ -74,10 +75,10 @@
                 <img data-seq src="{{ asset('frontEnd') }}/img/slider/plumbing.jpg" alt="Shoes slide img" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>Plumbing Problem</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">ORDER SERVICE</a>
+                <span data-seq>{{__('customlang.Save Up to 25%')}}</span>
+              <h2 data-seq>{{__('customlang.Plumbing Problem')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="/view-services-all" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.ORDER SERVICE')}}</a>
               </div>
             </li>
 
@@ -88,10 +89,10 @@
                 <img data-seq src="{{ asset('frontEnd') }}/img/slider/water-leakage.jpg" alt="Male Female slide img" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 50%</span>
-                <h2 data-seq>Water Leakage Problem</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">ORDER SERVICE</a>
+                <span data-seq>{{__('customlang.Save Up to 15%')}}</span>
+                <h2 data-seq>{{__('customlang.Water Leakage Problem')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="/view-services-all" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.ORDER SERVICE')}}</a>
               </div>
             </li>                   
           </ul>

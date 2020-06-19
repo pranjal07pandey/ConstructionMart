@@ -106,52 +106,49 @@ return [
     'No Items in Wishlist!'=>'No Items in Wishlist!',
     'You may like other products as well'=>'You may like other products as well',
 
-    'Service Manager Dashboard'=>'Service Manager Dashboard',
+    'Vendor Dashboard'=>'Vendor Dashboard',
     'Admin Dashboard'=>'Admin Dashboard',
 
+    'Save Up to 25%'=>'Save Up to 25%',
+    'Save Up to 40%'=>'Save Up to 40%',
+    'Save Up to 45%'=>'Save Up to 45%',
+    'Save Up to 35%'=>'Save Up to 35%',
+    'Save Up to 15%'=>'Save Up to 15%',
+
+    
+
+    'Cornice'=>'Cornice',
+    'Central Panel'=>'Central Panel',
+    'Corner'=>'Corner',
+    'Nails'=>'Nails',
+    'Gypsum'=>'Gypsum',
+
+    'Boards'=>'Boards',
+
+    'SHOP NOW'=>'SHOP NOW',
+
+    'New Generation Construction'=>'New Generation Construction',
+    'Building Construction'=>'Building Construction',
+    'Interior Design'=>'Interior Design',
+    'Plumbing Problem'=>'Plumbing Problem',
+    'Water Leakage Problem'=>'Water Leakage Problem',
+    'ORDER SERVICE'=>'ORDER SERVICE',
+
+    'NO MIDDLEMAN IN BETWEEN'=>'NO MIDDLEMAN IN BETWEEN',
+    'You get to contact directly with the dealers. No middleman in between us!'=>'You get to contact directly with the dealers. No middleman in between us!',
+    'Our customer support are always there for you in case of any queries.'=>'Our customer support are always there for you in case of any queries.',
+
+    'We provide an affordable shipping all over Kathmandu valley*'=>'We provide an affordable shipping all over Kathmandu valley*',
+
+    'Subscribe to Never miss any updates'=>'Subscribe to Never miss any updates',
+
+    'Ordered Quantity'=>'Ordered Quantity',
+    'Ordered Price'=>'Ordered Price',
 
 
 
-    // 'My Order History'
-    // 'Service Order'
-    // 'Ordered Service'
-    // 'Ordered Date'
-    // 'Product Order'
-    // 'Ordered Product'
-    // 'Ordered Date'
-    // 'Main Menu'
-    // 'Home'
-    // 'Our Services'
-    // 'Our Products'
-    // 'Contact Us'
-    // 'Useful Link'
-    // 'Site Map'
-    // 'Search'
-    // 'Advanced Search'
-    // 'Suppliers'
-    // 'FAQ'
-    // 'Contact Us'
-    // ' Construction Mart, Kathmandu, Nepal'
-    // 'Recently Added'
-    // 'Order Now'
-    // 'Browse all Product'
-    // 'AFFORDABLE SHIPPING'
-    // 'SUPPORT 24/7'
-    // 'Subscribe our newsletter'
-    // 'Order service'
-    // 'Ordered Service'
-    // 'Name'
-    // 'Phone'
-    // 'Location'
-    // 'Email'
-    // 'State your prblem'
-    // 'insert image'
-    // 'You may like other services as well'
-    // 'Description'
-    // 'Available Categories: (select to order)'
-    // 'Browse all Services'
-    // 'view details'
-    // 'All our Services'
+
+    
 
 
 

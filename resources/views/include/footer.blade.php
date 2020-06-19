@@ -27,7 +27,7 @@
                     <ul class="aa-footer-nav">
                       <li><a href="/contact">{{__('customlang.Site Map')}}</a></li>
                       <li><a href="/">{{__('customlang.Search')}}</a></li>
-                      <li><a href="/sm-dashboard">{{__('customlang.Service Manager Dashboard')}}</a></li>
+                      <li><a href="/sm-dashboard">{{__('customlang.Vendor Dashboard')}}</a></li>
                       <li><a href="/dashboard">{{__('customlang.Admin Dashboard')}}</a></li>
                       <li><a href="#">{{__('customlang.FAQ')}}</a></li>
                     </ul>
@@ -64,7 +64,7 @@
         <div class="row">
         <div class="col-md-12">
           <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="#">Elavya Technology</a></p>
+            <p>Maintained By <a href="#">Eklavya Technology</a></p>
             <div class="aa-footer-payment">
 <!--              <a href="#"><span class="fa fa-google-plus">pranjalpandey92@gmail.com</span></a>-->
 

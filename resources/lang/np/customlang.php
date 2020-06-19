@@ -111,7 +111,45 @@ return [
     'No Items in Wishlist!'=>'ईच्छा सूचीमा कुनै वस्तुहरू छैनन्!',
     'You may like other products as well'=>'तपाईलाई अन्य उत्पादनहरू पनि मनपर्दछ',
 
-    'Service Manager Dashboard'=>'सेवा प्रबन्धक ड्यासबोर्ड',
+    'Vendor Dashboard'=>'विक्रेता ड्यासबोर्ड',
     'Admin Dashboard'=>'प्रशासन ड्यासबोर्ड',
+
+
+    
+    'Save Up to 25%'=>'25% सम्म बचत गर्नुहोस्',
+    'Save Up to 40%'=>'40% सम्म बचत गर्नुहोस्',
+    'Save Up to 35%'=>'35% सम्म बचत गर्नुहोस्',
+    'Save Up to 15%'=>'15% सम्म बचत गर्नुहोस्',
+    'Save Up to 45%'=>'45% सम्म बचत गर्नुहोस्',
+
+
+    
+
+    'Cornice'=>'कर्निस',
+    'Central Panel'=>'सेन्टर प्यानल',
+    'Corner'=>'कर्नर',
+    'Nails'=>'नेलहरू',
+    'Gypsum'=>'जिप्सम',
+
+    'Boards'=>'बोर्डहरु',
+
+    'SHOP NOW'=>'किनमेल',
+
+    'New Generation Construction'=>'नयाँ जेनेरेसन निर्माण',
+    'Building Construction'=>'भवन निर्माण',
+    'Interior Design'=>'आन्तरिक डिजाईन',
+    'Plumbing Problem'=>'प्लम्बिंग समस्या',
+    'Water Leakage Problem'=>'पानी चुहावट समस्या',
+    'ORDER SERVICE'=>'सेवा अर्डर',
+
+    'NO MIDDLEMAN IN BETWEEN'=>'बीचमा मिडलेम्यान होईन',
+    'You get to contact directly with the dealers. No middleman in between us!'=>'तपाईं डिलरहरूसँग सिधा सम्पर्क गर्न सक्नुहुन्छ। हामीबीच बिचौलिया छैन!',
+    'Our customer support are always there for you in case of any queries.'=>'हाम्रो ग्राहक समर्थन कुनै पनी प्रश्नहरु को मामला मा तपाइँ को लागी सँधै छन्।',
+
+    'We provide an affordable shipping all over Kathmandu valley*'=>'हामी काठमाडौं उपत्यकामा सस्तो शिपिंग प्रदान गर्दछौं *',
+    'Subscribe to Never miss any updates'=>'कुनै पनि अपडेटहरू कहिले पनि नछुटाउनुहोस् सदस्यता लिनुहोस्',
+
+    'Ordered Quantity'=>'अर्डर गरिएको मात्रा',
+    'Ordered Price'=>'अर्डर गरिएको मूल्य',
     
 ];

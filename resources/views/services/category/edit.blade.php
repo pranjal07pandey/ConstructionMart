@@ -2,7 +2,7 @@
 
 @section('title')
 
-Dashboard
+Edit category
     
 @endsection
 

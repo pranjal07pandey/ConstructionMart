@@ -34,7 +34,7 @@ Edit User Role
                             <label>Give Role</label>
                             <select name="usertype"  class="form-control">
                                 <option value="">None</option>
-                                <option value="serviceManager">Service-manager</option>
+                                <option value="serviceManager">Vendor</option>
                                 <option value="user">user</option>
                                 <option value="admin">Admin</option>
                             </select>

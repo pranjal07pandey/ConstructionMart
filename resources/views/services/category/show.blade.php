@@ -28,7 +28,7 @@
 
 @section('title')
 
-Edit User Role
+Show Category
     
 @endsection
 

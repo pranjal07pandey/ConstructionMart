@@ -3,7 +3,7 @@
 
 @section('title')
 
-Edit User Role
+Add Category
     
 @endsection
 

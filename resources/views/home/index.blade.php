@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Construction Mart</title>
+    <title>Service N Material</title>
+
+    <link rel="icon" href="{{ asset('frontEnd') }}/img/title/logo.png" type="image/icon type">
     
     @include('include.css')
     <link rel="manifest" href="manifest.json">
@@ -27,6 +29,7 @@
 
   @include('include.header')
 
+  {{-- <div class="container"> --}}
     
   
   <!-- Start slider -->
@@ -38,90 +41,93 @@
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/building.jpg" alt="Men slide img" />
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/cornice.png" alt="Men slide img" style="width: 100%" height="576px" />
               </div>
               <div class="seq-title">
-               <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>New Generation Construction</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              <span data-seq>{{__('customlang.Save Up to 25%')}}</span>
+                <h2 data-seq>{{__('customlang.Cornice')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
               </div>
             </li>
             <!-- single slide item -->
-            <li>
-              <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/construction.jpg" alt="Wristwatch slide img" />
-              </div>
-              <div class="seq-title">
-                <span data-seq>Save Up to 40%</span>
-                <h2 data-seq>Building Construction</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-              </div>
-            </li>
+            
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/livingroom.jpg" alt="Women Jeans slide img" />
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/corner.png" alt="Women Jeans slide img" style="width: 100%" height="576px" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>Interior Design</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                <span data-seq>{{__('customlang.Save Up to 35%')}}</span>
+                <h2 data-seq>{{__('customlang.Corner')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
               </div>
             </li>
             <!-- single slide item -->           
             <li>
               <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/plumbing.jpg" alt="Shoes slide img" />
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/nails.png" alt="Shoes slide img" style="width: 100%" height="576px" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>Plumbing Problem</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                <span data-seq>{{__('customlang.Save Up to 25%')}}</span>
+                <h2 data-seq>{{__('customlang.Nails')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
               </div>
             </li>
 
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/parquett.jpg" alt="Shoes slide img" />
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/gypsum.png" alt="Shoes slide img" style="width: 100%" height="576px" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>Parqueting</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                <span data-seq>{{__('customlang.Save Up to 25%')}}</span>
+                <h2 data-seq>{{__('customlang.Gypsum')}}</h2>
+                <p data-seq>.</p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
               </div>
             </li>
 
             <!-- single slide item -->
             <li>
               <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/curtains.jpg" alt="Shoes slide img" />
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/board.png" alt="Shoes slide img" style="width: 100%" height="576px" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 75%</span>
-                <h2 data-seq>Curtains</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                <span data-seq>{{__('customlang.Save Up to 25%')}}</span>
+                <h2 data-seq>{{__('customlang.Boards')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
               </div>
             </li>
 
             <!-- single slide item -->  
              <li>
               <div class="seq-model">
-                <img data-seq src="{{ asset('frontEnd') }}/img/slider/water-leakage.jpg" alt="Male Female slide img" />
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/abc.png" alt="Male Female slide img" style="width: 100%" height="576px" />
               </div>
               <div class="seq-title">
-                <span data-seq>Save Up to 50%</span>
-                <h2 data-seq>Water Leakage Problem</h2>
-                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                <span data-seq>{{__('customlang.Save Up to 15%')}}</span>
+                <h2 data-seq>{{__('Product')}}</h2>
+                <p data-seq></p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
               </div>
-            </li>                   
+            </li> 
+            
+            <li>
+              <div class="seq-model">
+                <img data-seq src="{{ asset('frontEnd') }}/img/slider/Central.png" alt="Wristwatch slide img" style="width: 100%" height="576px" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>{{__('customlang.Save Up to 40%')}}</span>
+                <h2 data-seq>{{__('customlang.Central Panel')}}</h2>
+                <p data-seq>.</p>
+                <a data-seq href="other/products" class="aa-shop-now-btn aa-secondary-btn">{{__('customlang.SHOP NOW')}}</a>
+              </div>
+            </li>
+            
           </ul>
         </div>
         <!-- slider navigation btn -->
@@ -132,6 +138,8 @@
       </div>
     </div>
   </section>
+
+  {{-- </div> --}}
   <!-- / slider -->
 
   <section id="aa-product">
@@ -285,15 +293,15 @@
               <div class="aa-support-single">
                 <span class="fa fa-truck"></span>
                 <h4>{{__('customlang.AFFORDABLE SHIPPING')}}</h4>
-                <P>We provide an affordable shipping all over Kathmandu valley*</P>
+                <P>{{__('customlang.We provide an affordable shipping all over Kathmandu valley*')}}</P>
               </div>
             </div>
             <!-- single support -->
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="aa-support-single">
                 <span class="fa fa-clock-o"></span>
-              <h4>{{('customlang.NO MIDDLEMAN IN BETWEEN')}}</h4>
-                <P>You get to contact directly with the dealers. No middleman in between us!</P>
+              <h4>{{__('customlang.NO MIDDLEMAN IN BETWEEN')}}</h4>
+              <P>{{__('customlang.You get to contact directly with the dealers. No middleman in between us!')}}</P>
               </div>
             </div>
             <!-- single support -->
@@ -301,7 +309,7 @@
               <div class="aa-support-single">
                 <span class="fa fa-phone"></span>
                 <h4>{{__('customlang.SUPPORT 24/7')}}</h4>
-                <P>Our customer support are always there for you in case of any queries.</P>
+                <P>{{__('customlang.Our customer support are always there for you in case of any queries.')}}</P>
               </div>
             </div>
           </div>
@@ -322,11 +330,11 @@
                 <div class="aa-testimonial-single">
                 <img class="aa-testimonial-img" src="{{ asset('frontEnd') }}/img/testimonial-img-2.jpg" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui.</p>
+                  <p>Content marketing is more than a buzzword. It is the hottest trend in marketing because it is the biggest gap between what buyers want and brands produce.</p>
                   <div class="aa-testimonial-info">
                     <p>Mandil Thapa</p>
                     <span>Manager</span>
-                    <a href="#">Dribble.com</a>
+                    <a href="#">Service N Material</a>
                   </div>
                 </div>
               </li>
@@ -335,11 +343,11 @@
                 <div class="aa-testimonial-single">
                 <img class="aa-testimonial-img" src="{{ asset('frontEnd') }}/img/testimonial-img-1.jpg" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui.</p>
+                  <p>You can never go wrong by investing in communities and the human beings within them.</p>
                   <div class="aa-testimonial-info">
                     <p>Mandil Thapa</p>
                     <span>CEO</span>
-                    <a href="#">Alphabet</a>
+                    <a href="#">Service N Material</a>
                   </div>
                 </div>
               </li>
@@ -348,11 +356,11 @@
                 <div class="aa-testimonial-single">
                 <img class="aa-testimonial-img" src="{{ asset('frontEnd') }}/img/testimonial-img-3.jpg" alt="testimonial img">
                   <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis possimus, facere, quidem qui.</p>
+                  <p>Our jobs as marketers are to understand how the customer wants to buy and help them to do so</p>
                   <div class="aa-testimonial-info">
                     <p>Mandil Thapa</p>
                     <span>COO</span>
-                    <a href="#">Kinatic Solution</a>
+                    <a href="#">Service N Material</a>
                   </div>
                 </div>
               </li>
@@ -388,8 +396,9 @@
                   </div>
               @endif
           </div>
+
             <h3>{{__('customlang.Subscribe our newsletter')}} </h3>
-            <p>Subscribe to Never miss any updates</p>
+            <p>{{__('customlang.Subscribe to Never miss any updates')}}</p>
             <form action="/subscribe-newsletter" method="POST" class="aa-subscribe-form">
               @csrf
               <input type="email" name="email" placeholder="Enter your Email">
@@ -403,33 +412,14 @@
   <!-- / Subscribe section -->
 
   @include('include.footer')
-  <!-- Login Modal -->  
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">                      
-        <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
-            <div class="aa-register-now">
-              Don't have an account?<a href="#">Register now!</a>
-            </div>
-          </form>
-        </div>                        
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>    
+
+  
   
 
 
 @include('include.js')
+
+  
 
   </body>
 </html>

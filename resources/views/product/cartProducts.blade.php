@@ -216,6 +216,8 @@ input:focus {
     @include('include.header')
     @include('include.js')
 
+    <div class="container">
+
     <div class="shopping-cart">
       <!-- Title -->
       <div class="title">   
@@ -262,6 +264,9 @@ input:focus {
         <input type="submit" name="" style="width: 30%;height: 40%;float: center;margin-top: 12%;margin-left: 35%" value=" Checkout">
       </div>     
       </div>
+
+    </div>
+
       <div>
       </div>
 
@@ -304,6 +309,9 @@ input:focus {
         <h4>{{__('customlang.No Items in Wishlist!')}}</h4>
         @endif
   </div>
+
+
+  
 <div class="container">
 
   <h1 align="center">{{__('customlang.You may like other products as well')}}</h1>

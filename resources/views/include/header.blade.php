@@ -170,7 +170,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="{{ 'view-services'== request()->path() ? 'active' :'' }}"><a href="#">{{__('customlang.Services')}}<span class="caret"></span></a>
+              <li class="{{ 'view-services'== request()->path() ? 'active' :'' }}"><a href="/view-services">{{__('customlang.Services')}}<span class="caret"></span></a>
                 <ul class="dropdown-menu">  
                   <li><a href="#">Construction<span class="caret"></span></a>
                     <ul class="dropdown-menu">

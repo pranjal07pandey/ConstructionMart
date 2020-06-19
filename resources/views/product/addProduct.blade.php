@@ -8,7 +8,7 @@
 
 @section('title')
 
-Edit User Role
+Add product
     
 @endsection
 
