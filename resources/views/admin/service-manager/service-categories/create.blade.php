@@ -34,7 +34,7 @@ Add Service Category
                                   </div>
                           
                                   <label for="cover_image">Image upload:</label><br>
-                                  <input type="file" name="cover_image"><br>
+                                  <input type="file" name="cover_image" required><br>
                           
                                   <br>
                           
