@@ -144,6 +144,9 @@ return [
 
     'Ordered Quantity'=>'Ordered Quantity',
     'Ordered Price'=>'Ordered Price',
+    'Location'=>'Location',
+    'Delivery Location'=>'Delivery Location'
+
 
 
 

@@ -151,5 +151,8 @@ return [
 
     'Ordered Quantity'=>'अर्डर गरिएको मात्रा',
     'Ordered Price'=>'अर्डर गरिएको मूल्य',
+
+    'Location'=>'Location',
+    'Delivery Location'=>'Delivery वितरण स्थान'
     
 ];

@@ -66,7 +66,6 @@
                                               @else
                                                 <p><b>{{__('customlang.Delivery Facility: Sorry there is no delivery facility')}}</b></p>
                                               @endif
-                                              <p><b>Features:</b></p>
                                               <p><b>
                                                 <p><b>Product Features: &nbsp&nbsp</b>{{$prodDetails->features}}</p>
                                               </b></p>
